@@ -5,13 +5,15 @@
 //  Created by Adolfo on 18/12/23.
 //
 
-import Foundation
+import SwiftUI
 
 
-struct Mangas {
+struct Mangas: Identifiable {
     
+    let id: Int
     let title: String
     let titleEnglish: String?
+    let sypnosis: String?
     let score: Double
    // let mainPicture: String
 }

@@ -1,0 +1,858 @@
+"items": [
+        {
+            "title": "Himekishi wa Barbaroi no Yome",
+            "themes": [],
+            "endDate": null,
+            "demographics": [
+                {
+                    "id": "5E05BBF1-A72E-4231-9487-71CFE508F9F9",
+                    "demographic": "Shounen"
+                }
+            ],
+            "genres": [
+                {
+                    "genre": "Comedy",
+                    "id": "F974BCB6-B002-44A6-A224-90D1E50595A2"
+                },
+                {
+                    "genre": "Fantasy",
+                    "id": "B3E8D4B2-7EE4-49CD-8DB0-9897619B3F62"
+                },
+                {
+                    "genre": "Romance",
+                    "id": "D8E1E0A9-DDC2-4520-BED7-745DD8DAD076"
+                }
+            ],
+            "score": 7.08,
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/1/246207l.jpg\"",
+            "titleEnglish": "The Warrior Princess and the Barbaric King",
+            "background": "Himekishi wa Banzoku no Yome is based on web manga released on the author's pixiv account on January 13, 2019. The series has been published digitally as an English simulpub as The Warrior Princess and the Barbaric King through K Manga.",
+            "chapters": null,
+            "authors": [
+                {
+                    "role": "Story & Art",
+                    "lastName": "Kotoba",
+                    "id": "22DB518A-E213-4066-81AA-63D9BBCDB1BD",
+                    "firstName": "Noriaki"
+                }
+            ],
+            "id": 134599,
+            "volumes": null,
+            "titleJapanese": "姫騎士は蛮族の嫁",
+            "status": "currently_publishing",
+            "sypnosis": "\"Just kill me!\" These are the words of Serafina de Lavillant, the strongest female knight in the West. After being defeated in a war with the East, she has become a prisoner of the barbarians! What awaits the captive Serafina is a life of revenge, torture, and humiliation... or so she thought! What she is offered instead is a marriage to the barbarian king?! An intriguing tale of otherworldly marriage is about to begin!\n\n(Source: Kodansha)",
+            "startDate": "2021-01-09T00:00:00Z",
+            "url": "\"https://myanimelist.net/manga/134599/Himekishi_wa_Barbaroi_no_Yome\""
+        },
+        {
+            "title": "Chidori-san Chi ni Kagitte",
+            "themes": [],
+            "endDate": "2013-05-22T00:00:00Z",
+            "genres": [
+                {
+                    "genre": "Boys Love",
+                    "id": "688F40FE-655B-46E4-A21A-E256BCA18796"
+                },
+                {
+                    "genre": "Erotica",
+                    "id": "D0ABB031-2472-4AE5-954D-D0FC6890A229"
+                },
+                {
+                    "genre": "Slice of Life",
+                    "id": "536445E3-CEF5-49F7-B22B-6CD9807F0744"
+                }
+            ],
+            "score": 7.09,
+            "demographics": [],
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/3/98061l.jpg\"",
+            "titleEnglish": null,
+            "background": null,
+            "chapters": 12,
+            "authors": [
+                {
+                    "lastName": "Fuwa",
+                    "firstName": "Shinri",
+                    "role": "Story & Art",
+                    "id": "1260D213-2B99-42D6-A08A-F1A4F995DE32"
+                }
+            ],
+            "id": 43373,
+            "volumes": 2,
+            "titleJapanese": "千鳥さん家に限って",
+            "status": "finished",
+            "sypnosis": "The women in the Chidori family have the reigns firmly in hand. Then a cool young man appears among them as the mother's new assistant.\n\n(Source: Dangerous Pleasure)",
+            "startDate": "2011-11-22T00:00:00Z",
+            "url": "\"https://myanimelist.net/manga/43373/Chidori-san_Chi_ni_Kagitte\""
+        },
+        {
+            "volumes": null,
+            "score": 7.05,
+            "status": "currently_publishing",
+            "endDate": null,
+            "url": "\"https://myanimelist.net/manga/124702/Yubisaki_kara_Honki_no_Netsujou__Charao_Shouboushi_wa_Massugu_na_Me_de_Watashi_wo_Daita\"",
+            "id": 124702,
+            "background": "Yubisaki kara Honki no Netsujou: Charao Shouboushi wa Massugu na Me de Watashi wo Daita has been published in English as Fire in His Fingertips: A Flirty Fireman Ravishes Me with His Smoldering Gaze by Seven Seas Entertainment under the Ghost Ship imprint since March 31, 2020. The series is also published digitally in English by WWWave Corporation through Coolmic.",
+            "themes": [],
+            "genres": [
+                {
+                    "genre": "Ecchi",
+                    "id": "9A13ADF1-52E5-4112-AE95-6F0DDEF4BC0D"
+                },
+                {
+                    "genre": "Romance",
+                    "id": "D8E1E0A9-DDC2-4520-BED7-745DD8DAD076"
+                }
+            ],
+            "demographics": [],
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/1/235613l.jpg\"",
+            "titleEnglish": "Fire in His Fingertips: A Flirty Fireman Ravishes Me with His Smoldering Gaze",
+            "authors": [
+                {
+                    "firstName": "Tanishi",
+                    "lastName": "Kawano",
+                    "id": "5B9F52DB-0AB8-4AC3-A65A-2F12FFB02D8F",
+                    "role": "Story & Art"
+                }
+            ],
+            "sypnosis": "A fire can have devastating effects on a person, but although she lost all of her possessions when her apartment caught on fire, Ryou Fujihashi is able to move on quickly. This is due mostly to her childhood friend and local firefighter, Souma Mizuno, letting her stay with him. But Ryou knows that Souma is a playboy, so she immediately attempts to set up boundaries to keep his wandering hands away from her.\n\nHowever, Ryou begins to enjoy Souma's advances, and the places his hands wander begin to crave his touch, turning the smoldering lust within her into a blazing inferno.\n\n[Written by MAL Rewrite]",
+            "title": "Yubisaki kara Honki no Netsujou: Charao Shouboushi wa Massugu na Me de Watashi wo Daita",
+            "startDate": "2018-07-06T00:00:00Z",
+            "chapters": null,
+            "titleJapanese": "指先から本気の熱情～チャラ男消防士はまっすぐな目で私を抱いた～"
+        },
+        {
+            "url": "\"https://myanimelist.net/manga/133274/SK%E2%88%9E__Chill_Out\"",
+            "volumes": 1,
+            "status": "finished",
+            "endDate": "2021-09-20T00:00:00Z",
+            "score": 7.43,
+            "id": 133274,
+            "background": null,
+            "themes": [],
+            "genres": [
+                {
+                    "id": "F974BCB6-B002-44A6-A224-90D1E50595A2",
+                    "genre": "Comedy"
+                },
+                {
+                    "id": "914A2BD5-5A1F-4D6F-9EA5-A839D5A8176B",
+                    "genre": "Sports"
+                }
+            ],
+            "demographics": [],
+            "chapters": 26,
+            "titleEnglish": null,
+            "authors": [
+                {
+                    "id": "66336881-F190-4D21-94A5-063847BB691D",
+                    "role": "Story & Art",
+                    "lastName": "Toriyasu",
+                    "firstName": ""
+                }
+            ],
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/3/252717l.jpg\"",
+            "title": "SK∞: Chill Out!",
+            "startDate": "2021-01-11T00:00:00Z",
+            "sypnosis": "A gag manga based on the anime SK∞.",
+            "titleJapanese": "SK∞エスケーエイト チルアウト！"
+        },
+        {
+            "volumes": 1,
+            "score": 7.39,
+            "status": "finished",
+            "endDate": "2020-05-05T00:00:00Z",
+            "url": "\"https://myanimelist.net/manga/127823/Zanzou_Slow_Motion\"",
+            "id": 127823,
+            "background": "Zanzou Slow Motion was published in English as Twilight Out of Focus: Afterimages in Slow Motion by Kodansha USA under the Vertical Comics imprint on July 11, 2023.",
+            "themes": [
+                {
+                    "theme": "School",
+                    "id": "2ABA639D-480C-44FC-AE2C-FAA71C42DE7D"
+                }
+            ],
+            "genres": [
+                {
+                    "id": "688F40FE-655B-46E4-A21A-E256BCA18796",
+                    "genre": "Boys Love"
+                },
+                {
+                    "id": "D0ABB031-2472-4AE5-954D-D0FC6890A229",
+                    "genre": "Erotica"
+                }
+            ],
+            "demographics": [],
+            "chapters": 7,
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/1/238000l.jpg\"",
+            "authors": [
+                {
+                    "id": "899B4655-BE30-4549-AB4A-A9535D0DD1B0",
+                    "firstName": "",
+                    "lastName": "Janome",
+                    "role": "Story & Art"
+                }
+            ],
+            "sypnosis": "Meet Jin Kikuchihara, a popular 3rd-year dormitory student at a Boys' School and the President of their Movie Club. In the school, Kikuchihara is practically a god. No one can resist his immaculate eyebrows, perfect grades, physical fitness, and confident personality... except his rival Giichi Ichikawa, a lanky 2nd year student and fudanshi. Ichikawa's overwhelming passion for directing and devotion to quality have made him into the rising star of the Movie Club, threatening Kikuchihara's supremacy of the club. But when these two rivals with their similar interests are forced to share a room, sparks are bound to fly!\n\n(Source: Kodansha, translated)",
+            "title": "Zanzou Slow Motion",
+            "startDate": "2019-12-05T00:00:00Z",
+            "titleEnglish": "Twilight Out of Focus: Afterimages in Slow Motion",
+            "titleJapanese": "残像スローモーション"
+        },
+        {
+            "volumes": null,
+            "score": 7.28,
+            "status": "finished",
+            "endDate": "2012-01-27T00:00:00Z",
+            "url": "\"https://myanimelist.net/manga/32939/Seireitsukai_no_Blade_Dance\"",
+            "id": 32939,
+            "background": null,
+            "themes": [],
+            "genres": [
+                {
+                    "id": "72C8E862-334F-4F00-B8EC-E1E4125BB7CD",
+                    "genre": "Action"
+                },
+                {
+                    "id": "4312867C-1359-494A-AC46-BADFD2E1D4CD",
+                    "genre": "Drama"
+                },
+                {
+                    "id": "9A13ADF1-52E5-4112-AE95-6F0DDEF4BC0D",
+                    "genre": "Ecchi"
+                },
+                {
+                    "id": "B3E8D4B2-7EE4-49CD-8DB0-9897619B3F62",
+                    "genre": "Fantasy"
+                },
+                {
+                    "id": "AE80120B-6659-4C0E-AEB2-227EC25EC4AF",
+                    "genre": "Supernatural"
+                }
+            ],
+            "demographics": [
+                {
+                    "demographic": "Seinen",
+                    "id": "CE425E7E-C7CD-42DB-ADE3-1AB9AD16386D"
+                }
+            ],
+            "titleEnglish": null,
+            "sypnosis": "Only a pure maiden can have a privilege to contract with spirit. In here, Areishia spirit academy, trained maiden in the noble family were gathered, and gave them an elite education to become a spirit contractor. A boy Kamito, by an accident he peeped into a girl, Clair taking a bath, and he even made a contract with spirit that she wanted. Yes, Kamito was an irregular boy spirit contractor that is impossible to exist. \"You stole...my spirit...you have to take a responsibility for it!\" \"Huh?\" \"You have to become my contracted spirit\" What will Kamito's destiny leads to?\n\n(Source: jCafe24)",
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/2/61721l.jpg\"",
+            "chapters": 4,
+            "title": "Seireitsukai no Blade Dance",
+            "startDate": "2011-06-27T00:00:00Z",
+            "authors": [
+                {
+                    "role": "Story",
+                    "id": "8DD32DE6-E3BB-459F-B6F3-F8BC5E3539C7",
+                    "firstName": "Yuu",
+                    "lastName": "Shimizu"
+                },
+                {
+                    "role": "Art",
+                    "id": "C1F86DE6-BE82-49FE-8A54-B5DFE3100506",
+                    "firstName": "Zenzai",
+                    "lastName": "Yoshihira"
+                }
+            ],
+            "titleJapanese": "精霊使いの剣舞〈ブレイドダンス〉"
+        },
+        {
+            "url": "\"https://myanimelist.net/manga/3975/Kare_Made_Love_KM\"",
+            "score": 7.16,
+            "status": "finished",
+            "endDate": "2003-09-01T00:00:00Z",
+            "volumes": 10,
+            "id": 3975,
+            "background": null,
+            "themes": [],
+            "genres": [
+                {
+                    "id": "4312867C-1359-494A-AC46-BADFD2E1D4CD",
+                    "genre": "Drama"
+                },
+                {
+                    "id": "D8E1E0A9-DDC2-4520-BED7-745DD8DAD076",
+                    "genre": "Romance"
+                }
+            ],
+            "demographics": [
+                {
+                    "id": "C217B404-7691-4090-9775-9E63375EBF5B",
+                    "demographic": "Shoujo"
+                }
+            ],
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/1/6073l.jpg\"",
+            "sypnosis": "Miyuu Nanahara is just your average ordinary girl: she has her school, friends, and love troubles. Especially with love. She loves the most popular guy in school. Secretly, he loves her too! What's keeping these two from getting together...? (source: Starry Heaven)",
+            "chapters": 67,
+            "titleEnglish": "Kare Made Love KM",
+            "startDate": "2000-08-01T00:00:00Z",
+            "title": "Kare Made Love KM",
+            "authors": [
+                {
+                    "id": "7B1C9638-DB39-47BA-82E0-C6915D5D754D",
+                    "role": "Story & Art",
+                    "lastName": "Harada",
+                    "firstName": "Taeko"
+                }
+            ],
+            "titleJapanese": "彼までラブｋｍ"
+        },
+        {
+            "url": "\"https://myanimelist.net/manga/13043/Mehyou_to_Chuujitsu_na_Geboku\"",
+            "volumes": 1,
+            "status": "finished",
+            "endDate": null,
+            "score": 7.02,
+            "id": 13043,
+            "background": null,
+            "themes": [],
+            "genres": [
+                {
+                    "genre": "Ecchi",
+                    "id": "9A13ADF1-52E5-4112-AE95-6F0DDEF4BC0D"
+                },
+                {
+                    "genre": "Romance",
+                    "id": "D8E1E0A9-DDC2-4520-BED7-745DD8DAD076"
+                }
+            ],
+            "demographics": [
+                {
+                    "id": "69722EC1-C23D-4FFC-8A6D-E7BFE86240EB",
+                    "demographic": "Josei"
+                }
+            ],
+            "sypnosis": "Compilation of short stories:\n\n1. \"The Leopard And The Faithful Manservant\"\nHow can the temptations by a man be enjoyable…♥♥ It’s irritating...\n\n2. “A Fiery Kiss On A Rooftop”\n\n3. “His Feverish Glance”\n\n4. “The House Touched By A Spirit”\n\n(Source: StarryHeaven)",
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/4/19405l.jpg\"",
+            "authors": [
+                {
+                    "id": "29179383-F781-414C-A08D-F1F8F9AF9DBA",
+                    "firstName": "Kasane",
+                    "lastName": "Katsumoto",
+                    "role": "Story & Art"
+                }
+            ],
+            "chapters": 4,
+            "startDate": "2007-01-01T00:00:00Z",
+            "titleEnglish": null,
+            "title": "Mehyou to Chuujitsu na Geboku",
+            "titleJapanese": "女豹と忠実な下僕"
+        },
+        {
+            "url": "\"https://myanimelist.net/manga/30473/Okurete_Kita_Renjou\"",
+            "score": 7.06,
+            "volumes": 1,
+            "endDate": "2007-01-01T00:00:00Z",
+            "status": "finished",
+            "id": 30473,
+            "background": null,
+            "themes": [],
+            "genres": [
+                {
+                    "genre": "Boys Love",
+                    "id": "688F40FE-655B-46E4-A21A-E256BCA18796"
+                },
+                {
+                    "genre": "Erotica",
+                    "id": "D0ABB031-2472-4AE5-954D-D0FC6890A229"
+                }
+            ],
+            "demographics": [],
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/1/52435l.jpg\"",
+            "titleEnglish": null,
+            "authors": [
+                {
+                    "lastName": "Kiyoi",
+                    "role": "Story & Art",
+                    "id": "797AC335-DF26-4886-B1C1-6F7FC29F8DD4",
+                    "firstName": "Kiriyu"
+                }
+            ],
+            "sypnosis": "Tomoki is a playboy who thinks only about sex. But Kazuyuki, who's supposed to be his sex partner, confesses his love to Tomoki. Even though he thinks of this as a bother, it starts to develop into a love game! It's a bittersweet love story.\n(Source: Shinmakoku Scanlations)",
+            "startDate": "2007-01-01T00:00:00Z",
+            "chapters": 5,
+            "title": "Okurete Kita Renjou",
+            "titleJapanese": "遅れてきた恋情"
+        },
+        {
+            "volumes": 1,
+            "url": "\"https://myanimelist.net/manga/11924/From_701_Goushitsu\"",
+            "status": "finished",
+            "endDate": "2006-01-01T00:00:00Z",
+            "score": 7.06,
+            "id": 11924,
+            "background": null,
+            "themes": [],
+            "genres": [
+                {
+                    "genre": "Boys Love",
+                    "id": "688F40FE-655B-46E4-A21A-E256BCA18796"
+                },
+                {
+                    "genre": "Erotica",
+                    "id": "D0ABB031-2472-4AE5-954D-D0FC6890A229"
+                }
+            ],
+            "demographics": [],
+            "titleEnglish": null,
+            "chapters": 3,
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/3/276306l.jpg\"",
+            "authors": [
+                {
+                    "firstName": "Kou",
+                    "role": "Story & Art",
+                    "id": "BD92AE80-DF0B-4904-9E7A-546031218165",
+                    "lastName": "Fujisaki"
+                }
+            ],
+            "sypnosis": "Youta was living with his big brother when a guy named Takamasa, a colleague of Youta's respectful brother, suddenly stepped into their life and after a bet, tried to seduce him...\n\n(Source: MU)",
+            "startDate": "2006-01-01T00:00:00Z",
+            "title": "From 701 Goushitsu",
+            "titleJapanese": "from701号室"
+        },
+        {
+            "volumes": 3,
+            "url": "\"https://myanimelist.net/manga/106406/Jinrou_Game__Beast_Side\"",
+            "status": "finished",
+            "endDate": "2017-01-07T00:00:00Z",
+            "score": 6.75,
+            "id": 106406,
+            "background": null,
+            "themes": [
+                {
+                    "id": "4394C99F-615B-494A-929E-356A342A95B8",
+                    "theme": "Psychological"
+                }
+            ],
+            "genres": [
+                {
+                    "genre": "Horror",
+                    "id": "3B6A9037-3F61-4483-AD8A-E43365C5C953"
+                },
+                {
+                    "genre": "Mystery",
+                    "id": "97C8609D-856C-419E-A4ED-E13A5C292663"
+                }
+            ],
+            "demographics": [
+                {
+                    "id": "CE425E7E-C7CD-42DB-ADE3-1AB9AD16386D",
+                    "demographic": "Seinen"
+                }
+            ],
+            "titleEnglish": null,
+            "chapters": 18,
+            "authors": [
+                {
+                    "id": "770B1972-92E8-41B1-825B-08B6DA9B8EC0",
+                    "firstName": "Giggle",
+                    "role": "Story",
+                    "lastName": "Akiguchi"
+                },
+                {
+                    "id": "BAA8E7D9-9352-4321-B3B7-61A7E19BC6E5",
+                    "firstName": "",
+                    "role": "Art",
+                    "lastName": "Koudon"
+                }
+            ],
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/1/195261l.jpg\"",
+            "title": "Jinrou Game: Beast Side",
+            "startDate": "2015-08-08T00:00:00Z",
+            "sypnosis": null,
+            "titleJapanese": "人狼ゲーム ビーストサイド"
+        },
+        {
+            "volumes": null,
+            "url": "\"https://myanimelist.net/manga/1652/Shanghai_Youma_Kikai\"",
+            "score": 6.99,
+            "status": "finished",
+            "endDate": "2006-04-12T00:00:00Z",
+            "id": 1652,
+            "background": "Shanghai Youma Kikai is one of Hiromu Arakawa's first works, a 4-part comedy action 'one-shot' and an attempt at a dark yet humorous tone that carries over to her popular Hagane no Renkinjutsushi. Being as such, fans will recognize early character designs. (Source: MU) The series received two drama CD adaptations; the first was released on March 24, 2006 and the second on April 4, 2007.",
+            "themes": [
+                {
+                    "theme": "Mythology",
+                    "id": "AD7A66B1-D066-4BC0-8AEE-7B97904F003A"
+                }
+            ],
+            "genres": [
+                {
+                    "id": "72C8E862-334F-4F00-B8EC-E1E4125BB7CD",
+                    "genre": "Action"
+                },
+                {
+                    "id": "F974BCB6-B002-44A6-A224-90D1E50595A2",
+                    "genre": "Comedy"
+                },
+                {
+                    "id": "AE80120B-6659-4C0E-AEB2-227EC25EC4AF",
+                    "genre": "Supernatural"
+                }
+            ],
+            "demographics": [
+                {
+                    "id": "5E05BBF1-A72E-4231-9487-71CFE508F9F9",
+                    "demographic": "Shounen"
+                }
+            ],
+            "titleEnglish": null,
+            "sypnosis": "In the year 2050 AD, Humans live in a world filled with science and electronics, but the \"Demon Capital\" Shanghai has never been rid of demons. Fortunately, the supernatural Demon Taoists Corporation is here to ensure that neither vampires, demigods, or even trans-cultural literary icons trouble the citizens...at least, for too long.\n\n(Source: MU)",
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/3/268891l.jpg\"",
+            "authors": [
+                {
+                    "id": "F0D2B37F-8B21-4783-8CD7-11DA6D714A78",
+                    "role": "Story & Art",
+                    "firstName": "Hiromu",
+                    "lastName": "Arakawa"
+                }
+            ],
+            "startDate": "2000-04-12T00:00:00Z",
+            "title": "Shanghai Youma Kikai",
+            "chapters": 4,
+            "titleJapanese": "上海妖魔鬼怪"
+        },
+        {
+            "url": "\"https://myanimelist.net/manga/117446/Nihon_e_Youkoso_Elf-san\"",
+            "score": 7.25,
+            "status": "currently_publishing",
+            "volumes": null,
+            "endDate": null,
+            "id": 117446,
+            "background": "Nihon e Youkoso Elf-san. has been published digitally in English as Welcome to Japan, Ms. Elf! by J-Novel Club since February 23, 2019.",
+            "themes": [],
+            "genres": [
+                {
+                    "genre": "Comedy",
+                    "id": "F974BCB6-B002-44A6-A224-90D1E50595A2"
+                }
+            ],
+            "demographics": [],
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/2/217379l.jpg\"",
+            "sypnosis": "Kazuhiro Kitase's only hobby is sleeping. Ever since he was young, he would enter a wondrous world within his dreams and go on thrilling adventures. One day, he goes on an adventure with an elf girl he became friends with in his dream world, but it's put to an abrupt halt when they both get scorched with a dragon's breath! As he wakes up from his dream, he notices a familiar figure sleeping next to him...the elf girl from his dreams?!\n\nJoin Kazuhiro on his new adventures through Japan with Ms. Elf!\n\n(Source: J-Novel Club)",
+            "chapters": null,
+            "authors": [
+                {
+                    "id": "38354343-DE52-40ED-9A5D-6EF448B784BC",
+                    "role": "Art",
+                    "lastName": "Yappen",
+                    "firstName": ""
+                },
+                {
+                    "id": "787A69D0-EBA0-4C4F-9F81-EC0A2617B156",
+                    "role": "Story",
+                    "lastName": "Makishima",
+                    "firstName": "Suzuki"
+                }
+            ],
+            "startDate": "2018-08-25T00:00:00Z",
+            "title": "Nihon e Youkoso Elf-san.",
+            "titleEnglish": "Welcome to Japan, Ms. Elf!",
+            "titleJapanese": "日本へようこそエルフさん。"
+        },
+        {
+            "score": 7.12,
+            "url": "\"https://myanimelist.net/manga/24831/Mirai_no_Football\"",
+            "volumes": 1,
+            "endDate": "2009-06-25T00:00:00Z",
+            "status": "finished",
+            "id": 24831,
+            "background": null,
+            "themes": [
+                {
+                    "id": "3CF0EDA7-5856-40F7-A0CF-EC676B4A842C",
+                    "theme": "Historical"
+                },
+                {
+                    "theme": "Team Sports",
+                    "id": "5337B561-472F-46B2-A2CD-7FD251A74150"
+                },
+                {
+                    "theme": "Time Travel",
+                    "id": "3E42DADD-8FC2-4987-A912-6B9EB3B209BF"
+                }
+            ],
+            "genres": [
+                {
+                    "genre": "Sports",
+                    "id": "914A2BD5-5A1F-4D6F-9EA5-A839D5A8176B"
+                }
+            ],
+            "demographics": [
+                {
+                    "demographic": "Shounen",
+                    "id": "5E05BBF1-A72E-4231-9487-71CFE508F9F9"
+                }
+            ],
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/3/263859l.jpg\"",
+            "sypnosis": "While on a soccer tour, Toudou Mirai is involved in a shipwreck accident. When he comes to, he finds himself in 19th Century England. With him being saved by a player of the local soccer team named \"Durham\", Eddie, it seems Mirai will be joining \"Durham\", a team with their sights set on joining the world's first ever professional league... What with slipping through time, will Mirai ever make it back to the 21st Century?! This is a science fiction soccer story bringing the true talents of playing soccer straight to you!\n\n(Source: SRoMU)",
+            "authors": [
+                {
+                    "firstName": "Eco",
+                    "lastName": "Yamatoya",
+                    "role": "Story & Art",
+                    "id": "6EFACF08-7512-43F0-828D-71ABDF4C49A2"
+                }
+            ],
+            "chapters": 5,
+            "startDate": "2009-03-25T00:00:00Z",
+            "title": "Mirai no Football",
+            "titleEnglish": null,
+            "titleJapanese": "未来のフットボール"
+        },
+        {
+            "score": 7.3,
+            "url": "\"https://myanimelist.net/manga/110059/Super_Danganronpa_2__Sayonara_Zetsubou_Gakuen\"",
+            "volumes": 3,
+            "endDate": "2017-02-10T00:00:00Z",
+            "status": "on_hiatus",
+            "id": 110059,
+            "background": "Super Danganronpa 2: Sayonara Zetsubou Gakuen has been published in English as Danganronpa 2: Goodbye Despair by Dark Horse since April 7, 2020.",
+            "themes": [
+                {
+                    "id": "2ABA639D-480C-44FC-AE2C-FAA71C42DE7D",
+                    "theme": "School"
+                }
+            ],
+            "genres": [
+                {
+                    "genre": "Mystery",
+                    "id": "97C8609D-856C-419E-A4ED-E13A5C292663"
+                }
+            ],
+            "demographics": [],
+            "titleEnglish": "Danganronpa 2: Goodbye Despair",
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/1/231935l.jpg\"",
+            "authors": [
+                {
+                    "role": "Story",
+                    "id": "A287ED27-9864-4711-825F-BC6BE5E24CA8",
+                    "firstName": "",
+                    "lastName": "Spike Chunsoft"
+                },
+                {
+                    "firstName": "Q",
+                    "lastName": "Kuroki",
+                    "role": "Art",
+                    "id": "FA865CCD-D275-4B7F-B701-98F3F3228FA9"
+                }
+            ],
+            "chapters": 21,
+            "title": "Super Danganronpa 2: Sayonara Zetsubou Gakuen",
+            "startDate": "2012-12-14T00:00:00Z",
+            "sypnosis": "The events of Danganronpa 2 from Hajime Hinata's point of view.",
+            "titleJapanese": "スーパーダンガンロンパ2 さよなら絶望学園"
+        },
+        {
+            "url": "\"https://myanimelist.net/manga/113455/Mikami_to_Sato_wa_Mada_Yamashikunai\"",
+            "volumes": null,
+            "score": 7.05,
+            "endDate": null,
+            "status": "currently_publishing",
+            "id": 113455,
+            "background": null,
+            "themes": [
+                {
+                    "theme": "School",
+                    "id": "2ABA639D-480C-44FC-AE2C-FAA71C42DE7D"
+                }
+            ],
+            "genres": [
+                {
+                    "id": "688F40FE-655B-46E4-A21A-E256BCA18796",
+                    "genre": "Boys Love"
+                },
+                {
+                    "id": "F974BCB6-B002-44A6-A224-90D1E50595A2",
+                    "genre": "Comedy"
+                }
+            ],
+            "demographics": [],
+            "sypnosis": "Mikami, who has zero romantic experience, thoughtlessly kisses his dorm mate and best friend Sato. What will happen next between the two friends?\n\n(Source: MU)",
+            "chapters": null,
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/3/224816l.jpg\"",
+            "authors": [
+                {
+                    "id": "26174E51-B542-452F-8A32-4E9EAC711755",
+                    "role": "Story & Art",
+                    "firstName": "Mayo",
+                    "lastName": "Tsurukame"
+                }
+            ],
+            "startDate": "2017-03-21T00:00:00Z",
+            "title": "Mikami to Sato wa Mada Yamashikunai",
+            "titleEnglish": null,
+            "titleJapanese": "三上と里はまだやましくない"
+        },
+        {
+            "url": "\"https://myanimelist.net/manga/33675/Hanma_Baki_105_Gaiden_-_Pickle\"",
+            "volumes": 1,
+            "status": "finished",
+            "endDate": "2008-01-01T00:00:00Z",
+            "score": 7.04,
+            "id": 33675,
+            "background": null,
+            "themes": [
+                {
+                    "id": "82728A80-0DBE-4B64-A295-A25555A4A4A5",
+                    "theme": "Gore"
+                },
+                {
+                    "id": "ADC7CBC8-36B9-4E52-924A-4272B7B2CB2C",
+                    "theme": "Martial Arts"
+                }
+            ],
+            "genres": [
+                {
+                    "genre": "Action",
+                    "id": "72C8E862-334F-4F00-B8EC-E1E4125BB7CD"
+                }
+            ],
+            "demographics": [],
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/3/61497l.jpg\"",
+            "chapters": 7,
+            "authors": [
+                {
+                    "role": "Story & Art",
+                    "firstName": "Keisuke",
+                    "id": "4A85EFA5-5BB7-4DCE-9576-B8A6B81EF56E",
+                    "lastName": "Itagaki"
+                }
+            ],
+            "titleEnglish": "Son of Ogre 10.5 - Pickle Special",
+            "title": "Hanma Baki 10.5 Gaiden - Pickle",
+            "startDate": "2008-01-01T00:00:00Z",
+            "sypnosis": "The introduction to Pickle and his first interactions with people of the modern age.",
+            "titleJapanese": "範馬刃牙10.5外伝ピクル"
+        },
+        {
+            "url": "\"https://myanimelist.net/manga/1650/Kabocha_to_Mayonnaise\"",
+            "volumes": 1,
+            "status": "finished",
+            "endDate": "1998-01-01T00:00:00Z",
+            "score": 6.91,
+            "id": 1650,
+            "background": null,
+            "themes": [],
+            "genres": [],
+            "demographics": [
+                {
+                    "demographic": "Josei",
+                    "id": "69722EC1-C23D-4FFC-8A6D-E7BFE86240EB"
+                }
+            ],
+            "chapters": 10,
+            "titleEnglish": null,
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/2/37671l.jpg\"",
+            "authors": [
+                {
+                    "role": "Story & Art",
+                    "firstName": "Kiriko",
+                    "id": "D773FBD9-52B5-4A56-8638-E4CD6CE61B57",
+                    "lastName": "Nananan"
+                }
+            ],
+            "title": "Kabocha to Mayonnaise",
+            "startDate": "1998-01-01T00:00:00Z",
+            "sypnosis": "Ten stories about the everyday life of Sei, an idealistic songwriter, and Miho, the young woman who struggles to support the both of them.\n\nMiho and Sei are living together. She works at a boutique while he tries to make it as a musician. Even though Miho still can’t forget about Hagio, her ex-lover, she is happy in her relationship with Sei. However, all is not well for the young couple. Struggling to make ends meet, Miho decides to take a second job as bar hostess. As she becomes increasingly desperate for money, Miho eventually gives in to one of her client’s sexual advances. When Sei finds out about this he begins to distance himself from her. Things are getting even more complicated for Miho when Hagio suddenly reappears in her life.\n\n(Source: Goodreads)",
+            "titleJapanese": "南瓜とマヨネーズ"
+        },
+        {
+            "volumes": 1,
+            "url": "\"https://myanimelist.net/manga/116655/Bokura_wa_Nandomo_Koi_wo_Suru\"",
+            "status": "finished",
+            "endDate": "2017-06-24T00:00:00Z",
+            "score": 7.4,
+            "id": 116655,
+            "background": null,
+            "themes": [
+                {
+                    "theme": "Time Travel",
+                    "id": "3E42DADD-8FC2-4987-A912-6B9EB3B209BF"
+                }
+            ],
+            "genres": [
+                {
+                    "id": "688F40FE-655B-46E4-A21A-E256BCA18796",
+                    "genre": "Boys Love"
+                },
+                {
+                    "id": "4312867C-1359-494A-AC46-BADFD2E1D4CD",
+                    "genre": "Drama"
+                },
+                {
+                    "id": "D0ABB031-2472-4AE5-954D-D0FC6890A229",
+                    "genre": "Erotica"
+                },
+                {
+                    "id": "AE80120B-6659-4C0E-AEB2-227EC25EC4AF",
+                    "genre": "Supernatural"
+                }
+            ],
+            "demographics": [],
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/1/220493l.jpg\"",
+            "chapters": 6,
+            "authors": [
+                {
+                    "firstName": "Anji",
+                    "role": "Story & Art",
+                    "id": "126BB908-18B7-49D9-B1C7-1C96A8C520B9",
+                    "lastName": "Seina"
+                }
+            ],
+            "titleEnglish": null,
+            "title": "Bokura wa Nandomo Koi wo Suru",
+            "startDate": "2016-10-24T00:00:00Z",
+            "sypnosis": "Unsociable salaryman Issei has kept his relationship with Ban strictly sexual. Even though Ban is kind and loving, Issei cannot bring himself to express his feelings in any other way but physically. Fortunately, nothing has been a hurdle in their relationship, and their meeting's first anniversary is near—a chance for Issei to turn over a new leaf. However, his zealous spirit quickly fades when Ban suddenly dies in a car accident on the exact day.\n\nHaving no other companion in the world, Issei is drowning in regret with a broken heart, wishing he could turn back time. But when supernatural forces interfere, Issei finds himself in the past, days before Ban's death. Now presented with a second chance, Issei is eager to make up for his shortcomings and save his partner from a tragic fate.\n\n[Written by MAL Rewrite]",
+            "titleJapanese": "僕らはなんども恋をする"
+        },
+        {
+            "score": 6.89,
+            "volumes": 1,
+            "url": "\"https://myanimelist.net/manga/45089/Seishun_Rikon\"",
+            "endDate": "2012-06-26T00:00:00Z",
+            "status": "finished",
+            "id": 45089,
+            "background": null,
+            "themes": [
+                {
+                    "theme": "School",
+                    "id": "2ABA639D-480C-44FC-AE2C-FAA71C42DE7D"
+                }
+            ],
+            "genres": [
+                {
+                    "id": "4312867C-1359-494A-AC46-BADFD2E1D4CD",
+                    "genre": "Drama"
+                }
+            ],
+            "demographics": [],
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/2/80159l.jpg\"",
+            "sypnosis": "In the beginning spring of high school life, \"Sakono\" Ikumi and \"Sakono\" Touma were utter strangers. The only coincidence is that they have the same family name and are in the same class, but when they noticed the whole class had already started to call them \"husband and wife.\"\n\nThis is a story of their love story in a husband and wife relationship, their youth days which lasted for around two years.\n\n(Source: MU)",
+            "authors": [
+                {
+                    "firstName": "",
+                    "role": "Story",
+                    "id": "731AB1D7-AA2F-4B03-BBF5-CEA0F16F26B5",
+                    "lastName": "HERO"
+                },
+                {
+                    "firstName": "Iduki",
+                    "role": "Story",
+                    "id": "DF9F6EE4-DA1A-44C5-8DC6-B447ECD5398E",
+                    "lastName": "Kougyoku"
+                }
+            ],
+            "titleEnglish": null,
+            "chapters": 8,
+            "title": "Seishun Rikon",
+            "startDate": "2011-11-22T00:00:00Z",
+            "titleJapanese": "青春離婚"
+        }
+    ],
+    "metadata": {
+        "total": 64833,
+        "per": 20,
+        "page": 2
+    }
+}
