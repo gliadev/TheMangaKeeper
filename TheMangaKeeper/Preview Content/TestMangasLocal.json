@@ -1,0 +1,299 @@
+{
+  "items": [
+    {
+      "volumes": 1,
+      "status": "finished",
+      "chapters": 7,
+      "title": "Make Me Happy",
+      "startDate": "2005-01-01T00:00:00Z",
+      "themes": [],
+      "mainPicture": "\"https://cdn.myanimelist.net/images/manga/3/4525l.jpg\"",
+      "score": 7.13,
+      "titleEnglish": "Make Me Happy",
+      "endDate": "2005-01-01T00:00:00Z",
+      "sypnosis": "A collection of short stories.\n\nChapter 1, 2, & 3 - Shiba owns a small software firm. Naomi, who works there part-time as he studies at the university, is comfortable with his homosexuality. So, despite Shiba's being 36 years old, Naomi can't help but be attracted to his boss! But, does Shiba feel the same way?\n\nChapter 4: Flower Maze – Hino-san, a disillusioned salaryman, ends his relationship with his male lover to give in to the 'safe' choices of an overseas transfer and arranged marriage. Takashi, a would-be jewelry designer, fights to reclaim their relationship, unwilling to let Hino-san go.\n\nChapter 5 Sleepless & 6 Breathless - After turning 20, Hiroyuki discovers that he has an older step brother, Akira. When Hiroyuki begins to feel attracted to Akira, he isn't sure what to do. What will it take for Hiroyuki to win the affections of his straight and clueless step brother?\n\nChapter 7 Snow Tale - When Hiromu picks up Kouta half frozen in the snow, he never thought it'd lead to a relationship. When a crazy ex-boyfriend shows up, ready to attack, what will happen to the new couple?\n(Source: Liquid Passion)",
+      "id": 3930,
+      "demographics": [],
+      "genres": [
+        {
+          "genre": "Boys Love",
+          "id": "688F40FE-655B-46E4-A21A-E256BCA18796"
+        },
+        {
+          "genre": "Erotica",
+          "id": "D0ABB031-2472-4AE5-954D-D0FC6890A229"
+        }
+      ],
+      "url": "\"https://myanimelist.net/manga/3930/Make_Me_Happy\"",
+      "background": null,
+      "titleJapanese": "メイク・ミー・ハッピー",
+      "authors": [
+        {
+          "lastName": "Miyamoto",
+          "role": "Story & Art",
+          "id": "C7829764-8A54-465D-9649-9D9B88A9FD3A",
+          "firstName": "Kano"
+        }
+      ]
+    },
+    {
+      "chapters": null,
+      "volumes": null,
+      "status": "currently_publishing",
+      "title": "Orient",
+      "startDate": "2018-05-30T00:00:00Z",
+      "score": 6.76,
+      "themes": [],
+      "mainPicture": "\"https://cdn.myanimelist.net/images/manga/1/210790l.jpg\"",
+      "titleEnglish": "Orient",
+      "endDate": null,
+      "sypnosis": "Five years ago, Musashi made a promise with his friend Kojirou Kanemaki that once they grew up, they would become samurai, form a league, and go on demon-slaying quests. But since then, things have changed. With demons now being praised and worshipped by society, the samurai are shunned and disgraced. \n\nAfraid of revealing his dream of becoming a samurai, Musashi blends into the town's dogma by becoming a miner while secretly polishing his swordsmanship. Meanwhile, despite being a direct descendant of a samurai, Kojirou gives up on his promise to his old friend. However, after saving Musashi from a near-death experience, his perspective shifts. Although still conflicted, Kojirou embarks on a journey with Musashi in the hopes of figuring out his true feelings.\n\nFighting against all odds, the duo dives headfirst into the unknown world of beast-slaying, not knowing what life has in store for them. Now astride iron horses, the 15-year-old heroes plan to restore the tarnished reputation of the samurai and purge the world of demons.\n\n[Written by MAL Rewrite]",
+      "id": 113644,
+      "demographics": [
+        {
+          "id": "5E05BBF1-A72E-4231-9487-71CFE508F9F9",
+          "demographic": "Shounen"
+        }
+      ],
+      "genres": [
+        {
+          "genre": "Action",
+          "id": "72C8E862-334F-4F00-B8EC-E1E4125BB7CD"
+        },
+        {
+          "genre": "Fantasy",
+          "id": "B3E8D4B2-7EE4-49CD-8DB0-9897619B3F62"
+        }
+      ],
+      "url": "\"https://myanimelist.net/manga/113644/Orient\"",
+      "background": "Orient has been published digitally in English by Kodansha USA since April 7, 2020, and in print since January 26, 2021. The series has also been simulpub through K Manga.",
+      "titleJapanese": "オリエント",
+      "authors": [
+        {
+          "role": "Story & Art",
+          "firstName": "Shinobu",
+          "lastName": "Ohtaka",
+          "id": "A0481A13-1561-497F-8887-F1A8E8CCAF72"
+        }
+      ]
+    },
+    {
+      "chapters": 5,
+      "status": "finished",
+      "volumes": 1,
+      "title": "Otokonoko wa Hachimitsu",
+      "score": 6.99,
+      "startDate": "2008-01-01T00:00:00Z",
+      "themes": [
+        {
+          "id": "2ABA639D-480C-44FC-AE2C-FAA71C42DE7D",
+          "theme": "School"
+        }
+      ],
+      "mainPicture": "\"https://cdn.myanimelist.net/images/manga/4/261574l.jpg\"",
+      "titleEnglish": "Honey Prince",
+      "endDate": "2008-01-01T00:00:00Z",
+      "sypnosis": "From Eclipse Scans:\n\nMinoko accidentally witnessed the secret of her junior, Akane, whom she has been hitting it off with. This Akane is much different from usual, and Minoko involuntarily...?!\n\nCompilation of short stories:\n\n• Honey Prince\n• Magic Red Thread\n• If I Disappear\n• Trembling Honey Taste\n• My Honey Sweetheart",
+      "demographics": [
+        {
+          "demographic": "Shoujo",
+          "id": "C217B404-7691-4090-9775-9E63375EBF5B"
+        }
+      ],
+      "id": 18319,
+      "genres": [
+        {
+          "id": "D8E1E0A9-DDC2-4520-BED7-745DD8DAD076",
+          "genre": "Romance"
+        }
+      ],
+      "url": "\"https://myanimelist.net/manga/18319/Otokonoko_wa_Hachimitsu\"",
+      "background": null,
+      "titleJapanese": "男の子はハチミツ",
+      "authors": [
+        {
+          "lastName": "Sakurada",
+          "role": "Story & Art",
+          "id": "D829A158-6A64-42C3-B94A-3678C7AE90BE",
+          "firstName": "Hina"
+        }
+      ]
+    },
+    {
+      "chapters": 4,
+      "volumes": 1,
+      "mainPicture": "\"https://cdn.myanimelist.net/images/manga/2/17503l.jpg\"",
+      "status": "finished",
+      "themes": [
+        {
+          "id": "41530BB5-C3DF-4A28-A0EC-7660BA6833F1",
+          "theme": "Vampire"
+        }
+      ],
+      "score": 6.92,
+      "title": "Datte Sukinanndamon",
+      "startDate": "2008-01-01T00:00:00Z",
+      "titleEnglish": "Because I like you",
+      "endDate": null,
+      "sypnosis": "The new school Riria has just transferred to has a lot of people with suspicious abilities.There are vampires with fangs and the snow devil son of the snow fairy. And then it turns out that Riria is a demon who sucks the life out of the people by kissing them!?\n\n(Source: Awakened Memories)\n\nIncludes 2 side stories and the one-shot Unmei Datte Ii Ja Nai (It's Fate, That's Good Right---!).",
+      "id": 12583,
+      "demographics": [
+        {
+          "id": "C217B404-7691-4090-9775-9E63375EBF5B",
+          "demographic": "Shoujo"
+        }
+      ],
+      "genres": [
+        {
+          "id": "D8E1E0A9-DDC2-4520-BED7-745DD8DAD076",
+          "genre": "Romance"
+        },
+        {
+          "id": "AE80120B-6659-4C0E-AEB2-227EC25EC4AF",
+          "genre": "Supernatural"
+        }
+      ],
+      "url": "\"https://myanimelist.net/manga/12583/Datte_Sukinanndamon\"",
+      "background": null,
+      "titleJapanese": "だって好きなんだもん☆",
+      "authors": [
+        {
+          "role": "Story & Art",
+          "id": "E537B218-7F27-40F0-B2F2-483F33B39EE6",
+          "lastName": "Asami",
+          "firstName": "Miyabi"
+        }
+      ]
+    },
+    {
+      "sypnosis": "The story details Index going out in the city on her own after being given money by Kamijou Touma, and later meeting and confronting a magician.\n\n(Source: Toaru Majutsu no Index Wikia)",
+      "id": 79807,
+      "themes": [],
+      "chapters": 11,
+      "genres": [
+        {
+          "genre": "Action",
+          "id": "72C8E862-334F-4F00-B8EC-E1E4125BB7CD"
+        },
+        {
+          "genre": "Comedy",
+          "id": "F974BCB6-B002-44A6-A224-90D1E50595A2"
+        }
+      ],
+      "demographics": [],
+      "mainPicture": "\"https://cdn.myanimelist.net/images/manga/1/138297l.jpg\"",
+      "status": "finished",
+      "volumes": 1,
+      "titleEnglish": null,
+      "score": 7.32,
+      "titleJapanese": "新約 とある魔術の禁書目録SS",
+      "authors": [
+        {
+          "firstName": "Kazuma",
+          "lastName": "Kamachi",
+          "id": "57E61C89-618A-4FEF-936F-88306377ACA4",
+          "role": "Story"
+        },
+        {
+          "firstName": "Kiyotaka",
+          "lastName": "Haimura",
+          "id": "3E59ABB4-445B-4DE6-BA68-26F8C2169FB2",
+          "role": "Art"
+        }
+      ],
+      "title": "Shinyaku Toaru Majutsu no Index SS",
+      "endDate": "2014-09-09T00:00:00Z",
+      "startDate": "2014-09-09T00:00:00Z",
+      "url": "\"https://myanimelist.net/manga/79807/Shinyaku_Toaru_Majutsu_no_Index_SS\"",
+      "background": null
+    },
+    {
+      "sypnosis": "The story follows a girl named Mame, whose family runs a public bath. She has held on to feelings of unrequited love for her childhood friend for twenty years. The title is a pun on \"Kuiiji,\" a word for gluttony.\n\n(Source: ANN)",
+      "id": 76811,
+      "genres": [
+        {
+          "id": "D8E1E0A9-DDC2-4520-BED7-745DD8DAD076",
+          "genre": "Romance"
+        }
+      ],
+      "chapters": 50,
+      "themes": [],
+      "demographics": [
+        {
+          "id": "69722EC1-C23D-4FFC-8A6D-E7BFE86240EB",
+          "demographic": "Josei"
+        }
+      ],
+      "mainPicture": "\"https://cdn.myanimelist.net/images/manga/1/196614l.jpg\"",
+      "volumes": 10,
+      "status": "finished",
+      "titleEnglish": null,
+      "score": 7.09,
+      "titleJapanese": "こいいじ",
+      "authors": [
+        {
+          "id": "12D9DE67-C1F5-4E2C-89A9-44BCA1C44754",
+          "lastName": "Shimura",
+          "firstName": "Takako",
+          "role": "Story & Art"
+        }
+      ],
+      "endDate": "2018-11-24T00:00:00Z",
+      "title": "Koiiji",
+      "startDate": "2014-08-25T00:00:00Z",
+      "url": "\"https://myanimelist.net/manga/76811/Koiiji\"",
+      "background": null
+    },
+    {
+      "sypnosis": "It's 3 oneshots linked by the common theme of gashapon and some of the characters being friends with one another and/or attending the same school.\n\n• Love Gashapon\nOn the first day that Yuhan moved into her new home, she discovered a window in her room that looks across directly at a neighbor's window. From that neighbor's window a mysterious shadow lurks...\n\n• Love Capsule Toy - Welcome, First Love\nYanZhu is a very shy girl, who has always liked her senpai but didn't have the courage to confess. It isn't until Valentine's Day eve, after she bought a toy at Monmon's shop, that she finally got up the courage to confess, who knew...\n\n• Love Capsule Toy - A Prince without the Glass Slipper\nZhou ZiYu is a playboy who has never refused anybody, so he has countless number of ex-girlfriends. He is this kind of guy, yet he meets his soulmate at a masque ball? This is the longest of the stories, has 3 parts. \n\n(Source: MangaUpdates)",
+      "id": 11848,
+      "genres": [
+        {
+          "genre": "Comedy",
+          "id": "F974BCB6-B002-44A6-A224-90D1E50595A2"
+        },
+        {
+          "genre": "Romance",
+          "id": "D8E1E0A9-DDC2-4520-BED7-745DD8DAD076"
+        }
+      ],
+      "chapters": 3,
+      "demographics": [
+        {
+          "id": "C217B404-7691-4090-9775-9E63375EBF5B",
+          "demographic": "Shoujo"
+        }
+      ],
+      "themes": [
+        {
+          "id": "2ABA639D-480C-44FC-AE2C-FAA71C42DE7D",
+          "theme": "School"
+        }
+      ],
+      "mainPicture": "\"https://cdn.myanimelist.net/images/manga/2/16144l.jpg\"",
+      "volumes": 1,
+      "status": "finished",
+      "score": 7.17,
+      "titleEnglish": null,
+      "titleJapanese": "爱情转转蛋",
+      "authors": [
+        {
+          "role": "Story & Art",
+          "firstName": "",
+          "id": "0068917D-3616-48EB-98A5-DD85B6DF6BB1",
+          "lastName": "Yan Xi"
+        }
+      ],
+      "title": "Love Gashapon",
+      "startDate": "2008-01-01T00:00:00Z",
+      "endDate": "2008-01-01T00:00:00Z",
+      "url": "\"https://myanimelist.net/manga/11848/Love_Gashapon\"",
+      "background": null
+    }
+  ],
+  "metadata": {
+    "per": 10,
+    "page": 1,
+    "total": 64833
+  }
+}
