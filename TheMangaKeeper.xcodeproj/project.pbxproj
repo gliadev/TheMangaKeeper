@@ -11,6 +11,8 @@
 		916F9B332B2F96DE004F91D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F9B322B2F96DE004F91D3 /* ContentView.swift */; };
 		916F9B352B2F96DF004F91D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916F9B342B2F96DF004F91D3 /* Assets.xcassets */; };
 		916F9B382B2F96DF004F91D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916F9B372B2F96DF004F91D3 /* Preview Assets.xcassets */; };
+		919237552B30FA5D0031C7CE /* Mangas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919237542B30FA5D0031C7CE /* Mangas.swift */; };
+		91DB26F52B30A41900D78DBE /* MangasDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DB26F42B30A41900D78DBE /* MangasDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		916F9B322B2F96DE004F91D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		916F9B342B2F96DF004F91D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		916F9B372B2F96DF004F91D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		919237542B30FA5D0031C7CE /* Mangas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mangas.swift; sourceTree = "<group>"; };
+		91DB26F42B30A41900D78DBE /* MangasDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangasDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 			children = (
 				916F9B302B2F96DE004F91D3 /* TheMangaKeeperApp.swift */,
 				916F9B322B2F96DE004F91D3 /* ContentView.swift */,
+				91DB26F32B30A2BE00D78DBE /* Model */,
 				916F9B342B2F96DF004F91D3 /* Assets.xcassets */,
 				916F9B362B2F96DF004F91D3 /* Preview Content */,
 			);
@@ -65,6 +70,15 @@
 				916F9B372B2F96DF004F91D3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		91DB26F32B30A2BE00D78DBE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				91DB26F42B30A41900D78DBE /* MangasDTO.swift */,
+				919237542B30FA5D0031C7CE /* Mangas.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +153,8 @@
 			files = (
 				916F9B332B2F96DE004F91D3 /* ContentView.swift in Sources */,
 				916F9B312B2F96DE004F91D3 /* TheMangaKeeperApp.swift in Sources */,
+				919237552B30FA5D0031C7CE /* Mangas.swift in Sources */,
+				91DB26F52B30A41900D78DBE /* MangasDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
