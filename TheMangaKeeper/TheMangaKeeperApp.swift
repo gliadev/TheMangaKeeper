@@ -12,6 +12,8 @@ struct TheMangaKeeperApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            //MangasCellView(manga: .testMangas)
         }
     }
 }
+    

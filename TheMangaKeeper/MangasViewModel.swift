@@ -8,7 +8,7 @@
 import Foundation
 
 final class MangasViewModel: ObservableObject {
-    @Published var mangas: [Mangas] = []
+    @Published var mangas: [Manga] = []
     
     let mangaInteractor: MangasInteractorProtocol
     
@@ -20,14 +20,13 @@ final class MangasViewModel: ObservableObject {
     
     func getMangas() async {
         do {
-            let manga = try await
-            mangaInteractor.getMangasInteractor()
+            let manga = try await mangaInteractor.getMangas()
             await MainActor.run {
                 mangas = manga
             }
         }
         catch {
-            print(error.localizedDescription)
+            print(error)
         }
     }
 }

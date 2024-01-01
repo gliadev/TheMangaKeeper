@@ -9,9 +9,13 @@ import Foundation
 
 func getJSON<JSON: Codable>(request: URLRequest, type: JSON.Type) async throws -> JSON {
     let (data, response) = try await URLSession.shared.getMangas(request: request)
+    let dateFormater = DateFormatter()
+    dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .formatted(dateFormater)
     if response.statusCode == 200 {
         do {
-            return try JSONDecoder().decode(type .self, from: data)
+            return try decoder.decode(type .self, from: data)
         } catch {
             throw NetworkErrors.parseJson(error)
         }
@@ -19,3 +23,5 @@ func getJSON<JSON: Codable>(request: URLRequest, type: JSON.Type) async throws -
         throw NetworkErrors.badStatusCode(response.statusCode)
     }
 }
+
+

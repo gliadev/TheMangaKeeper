@@ -8,16 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var mangasVM = MangasViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                ForEach(mangasVM.mangas) { manga in
+                                    NavigationLink(destination: MangasDetailView(manga: manga)) {
+                                        MangasCellView(manga: manga)
+                }
+            }
         }
         .padding()
+        .navigationTitle("Lista de Mangas")
     }
 }
+                                                       }
+                                                       
 
 #Preview {
     ContentView()

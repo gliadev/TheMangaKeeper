@@ -8,11 +8,11 @@
 import Foundation
 
 protocol MangasInteractorProtocol {
-    func getMangasInteractor() async throws -> [Mangas]
+    func getMangas() async throws -> [Manga]
 }
 
 struct MangasInteractor: MangasInteractorProtocol {
-    func getMangasInteractor() async throws -> [Mangas] {
+    func getMangas() async throws -> [Manga] {
         try await getJSON(request: .getCustom(url: .listaMangasURL), type: MangasDTO.self).items.map(\.toPresentation)
     }
 }
