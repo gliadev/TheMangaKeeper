@@ -11,8 +11,9 @@ import SwiftUI
 struct TheMangaKeeperApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
             //MangasCellView(manga: .testMangas)
+            MangasTabBar()
         }
     }
 }

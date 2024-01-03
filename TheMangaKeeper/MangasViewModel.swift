@@ -20,6 +20,7 @@ final class MangasViewModel: ObservableObject {
     
     func getMangas() async {
         do {
+            print("red")
             let manga = try await mangaInteractor.getMangas()
             await MainActor.run {
                 mangas = manga
@@ -27,6 +28,7 @@ final class MangasViewModel: ObservableObject {
         }
         catch {
             print(error)
+            print("ESte error")
         }
     }
 }

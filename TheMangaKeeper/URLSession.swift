@@ -12,8 +12,8 @@ extension URLSession {
         
         do {
             let (data, response) = try await URLSession.shared.data(for: request)
-            print(data)
-            print(response)
+            //print(data)
+            //print(response)
             guard let httpResponse = response as? HTTPURLResponse else { 
                 throw NetworkErrors.noHTTP }
             return (data, httpResponse)

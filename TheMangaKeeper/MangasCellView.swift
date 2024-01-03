@@ -12,8 +12,8 @@
 import SwiftUI
 
 struct MangasCellView: View {
-   
-    var manga: Manga
+   // @ObservedObject var mangasVM = MangasViewModel()
+    let manga: Manga
     var body: some View {
         HStack (spacing: 10){
             AsyncImage(url: URL(string: manga.mainPictureFormateada)){
