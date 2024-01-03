@@ -21,7 +21,7 @@ struct ContentView: View {
                 }
             }
             .padding()
-            .navigationTitle("Mangas")
+            .navigationTitle("Mangas List")
         }
     }
 }

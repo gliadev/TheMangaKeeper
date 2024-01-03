@@ -16,4 +16,5 @@ extension URLRequest {
        request.timeoutInterval = 30
        return request
     }
+    //static func getBestMangas
 }
