@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MangasDetailView: View {
+    //@ObservedObject var mangasVM: MangasViewModel
     let manga: Manga
     var body: some View {
         ScrollView {
@@ -59,5 +60,6 @@ struct MangasDetailView: View {
        }
 
 #Preview {
-    MangasDetailView(manga: .testManga)
+    MangasDetailView(//mangasVM: .localTestMangas, 
+                     manga: .testManga)
 }

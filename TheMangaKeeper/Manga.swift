@@ -29,16 +29,23 @@ struct Manga: Identifiable {
     let url: String?
     let titleJapanese: String?
     
-//    func obtenerURLLimpia() -> URL? {
-//        guard let cadenaURL = self.url else { return nil }
-//        let cadenaURLRecortada = cadenaURL.trimmingCharacters(in: .whitespacesAndNewlines)
-//        let cadenaURLLimpia = cadenaURLRecortada.trimmingCharacters(in: CharacterSet(charactersIn: "\""))
-//        return URL(string: cadenaURLLimpia)
+
+// para dar formato al mainPicture y eliminar el \ del principio
+//    var mainPictureFormateada: String {
+//        print(mainPicture)
+//        return mainPicture.replacingOccurrences(of: "\\", with: "")
 //    }
-    // para dar formato al mainPicture y eliminar el \ del principio
+// Tenia hecha esta pero me di cuenta imprimiendo la url que me la traia asi " " y encontre
+    //https://developer.apple.com/documentation/foundation/nsstring/1412937-replacingoccurrences
+    //https://developer.apple.com/documentation/swift/stringprotocol/trimmingcharacters(in:)
+    
+    // otra solucion no estaba viendo que tambien tenia que eliminar las "" de la url de la foto
     var mainPictureFormateada: String {
-        return mainPicture.replacingOccurrences(of: "\\", with: "")
+        let mainPicture1 = mainPicture.replacingOccurrences(of: "\\", with: "")
+        let mainPicture = mainPicture1.trimmingCharacters(in: CharacterSet(charactersIn: "\""))
+        return mainPicture
     }
+
     
     // para dar formato a la url como es una url opcional
     // cuando la puesto me pedia un valor por defecto

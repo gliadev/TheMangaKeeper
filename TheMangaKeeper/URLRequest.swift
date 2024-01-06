@@ -10,7 +10,7 @@ import Foundation
 extension URLRequest {
    static func getCustom(url: URL) -> URLRequest {
         var request = URLRequest(url: url)
-       print(request.url!)
+       print("esta es la url \(request.url!)")
        request.setValue("application/json", forHTTPHeaderField: "Accept")
        request.httpMethod = "GET"
        request.timeoutInterval = 30
