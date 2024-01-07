@@ -44,6 +44,11 @@ struct MangasCellView: View {
                                     .foregroundColor(.secondary)
                                     .lineLimit(1) // Asegurarse de que el texto no se desborde
                             }
+                if manga.isFavorite {
+                    Image(systemName: "star")
+                        .foregroundStyle(.yellow)
+                }
+                //Text(manga.status)
                         }
                         Spacer() // Empuja todo hacia la izquierda
                     }
@@ -51,23 +56,8 @@ struct MangasCellView: View {
                     .background(Color(.secondarySystemBackground)) // Un fondo para cada celda
                     .cornerRadius(12) // Esquinas redondeadas para el fondo
             
-            
-          
-            
-                    // "limpiaria" la direccion url replanzando / por un string vacion
-//            if let urlString = manga.mainPicture.replacingOccurrences(of: "\"", with: ""),
-//                       let url = URL(string: urlString) {
-//                        AsyncImage(url: url) { image in
-//                        image
-//                        }
-//                        .frame(width: 100, height: 100) // Ajusta el tamaño según sea necesario
-//                    }
+                    }
                 }
-            }
-//TODO: revisar llamadas en la red
-//TODO: Celda mas currada puntuacion celda
-//TODO: NAVEGACION A UN DETALLE SENCILLA VISTA DETALLE DEL MANGA
-
 
 // activo datos en local
 #Preview {
@@ -76,30 +66,6 @@ struct MangasCellView: View {
 
 
 
-//#Preview {
-//    MangasCellView(
-//        manga: Manga(
-//            themes: [],
-//            endDate: Date.now,
-//            demographics: [],
-//            volumes: 15,
-//            genres: [],
-//            title: "Mi Mnaga",
-//            sypnosis: "Una aventura",
-//            status: .currentlyPublishing,
-//            authors: [],
-//            titleEnglish: "My Manga",
-//            startDate: .now,
-//            score: 12.4,
-//            mainPicture: "",
-//            chapters: 12,
-//            id: 47000,
-//            background: "",
-//            url: "",
-//            titleJapanese: ""
-//        )
-//    )
-//}
 
 
 

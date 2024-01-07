@@ -20,15 +20,24 @@ final class MangasViewModel: ObservableObject {
     
     func getMangas() async {
         do {
-            print("red")
+            print("Llamada de red")
             let manga = try await mangaInteractor.getMangas()
             await MainActor.run {
                 mangas = manga
             }
         }
         catch {
-            print(error)
-            print("ESte error")
+            print("Este error: \(error)")
+        }
+    }
+    
+    func deleteManga(manga: Manga){
+        mangas.removeAll(where: {$0.id == manga.id})
+    }
+    
+    func toogleMangaFavorite(manga: Manga){
+        if let index = mangas.firstIndex(where: { $0.id == manga.id }) {
+            mangas[index].isFavorite.toggle()
         }
     }
 }

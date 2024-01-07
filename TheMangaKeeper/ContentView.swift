@@ -18,6 +18,22 @@ struct ContentView: View {
                     NavigationLink(destination: MangasDetailView(manga: manga)) {
                         MangasCellView(manga: manga)
                     }
+                    .swipeActions {
+                        Button(role: .destructive) {
+                            mangasVM.deleteManga(manga: manga)
+                            print("Borrar \(manga)")
+                        } label: {
+                            Label("Borrar", systemImage: "trash")
+                        }
+                    }
+                    .swipeActions(edge: .leading){
+                        Button {
+                            mangasVM.toogleMangaFavorite(manga: manga)
+                        } label: {
+                            Label(manga.isFavorite ? "Eliminar favorito" : "Añadir Favorito", systemImage: manga.isFavorite ?  "star" : "star.fill")
+                        }
+                        .tint(manga.isFavorite ? .red : .yellow)
+                    }
                 }
             }
             .padding()

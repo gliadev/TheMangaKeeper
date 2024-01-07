@@ -60,6 +60,6 @@ struct MangasDetailView: View {
        }
 
 #Preview {
-    MangasDetailView(//mangasVM: .localTestMangas, 
+    MangasDetailView(//mangasVM: .localTestMangas,
                      manga: .testManga)
 }

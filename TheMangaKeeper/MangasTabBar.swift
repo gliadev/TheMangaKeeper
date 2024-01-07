@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MangasTabBar: View {
     @ObservedObject var MangasVM = MangasViewModel()
-   
+     
     
     var body: some View {
         TabView {
@@ -19,13 +19,12 @@ struct MangasTabBar: View {
                 }
             ContentView(mangasVM: MangasViewModel())
                 .tabItem {
-                    Label("TOP 10", systemImage: "trophy.fill")
+                    Label("TOP10", systemImage: "trophy.fill")
                 }
-            ContentView(mangasVM: MangasViewModel())
+            MangasFavorites()
                 .tabItem {
                     Label("Favorites", systemImage: "star.fill")
                 }
-            
         }
     }
 }

@@ -28,6 +28,7 @@ struct Manga: Identifiable {
     let background: String?
     let url: String?
     let titleJapanese: String?
+    var isFavorite: Bool
     
 
 // para dar formato al mainPicture y eliminar el \ del principio
