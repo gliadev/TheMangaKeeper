@@ -8,7 +8,7 @@
 import SwiftUI
 //cambiar nombre manga
 
-struct Manga: Identifiable {
+struct Manga: Identifiable, Decodable {
     
     let themes: [Theme]
     let endDate: Date?
@@ -42,9 +42,9 @@ struct Manga: Identifiable {
     
     // otra solucion no estaba viendo que tambien tenia que eliminar las "" de la url de la foto
     var mainPictureFormateada: String {
-        let mainPicture1 = mainPicture.replacingOccurrences(of: "\\", with: "")
-        let mainPicture = mainPicture1.trimmingCharacters(in: CharacterSet(charactersIn: "\""))
-        return mainPicture
+        //let mainPicture1 = mainPicture.replacingOccurrences(of: "\\", with: "")
+       mainPicture.trimmingCharacters(in: CharacterSet(charactersIn: "\""))
+       
     }
 
     

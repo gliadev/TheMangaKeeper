@@ -9,11 +9,13 @@ import SwiftUI
   
 @main
 struct TheMangaKeeperApp: App {
+    @StateObject var mangaVM = MangasViewModel()
     var body: some Scene {
         WindowGroup {
             //ContentView()
             //MangasCellView(manga: .testMangas)
             MangasTabBar()
+                .environmentObject(mangaVM)
         }
     }
 }

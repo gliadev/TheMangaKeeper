@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct MangasFavorites: View {
-    @ObservedObject var mangasVM = MangasViewModel()
+struct MangasFavoritesView: View {
+    @EnvironmentObject var mangasVM: MangasViewModel
     
     var body: some View {
         Text("Mangas Favoritos")
@@ -16,5 +16,5 @@ struct MangasFavorites: View {
 }
 
 #Preview {
-    MangasFavorites()
+    MangasFavoritesView()
 }

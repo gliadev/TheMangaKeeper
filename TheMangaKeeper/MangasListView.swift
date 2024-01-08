@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @ObservedObject var mangasVM = MangasViewModel()
-    //let manga: Manga
+struct MangasListView: View {
+    @EnvironmentObject var mangasVM: MangasViewModel
     
     var body: some View {
         NavigationStack {
@@ -44,5 +43,6 @@ struct ContentView: View {
                                                        
 
 #Preview {
-    ContentView()
+    MangasListView()
+        .environmentObject(MangasViewModel())
 }

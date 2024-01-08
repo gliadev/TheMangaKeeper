@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct MangasDetailView: View {
-    //@ObservedObject var mangasVM: MangasViewModel
+    @EnvironmentObject var mangasVM: MangasViewModel
     let manga: Manga
     var body: some View {
         ScrollView {
                    VStack(alignment: .leading, spacing: 20) {
-                       AsyncImage(url: URL(string: manga.mainPicture)) { image in
+                       AsyncImage(url: URL(string: "\(manga.mainPictureFormateada)")) { image in
                            image.resizable()
                                 .aspectRatio(contentMode: .fill)
                        } placeholder: {
@@ -60,6 +60,6 @@ struct MangasDetailView: View {
        }
 
 #Preview {
-    MangasDetailView(//mangasVM: .localTestMangas,
-                     manga: .testManga)
+    MangasDetailView(manga: .testManga)
+    .environmentObject(MangasViewModel())
 }

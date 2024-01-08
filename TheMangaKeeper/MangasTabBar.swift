@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct MangasTabBar: View {
-    @ObservedObject var MangasVM = MangasViewModel()
-     
+    @EnvironmentObject var MangasVM: MangasViewModel
+    
     
     var body: some View {
         TabView {
-            ContentView(mangasVM: MangasViewModel())
+            MangasListView()
                 .tabItem {
                     Label("Mangas", systemImage: "list.dash")
                 }
-            ContentView(mangasVM: MangasViewModel())
-                .tabItem {
-                    Label("TOP10", systemImage: "trophy.fill")
-                }
-            MangasFavorites()
+//            ContentView(mangasVM: MangasViewModel())
+//                .tabItem {
+//                    Label("TOP 10", systemImage: "trophy.fill")
+//                }
+            MangasFavoritesView()
                 .tabItem {
                     Label("Favorites", systemImage: "star.fill")
                 }
