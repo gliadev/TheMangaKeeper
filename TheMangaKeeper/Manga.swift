@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-//cambiar nombre manga
 
 struct Manga: Identifiable, Decodable {
     
@@ -44,15 +43,21 @@ struct Manga: Identifiable, Decodable {
     var mainPictureFormateada: String {
         //let mainPicture1 = mainPicture.replacingOccurrences(of: "\\", with: "")
        mainPicture.trimmingCharacters(in: CharacterSet(charactersIn: "\""))
-       
     }
 
-    
     // para dar formato a la url como es una url opcional
     // cuando la puesto me pedia un valor por defecto
     var urlFormateada: String {
         return url?.replacingOccurrences(of: "\\", with: "") ?? ""
     }
+    
+    var scoreFormateado: String {
+        //Text("Puntuacion: \(manga.score, specifier: "%.2f")")
+        String(Int(score))
+    }
+    
+    
 }
+
 
 

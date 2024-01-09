@@ -40,18 +40,8 @@ final class MangasViewModel: ObservableObject {
             mangas[index].isFavorite.toggle()
         }
     }
-//TODO: guardar Favoritos
-    // funcion para cargar los favoritos
-    func loadFavorites() -> [Manga]{
-        if let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("favorites.json"){
-            do {
-                let data = try Data(contentsOf: fileURL)
-                return try JSONDecoder().decode([Manga].self, from: data)
-            } catch {
-                print(error)
-            }
-        }
-        return []
-    }
+    
+    
+    
     
 }

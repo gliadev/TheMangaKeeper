@@ -3,10 +3,10 @@
 //  TheMangaKeeper
 //
 //  Created by Adolfo on 17/12/23.
-//
+// color celda
 
 import SwiftUI
-
+  
 struct MangasListView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
     
@@ -16,14 +16,6 @@ struct MangasListView: View {
                 ForEach(mangasVM.mangas) { manga in
                     NavigationLink(destination: MangasDetailView(manga: manga)) {
                         MangasCellView(manga: manga)
-                    }
-                    .swipeActions {
-                        Button(role: .destructive) {
-                            mangasVM.deleteManga(manga: manga)
-                            print("Borrar \(manga)")
-                        } label: {
-                            Label("Borrar", systemImage: "trash")
-                        }
                     }
                     .swipeActions(edge: .leading){
                         Button {
@@ -35,7 +27,7 @@ struct MangasListView: View {
                     }
                 }
             }
-            .padding()
+            //.padding()
             .navigationTitle("Mangas List")
         }
     }

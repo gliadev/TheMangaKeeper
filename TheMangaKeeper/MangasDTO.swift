@@ -31,6 +31,7 @@ struct Items: Codable {
     let background: String?
     let url: String?
     let titleJapanese: String?
+    
 }
 
 
@@ -59,6 +60,17 @@ struct Genre: Codable {
 enum Status: String, Codable {
     case currentlyPublishing = "currently_publishing"
     case finished = "finished"
+    
+     // TODO: preguntarle Alberto si es correcto si lo pongo en mi modelo no puedo modificarlo porque no tengo acceso a los casos
+    // si no tengo acceso a status
+    var statusDescripcion: String {
+        switch self {
+        case .currentlyPublishing:
+            return "Publicado"
+        case .finished:
+            return "Finalizado"
+        }
+    }
 }
 
 
@@ -70,6 +82,8 @@ struct Theme: Codable {
 struct Metadata: Codable {
     let total, page, per: Int
 }
+
+
 
 
 

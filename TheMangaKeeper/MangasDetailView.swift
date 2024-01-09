@@ -47,7 +47,7 @@ struct MangasDetailView: View {
                        Text("Synopsis")
                            .font(.headline)
                        Text(manga.sypnosis!)
-                           .lineLimit(5)
+                           //.lineLimit(5)
                            .onTapGesture {
                             // para expandir la sinopsis, no funciona aun
                            }

@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct BestMangasView: View {
+struct MangasBestView: View {
     var body: some View {
         Text("Grid mejores mangas")
     }
 }
 
 #Preview {
-    BestMangasView()
+    MangasBestView()
 }
