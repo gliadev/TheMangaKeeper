@@ -5,8 +5,6 @@
 //  Created by Adolfo on 19/12/23.
 //
 
-//TODO: revisar llamadas en la red
-
 
 import SwiftUI
 
@@ -48,7 +46,7 @@ struct MangasCellView: View {
                     Image(systemName: "star")
                         .foregroundStyle(.yellow)
                 }
-                //Text("Estado: \(manga.status.rawValue)")
+                
                 Text("Estado: \(manga.status.statusDescripcion)")
             }
             Spacer() // Empuja todo hacia la izquierda

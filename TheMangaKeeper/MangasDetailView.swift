@@ -12,16 +12,16 @@ struct MangasDetailView: View {
     let manga: Manga
     var body: some View {
         ScrollView {
-                   VStack(alignment: .leading, spacing: 20) {
+                   VStack(alignment: .leading, spacing: 8) {
                        AsyncImage(url: URL(string: "\(manga.mainPictureFormateada)")) { image in
                            image.resizable()
                                 .aspectRatio(contentMode: .fill)
+                           
+                                
                        } placeholder: {
                            Rectangle().foregroundColor(.gray)
                        }
-                       .frame(height: 300)
-                       .cornerRadius(12)
-                       .shadow(radius: 8)
+                       
 
                        Text(manga.title)
                            .font(.title)
@@ -36,7 +36,7 @@ struct MangasDetailView: View {
                            .foregroundColor(.secondary)
 
                        HStack {
-                           Text("Puntuacion: \(manga.score, specifier: "%.2f")")
+                           Text("Puntuacion: \(manga.scoreFormateado)")
                                .bold()
                            // Aquí podrías agregar el componente de estrellas más tarde
                        }
@@ -54,12 +54,12 @@ struct MangasDetailView: View {
 
                        Spacer()
                    }
-                   .padding()
+                   .padding([.horizontal, .bottom])
                }
            }
        }
 
 #Preview {
     MangasDetailView(manga: .testManga)
-    .environmentObject(MangasViewModel())
+        .environmentObject(MangasViewModel.localTestMangas)
 }

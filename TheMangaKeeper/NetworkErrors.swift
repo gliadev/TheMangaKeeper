@@ -13,6 +13,7 @@ enum NetworkErrors: Error, CustomStringConvertible {
     case parseJson(Error)
     case badStatusCode(Int)
     case general(Error)
+    case fileNotFound
     
     var description: String {
         switch self {
@@ -24,6 +25,8 @@ enum NetworkErrors: Error, CustomStringConvertible {
             "Error de status \(statusCode)"
         case .general(let error):
             "Error general \(error)"
+        case .fileNotFound:
+            "Error no encontrado archvivo de carga local"
         }
     }
 }

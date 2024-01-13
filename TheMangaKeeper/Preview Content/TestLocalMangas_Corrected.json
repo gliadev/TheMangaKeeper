@@ -1,0 +1,31 @@
+{
+"items": [
+        {
+            "title": "Himekishi wa Barbaroi no Yome",
+            "themes": [],
+            "endDate": null,
+            "demographics": [
+                {
+                    "id": "5E05BBF1-A72E-4231-9487-71CFE508F9F9",
+                    "demographic": "Shounen"
+                }
+            ],
+            "genres": [
+                {
+                    "genre": "Comedy",
+                    "id": "F974BCB6-B002-44A6-A224-90D1E50595A2"
+                },
+                {
+                    "genre": "Fantasy",
+                    "id": "B3E8D4B2-7EE4-49CD-8DB0-9897619B3F62"
+                },
+                {
+                    "genre": "Romance",
+                    "id": "D8E1E0A9-DDC2-4520-BED7-745DD8DAD076"
+                }
+            ],
+            "score": 7.08,
+            "mainPicture": "\"https://cdn.myanimelist.net/images/manga/1/246207l.jpg\"",
+            "titleEnglish": "The Warrior Princess and the Barbaric King",
+            "background":
+}

@@ -9,6 +9,7 @@ import SwiftUI
   
 struct MangasListView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
+    let manga: Manga
     
     var body: some View {
         NavigationStack {
@@ -17,11 +18,12 @@ struct MangasListView: View {
                     NavigationLink(destination: MangasDetailView(manga: manga)) {
                         MangasCellView(manga: manga)
                     }
+                    //.foregroundStyle(.secondary)
                     .swipeActions(edge: .leading){
                         Button {
                             mangasVM.toogleMangaFavorite(manga: manga)
                         } label: {
-                            Label(manga.isFavorite ? "Eliminar favorito" : "Añadir Favorito", systemImage: manga.isFavorite ?  "star" : "star.fill")
+                            Label(manga.isFavorite ? "Eliminar Coleccion" : "Añadir Coleccion", systemImage: manga.isFavorite ?  "trash" : "star.fill")
                         }
                         .tint(manga.isFavorite ? .red : .yellow)
                     }
@@ -35,6 +37,6 @@ struct MangasListView: View {
                                                        
 
 #Preview {
-    MangasListView()
+    MangasListView(manga: .testManga)
         .environmentObject(MangasViewModel())
 }

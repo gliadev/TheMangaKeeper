@@ -13,7 +13,6 @@ struct MangasCollectionView: View {
     var body: some View {
         List {
                     ForEach(mangasVM.mangas.filter { $0.isFavorite }) { manga in
-                        // Aquí puedes usar MangasCellView o cualquier otra vista que represente un manga
                         MangasCellView(manga: manga)
                     }
                   //  .navigationTitle("Favorites Mangas")
@@ -23,7 +22,7 @@ struct MangasCollectionView: View {
 //TODO: PAGUINACION AÑADIR A UN NUEVO LISTADO LOS MANGAS QUE TENGAMOS
 #Preview {
     MangasCollectionView()
-        .environmentObject(MangasViewModel())
+        .environmentObject(MangasViewModel.localTestMangas)
 }
 
 
