@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct MangasCellView: View {
+    //@EnvironmentObject var MangasVM: MangasViewModel
     let manga: Manga
     
     var body: some View {
@@ -60,7 +61,8 @@ struct MangasCellView: View {
 
 // activo datos en local
 #Preview {
-    MangasCellView(manga: .testManga)
+    MangasListView(manga: .testManga)
+     //   .environmentObject(MangasViewModel())
 }
 
 

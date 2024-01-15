@@ -3,7 +3,7 @@
 //  TheMangaKeeper
 //
 //  Created by Adolfo on 6/1/24.
-//
+//TODO: PAGUINACION AÑADIR A UN NUEVO LISTADO LOS MANGAS QUE TENGAMOS
 
 import SwiftUI
 
@@ -26,4 +26,4 @@ struct MangasCollectionView: View {
 }
 
 
-   
+
