@@ -3,12 +3,13 @@
 //  TheMangaKeeper
 //
 //  Created by Adolfo on 6/1/24.
-//TODO: PAGUINACION AÑADIR A UN NUEVO LISTADO LOS MANGAS QUE TENGAMOS
+
 
 import SwiftUI
 
 struct MangasCollectionView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
+    let manga: Manga
     
     var body: some View {
         List {
@@ -19,9 +20,9 @@ struct MangasCollectionView: View {
                 }
             }
         }
-//TODO: PAGUINACION AÑADIR A UN NUEVO LISTADO LOS MANGAS QUE TENGAMOS
+
 #Preview {
-    MangasCollectionView()
+    MangasCollectionView(manga: .testManga)
         .environmentObject(MangasViewModel.localTestMangas)
 }
 

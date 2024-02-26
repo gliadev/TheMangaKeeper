@@ -6,10 +6,16 @@
 //
 // ✅ TODO: BUSCAR UNA SOLUCION PARA QUE EL MODELO DEVUELVA LA PUNTUACION YA FORMATEADA
 // ✅ TODO: MODIFICAR LOS NOMBRES DE LOS ESTADOS
-// TODO: revisar llamadas en la red intentar hacer carga desde local y cuando se ejecute hacer la peticion a la red
-// TODO: guardar Favoritos
-// TODO: revisar las imagenes
 
+// 1️⃣ 🚨 TODO: Vista detalle desde los favoritos
+
+// 2️⃣ TODO: Persistencia de los favoritos de mi coleccion en el interactos un json.
+
+// ⁉️ TODO: revisar la vista de la celda en la vista de la celda sale una lista, modificarla para que solo se vea una celda
+
+// ⁉️ TODO:  PAGUINACION AÑADIR A UN NUEVO LISTADO LOS MANGAS QUE TENGAMOS
+
+// ⁉️ TODO: revisar llamadas en la red intentar hacer carga desde local y cuando se ejecute hacer la peticion a la red
 
 import SwiftUI
   

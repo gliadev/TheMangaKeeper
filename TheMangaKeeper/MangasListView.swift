@@ -1,9 +1,9 @@
 //
-//  ContentView.swift
+//  ContentView.swift lo pasamos MangasListView
 //  TheMangaKeeper
 //
 //  Created by Adolfo on 17/12/23.
-// color celda
+//
 
 import SwiftUI
   
@@ -23,7 +23,7 @@ struct MangasListView: View {
                         Button {
                             mangasVM.toogleMangaFavorite(manga: manga)
                         } label: {
-                            Label(manga.isFavorite ? "Eliminar Coleccion" : "Añadir Coleccion", systemImage: manga.isFavorite ?  "trash" : "star.fill")
+                            Label(manga.isFavorite ? "Eliminar de Coleccion" : "Añadir a coleccion", systemImage: manga.isFavorite ?  "trash" : "star.fill")
                         }
                         .tint(manga.isFavorite ? .red : .yellow)
                     }
