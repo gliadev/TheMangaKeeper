@@ -12,14 +12,19 @@ struct MangasCollectionView: View {
     let manga: Manga
     
     var body: some View {
-        List {
-                    ForEach(mangasVM.mangas.filter { $0.isFavorite }) { manga in
+        NavigationStack {
+            List {
+                ForEach(mangasVM.mangas.filter { $0.isFavorite }) { manga in
+                    NavigationLink(destination: MangasDetailView(manga: manga)){
                         MangasCellView(manga: manga)
                     }
-                  //  .navigationTitle("Favorites Mangas")
                 }
             }
+            .navigationTitle("Mi Coleccion de Mangas")
+            .bold()
         }
+    }
+}
 
 #Preview {
     MangasCollectionView(manga: .testManga)

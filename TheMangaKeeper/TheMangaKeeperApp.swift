@@ -6,12 +6,14 @@
 //
 // ✅ TODO: BUSCAR UNA SOLUCION PARA QUE EL MODELO DEVUELVA LA PUNTUACION YA FORMATEADA
 // ✅ TODO: MODIFICAR LOS NOMBRES DE LOS ESTADOS
+// ✅ TODO: revisar la vista de la celda en la vista de la celda sale una lista, modificarla para que solo se vea una celda
 
-// 1️⃣ 🚨 TODO: Vista detalle desde los favoritos
+
+// 1️⃣ 🚨 TODO: Vista detalle desde  mi la coleccion
 
 // 2️⃣ TODO: Persistencia de los favoritos de mi coleccion en el interactos un json.
 
-// ⁉️ TODO: revisar la vista de la celda en la vista de la celda sale una lista, modificarla para que solo se vea una celda
+
 
 // ⁉️ TODO:  PAGUINACION AÑADIR A UN NUEVO LISTADO LOS MANGAS QUE TENGAMOS
 
