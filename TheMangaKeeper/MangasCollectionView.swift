@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MangasCollectionView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
-    let manga: Manga
+    //let manga: Manga
     
     
     var body: some View {
@@ -29,7 +29,7 @@ struct MangasCollectionView: View {
     
 
     #Preview {
-        MangasCollectionView(manga: .testManga)
+        MangasCollectionView()
             .environmentObject(MangasViewModel.localTestMangas)
     }
 

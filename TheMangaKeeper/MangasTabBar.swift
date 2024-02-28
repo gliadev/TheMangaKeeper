@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct MangasTabBar: View {
-    let manga: Manga
+    //let manga: Manga
+    
     
     var body: some View {
         TabView {
-            MangasListView(manga: .testManga)
+            MangasListView()
                 .tabItem {
                     Label("Mangas", systemImage: "list.dash")
                 }
-            MangasCollectionView(manga: .testManga)
+            MangasCollectionView()
                 .tabItem {
                     Label("Mi Coleccion", systemImage: "star.fill")
                 }
@@ -25,7 +26,7 @@ struct MangasTabBar: View {
 }
 
 #Preview {
-    MangasTabBar(manga: .testManga)
-        .environmentObject(MangasViewModel())
+    MangasTabBar()
+        .environmentObject(MangasViewModel.localTestMangas)
         
 }

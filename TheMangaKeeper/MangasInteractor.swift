@@ -8,14 +8,15 @@
 import Foundation
 
 protocol MangasInteractorProtocol {
+    var  docURL: URL { get }
+    var  urlBundle : URL { get }
     func getMangas() async throws -> [Manga]
     func loadMangasCollection() throws -> [Manga]
     func saveMangasCollection(mangas: [Manga]) throws
     
 }
 
-struct MangasInteractor: MangasInteractorProtocol {
-    let docURL = URL.documentsDirectory.appending(path: "mangasSaved.json")
+extension MangasInteractorProtocol {
     
     func getMangas() async throws -> [Manga] {
         try await getJSON(request: .getCustom(url: .listaMangasURL), type: MangasDTO.self).items.map(\.toPresentation)
@@ -38,6 +39,12 @@ struct MangasInteractor: MangasInteractorProtocol {
         try data.write(to: docURL, options: .atomic)
     }
 
+}
+
+struct MangasInteractor: MangasInteractorProtocol {
+    let urlBundle = Bundle.main.url(forResource: "TestLocalMangas", withExtension: "json")!
+    
+    let docURL = URL.documentsDirectory.appending(path: "mangasSaved.json")
     
 }
 

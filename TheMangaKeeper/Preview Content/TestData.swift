@@ -7,6 +7,18 @@
 
 import Foundation
 
+struct testMangasLocal: MangasInteractorProtocol {
+    let urlBundle = Bundle.main.url(forResource: "TestLocalMangas", withExtension: "json")!
+    
+    let docURL = URL.documentsDirectory.appending(path: "TestMangasSaved.json")
+    
+}
+
+extension MangasViewModel {
+    static let localTestMangas = MangasViewModel(mangaInteractor: testMangasLocal())
+}
+
+
 extension Manga {
     static let testManga = Manga(themes: [], 
                                  endDate: Date.now,
@@ -27,38 +39,3 @@ extension Manga {
                                  titleJapanese: "ベジタリア",
                                  isFavorite: false)
 }
-
-struct testMangasLocal: MangasInteractorProtocol {
-    let docURL: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("mangasSaved.json")
-
-    
-    func loadMangasCollection() throws -> [Manga] {
-        guard FileManager.default.fileExists(atPath: docURL.path) else {
-                return [] // Si el archivo no existe, simplemente devuelve una lista vacía
-            }
-            let data = try Data(contentsOf: docURL)
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
-            let mangas = try decoder.decode([Manga].self, from: data)
-            return mangas
-    }
-    
-    func saveMangasCollection(mangas: [Manga]) throws {
-        let encoder = JSONEncoder()
-           encoder.dateEncodingStrategy = .iso8601
-           let data = try encoder.encode(mangas)
-           try data.write(to: docURL, options: .atomic)
-    }
-    
-    let url = Bundle.main.url(forResource: "TestLocalMangas", withExtension: "json")!
-    
-    func getMangas() async throws -> [Manga] {
-        let data = try Data(contentsOf: url)
-        return try JSONDecoder().decode(MangasDTO.self, from: data).items.map(\.toPresentation)
-    }
-}
-
-extension MangasViewModel {
-    static let localTestMangas = MangasViewModel(mangaInteractor: testMangasLocal())
-}
-

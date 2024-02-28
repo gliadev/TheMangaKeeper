@@ -9,7 +9,7 @@ import SwiftUI
   
 struct MangasListView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
-    let manga: Manga
+    //let manga: Manga
     
     var body: some View {
         NavigationStack {
@@ -37,6 +37,6 @@ struct MangasListView: View {
                                                        
 
 #Preview {
-    MangasListView(manga: .testManga)
-        .environmentObject(MangasViewModel())
+    MangasListView()
+        .environmentObject(MangasViewModel.localTestMangas)
 }
