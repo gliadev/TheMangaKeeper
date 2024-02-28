@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Manga: Identifiable, Decodable {
+struct Manga: Identifiable, Decodable, Encodable{
     
     let themes: [Theme]
     let endDate: Date?

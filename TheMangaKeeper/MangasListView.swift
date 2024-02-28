@@ -21,7 +21,7 @@ struct MangasListView: View {
                     //.foregroundStyle(.secondary)
                     .swipeActions(edge: .leading){
                         Button {
-                            mangasVM.toogleMangaFavorite(manga: manga)
+                            mangasVM.toogleMangaFavorite(mangaID: manga.id)
                         } label: {
                             Label(manga.isFavorite ? "Eliminar de Coleccion" : "Añadir a coleccion", systemImage: manga.isFavorite ?  "trash" : "star.fill")
                         }

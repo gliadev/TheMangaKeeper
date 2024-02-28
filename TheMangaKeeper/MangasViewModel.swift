@@ -14,7 +14,8 @@ final class MangasViewModel: ObservableObject {
     
     init(mangaInteractor: MangasInteractorProtocol = MangasInteractor()) {
         self.mangaInteractor = mangaInteractor
-        Task { await getMangas() }
+        Task { await getMangas()
+        await loadFavorites()}
     }
     
     
@@ -30,16 +31,45 @@ final class MangasViewModel: ObservableObject {
             print("Este error: \(error)")
         }
     }
+    
     // eliminar un manga
     func deleteManga(manga: Manga){
         mangas.removeAll(where: {$0.id == manga.id})
     }
+    
     // añadir a manga
-    func toogleMangaFavorite(manga: Manga){
-        if let index = mangas.firstIndex(where: { $0.id == manga.id }) {
+    func toogleMangaFavorite(mangaID: Int){
+        if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
             mangas[index].isFavorite.toggle()
+            saveFavorites()
         }
     }
+    
+    func saveFavorites() {
+        do {
+            let favorites = mangas.filter { $0.isFavorite }
+            try mangaInteractor.saveMangasCollection(mangas: favorites)
+        } catch {
+            print("Error al guardar los mangas favoritos: \(error)")
+        }
+    }
+    
+    // cargar faritos
+    func loadFavorites() async {
+        do {
+            let loadedFavorites = try mangaInteractor.loadMangasCollection()
+            await MainActor.run {
+                for loadedFavorite in loadedFavorites {
+                    if let index = mangas.firstIndex(where: {$0.id == loadedFavorite.id}) {
+                        mangas[index].isFavorite = true
+                    }
+                }
+            }
+        } catch {
+            print("Error al cargar la coleccion\(error)")
+        }
+    }
+    
     
     
     

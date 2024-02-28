@@ -8,8 +8,7 @@
 // ✅ TODO: MODIFICAR LOS NOMBRES DE LOS ESTADOS
 // ✅ TODO: revisar la vista de la celda en la vista de la celda sale una lista, modificarla para que solo se vea una celda
 // ✅ TODO: Vista detalle desde  mi la coleccion
-
-// 2️⃣ 🚨 TODO: Persistencia de los favoritos de mi coleccion en el interactos un json.
+// ✅ TODO: Persistencia de los favoritos de mi coleccion en el interactos un json.
 
 
 // TODO:  ⁉️ Para el grid hay tengo que crear un  configuracion para la vista antes y desde la vista de grid llamarla
