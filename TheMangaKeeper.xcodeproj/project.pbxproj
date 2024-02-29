@@ -28,6 +28,7 @@
 		9194DDE42B333C720069D889 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194DDE32B333C720069D889 /* TestData.swift */; };
 		91DB26F52B30A41900D78DBE /* MangasDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DB26F42B30A41900D78DBE /* MangasDTO.swift */; };
 		91F88A5D2B49B85F005587BC /* MangasCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F88A5C2B49B85F005587BC /* MangasCollectionView.swift */; };
+		91F9E1AB2B90B5A0009B1A88 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9E1AA2B90B5A0009B1A88 /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		9194DDE32B333C720069D889 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		91DB26F42B30A41900D78DBE /* MangasDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangasDTO.swift; sourceTree = "<group>"; };
 		91F88A5C2B49B85F005587BC /* MangasCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangasCollectionView.swift; sourceTree = "<group>"; };
+		91F9E1AA2B90B5A0009B1A88 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				910932FC2B31F384005615A9 /* Interactor */,
 				91DB26F32B30A2BE00D78DBE /* Model */,
 				910932F02B31E0BB005615A9 /* Network */,
+				91F9E1A92B90B574009B1A88 /* Helpers */,
 				916F9B342B2F96DF004F91D3 /* Assets.xcassets */,
 				916F9B362B2F96DF004F91D3 /* Preview Content */,
 			);
@@ -172,6 +175,14 @@
 				914E53062B4620AE006270FA /* BestMangas.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		91F9E1A92B90B574009B1A88 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				91F9E1AA2B90B5A0009B1A88 /* DateFormatter.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +261,7 @@
 				916F9B332B2F96DE004F91D3 /* MangasListView.swift in Sources */,
 				910933032B32413C005615A9 /* MangasViewModel.swift in Sources */,
 				910932FA2B31ECA1005615A9 /* JsonDecoder.swift in Sources */,
+				91F9E1AB2B90B5A0009B1A88 /* DateFormatter.swift in Sources */,
 				9194DDE42B333C720069D889 /* TestData.swift in Sources */,
 				91F88A5D2B49B85F005587BC /* MangasCollectionView.swift in Sources */,
 				910932F82B31E86A005615A9 /* URLSession.swift in Sources */,

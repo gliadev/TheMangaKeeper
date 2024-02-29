@@ -29,7 +29,7 @@ struct Manga: Identifiable, Decodable, Encodable{
     let titleJapanese: String?
     var isFavorite: Bool
     
-
+ 
 // para dar formato al mainPicture y eliminar el \ del principio
 //    var mainPictureFormateada: String {
 //        print(mainPicture)

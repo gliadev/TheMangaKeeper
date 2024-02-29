@@ -11,7 +11,7 @@ struct MangasDTO: Codable {
     let items: [Items]
 }
 
-
+ 
 struct Items: Codable {
     let themes: [Theme]
     let endDate: Date?
