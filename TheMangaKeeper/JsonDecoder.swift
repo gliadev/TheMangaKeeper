@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+ 
 func getJSON<JSON: Codable>(request: URLRequest, type: JSON.Type) async throws -> JSON {
     let (data, response) = try await URLSession.shared.getMangas(request: request)
     //let dateFormater = DateFormatter()

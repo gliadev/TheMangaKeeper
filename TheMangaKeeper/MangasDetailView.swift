@@ -61,5 +61,5 @@ struct MangasDetailView: View {
 
 #Preview {
     MangasDetailView(manga: .testManga)
-        .environmentObject(MangasViewModel.localTestMangas)
+        //.environmentObject(MangasViewModel.localTestMangas)
 }

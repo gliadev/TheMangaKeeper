@@ -62,8 +62,7 @@ struct MangasCellView: View {
 // activo datos en local
 #Preview {
     MangasCellView(manga: .testManga)
-    
-        .environmentObject(MangasViewModel())
+        //.environmentObject(MangasViewModel())
 }
 
 

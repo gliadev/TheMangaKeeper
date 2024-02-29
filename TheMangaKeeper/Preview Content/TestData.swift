@@ -4,7 +4,7 @@
 //
 //  Created by Adolfo on 20/12/23.
 // TODO: JSONDECODER
-
+ 
 import Foundation
 
 struct testMangasLocal: MangasInteractorProtocol {
@@ -13,9 +13,11 @@ struct testMangasLocal: MangasInteractorProtocol {
     let docURL = URL.documentsDirectory.appending(path: "TestMangasSaved.json")
     
     func getMangas() async throws -> [Manga] {
-        let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        //let dateFormater = DateFormatter()
+        //dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(.dateFormatted)
+        
         let data = try Data(contentsOf: urlBundle)
         return try decoder.decode(MangasDTO.self, from: data).items.map(\.toPresentation)
     }
