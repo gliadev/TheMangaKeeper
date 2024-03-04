@@ -9,27 +9,40 @@ import Foundation
 
 final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
+    @Published var isLoading = false
+    @Published var currentPage = 1
+    @Published var canLoadMoreMangas = true
     
     let mangaInteractor: MangasInteractorProtocol
     
     init(mangaInteractor: MangasInteractorProtocol = MangasInteractor()) {
         self.mangaInteractor = mangaInteractor
-        Task { await getMangas()
-        await loadFavorites()}
+        Task {
+            await getMangas()
+            await loadFavorites()
+        }
     }
     
     
     func getMangas() async {
         do {
             print("Llamada de red")
-            let manga = try await mangaInteractor.getMangas()
+            let manga = try await mangaInteractor.getMangas(page: currentPage)
             await MainActor.run {
-                mangas = manga
+                mangas += manga
+                print("La pagina es la ")
             }
         }
         catch {
             print("Este error: \(error)")
         }
+    }
+    
+    // cargar mas mangas scrollInfinito+
+    func moreMangas(manga: Manga) {
+        
+            currentPage += 1
+        
     }
     
     // eliminar un manga

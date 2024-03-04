@@ -10,7 +10,7 @@ import Foundation
 protocol MangasInteractorProtocol {
     var  docURL: URL { get }
     var  urlBundle : URL { get }
-    func getMangas() async throws -> [Manga]
+    func getMangas(page: Int) async throws -> [Manga]
     func loadMangasCollection() throws -> [Manga]
     func saveMangasCollection(mangas: [Manga]) throws
     
@@ -18,8 +18,10 @@ protocol MangasInteractorProtocol {
 
 extension MangasInteractorProtocol {
     
-    func getMangas() async throws -> [Manga] {
-        try await getJSON(request: .getCustom(url: .listaMangasURL), type: MangasDTO.self).items.map(\.toPresentation)
+    func getMangas(page: Int) async throws -> [Manga] {
+        try await getJSON(request: .getMoreMangas(url: .listaMangasURL, page: page), type: MangasDTO.self).items.map(\.toPresentation)
+        
+        //try await getJSON(request: .getCustom(url: .listaMangasURL), type: //MangasDTO.self).items.map(\.toPresentation)
     }
     
     // funcion para cargar los guardaos en mi coleccion
@@ -42,6 +44,7 @@ extension MangasInteractorProtocol {
 }
 
 struct MangasInteractor: MangasInteractorProtocol {
+    
     let urlBundle = Bundle.main.url(forResource: "TestLocalMangas", withExtension: "json")!
     
     let docURL = URL.documentsDirectory.appending(path: "mangasSaved.json")
@@ -49,21 +52,3 @@ struct MangasInteractor: MangasInteractorProtocol {
 }
 
 
-
-// intentado hacer carga de datos locales para no estar llamando a al api
-//struct MangasInteractor: MangasInteractorProtocol {
-//    func getMangas() async throws -> [Manga] {
-//        #if DEBUG
-//        // Código para leer datos del archivo local
-//        guard let path = Bundle.main.path(forResource: "TestLocalMangas", ofType: "json") else {
-//            throw NetworkErrors.fileNotFound
-//        }
-//        let data = try Data(contentsOf: URL(fileURLWithPath: path))
-//        let mangasDTO = try JSONDecoder().decode(MangasDTO.self, from: data)
-//        return mangasDTO.items.map(\.toPresentation)
-//        #else
-//        // Código para realizar llamada a la API
-//        try await getJSON(request: .getCustom(url: .listaMangasURL), type: MangasDTO.self).items.map(\.toPresentation)
-//        #endif
-//    }
-//}

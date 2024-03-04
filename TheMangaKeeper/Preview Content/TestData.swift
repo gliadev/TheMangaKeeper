@@ -3,7 +3,7 @@
 //  TheMangaKeeper
 //
 //  Created by Adolfo on 20/12/23.
-// TODO: JSONDECODER
+//
  
 import Foundation
 
@@ -19,7 +19,9 @@ struct testMangasLocal: MangasInteractorProtocol {
         decoder.dateDecodingStrategy = .formatted(.dateFormatted)
         
         let data = try Data(contentsOf: urlBundle)
+        print("Cargado datos desde local")
         return try decoder.decode(MangasDTO.self, from: data).items.map(\.toPresentation)
+        
     }
 }
 

@@ -16,6 +16,7 @@ extension URLSession {
             //print(response)
             guard let httpResponse = response as? HTTPURLResponse else { 
                 throw NetworkErrors.noHTTP }
+            //print("Cargando los datos desde la rede")
             return (data, httpResponse)
         } catch {
             throw NetworkErrors.general(error)

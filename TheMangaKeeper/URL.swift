@@ -17,8 +17,10 @@ let mainURL = URL(string: "https://mymanga-acacademy-5607149ebe3d.herokuapp.com"
 extension URL {
     static let listaMangasURL = mainURL.appending(path: "list/mangas")
     
+    
+    
     // para traerme la lista de los mejores mangas
-    static let BestMangas = mainURL.appending(path: "list/bestMangas")
+    static let BestMangas = mainURL.appending(path: "list/bestMangas") 
 }
 
 
