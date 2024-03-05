@@ -14,10 +14,10 @@ protocol MangasInteractorProtocol {
     func loadMangasCollection() throws -> [Manga]
     func saveMangasCollection(mangas: [Manga]) throws
     
-}
-
+} 
+ 
 extension MangasInteractorProtocol {
-    
+     
     func getMangas(page: Int) async throws -> [Manga] {
         try await getJSON(request: .getMoreMangas(url: .listaMangasURL, page: page), type: MangasDTO.self).items.map(\.toPresentation)
         
@@ -42,7 +42,7 @@ extension MangasInteractorProtocol {
     }
 
 }
-
+ 
 struct MangasInteractor: MangasInteractorProtocol {
     
     let urlBundle = Bundle.main.url(forResource: "TestLocalMangas", withExtension: "json")!

@@ -12,7 +12,7 @@ struct testMangasLocal: MangasInteractorProtocol {
     
     let docURL = URL.documentsDirectory.appending(path: "TestMangasSaved.json")
     
-    func getMangas() async throws -> [Manga] {
+    func getMangas(page: Int) async throws -> [Manga] {
         //let dateFormater = DateFormatter()
         //dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let decoder = JSONDecoder()
@@ -20,6 +20,7 @@ struct testMangasLocal: MangasInteractorProtocol {
         
         let data = try Data(contentsOf: urlBundle)
         print("Cargado datos desde local")
+        print("Estas en la paguina numero: \(page) de los datos en local")
         return try decoder.decode(MangasDTO.self, from: data).items.map(\.toPresentation)
         
     }

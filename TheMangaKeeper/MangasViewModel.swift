@@ -5,13 +5,12 @@
 //  Created by Adolfo on 19/12/23.
 //
 
-import Foundation
+import Foundation 
 
 final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
     @Published var isLoading = false
     @Published var currentPage = 1
-    @Published var canLoadMoreMangas = true
     
     let mangaInteractor: MangasInteractorProtocol
     
@@ -30,7 +29,6 @@ final class MangasViewModel: ObservableObject {
             let manga = try await mangaInteractor.getMangas(page: currentPage)
             await MainActor.run {
                 mangas += manga
-                print("La pagina es la ")
             }
         }
         catch {
@@ -38,19 +36,38 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
-    // cargar mas mangas scrollInfinito+
+// cargar mas mangas scroll infinito
+    func loadMoreMangas() async {
+        guard !isLoading else { return }
+        await MainActor.run { isLoading = true }
+        
+        do {
+            let newMangas = try await mangaInteractor.getMangas(page: currentPage)
+            await MainActor.run {
+                self.mangas += newMangas
+                self.isLoading = false
+            }
+        } catch {
+            await MainActor.run {
+                print("Error cargando mas mangas: \(error)")
+                self.isLoading = false
+            }
+        }
+    }
+
+    
+// cargar mangas siguiente paguina
     func moreMangas(manga: Manga) {
-        
             currentPage += 1
-        
     }
     
-    // eliminar un manga
+// eliminar magna de coleccion
     func deleteManga(manga: Manga){
         mangas.removeAll(where: {$0.id == manga.id})
     }
     
-    // añadir a manga
+    
+// añadir manga a coleccion
     func toogleMangaFavorite(mangaID: Int){
         if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
             mangas[index].isFavorite.toggle()
@@ -58,6 +75,7 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
+// guardar coleccion de mis mangas
     func saveFavorites() {
         do {
             let favorites = mangas.filter { $0.isFavorite }
@@ -67,7 +85,7 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
-    // cargar faritos
+// cargar la coleccion
     func loadFavorites() async {
         do {
             let loadedFavorites = try mangaInteractor.loadMangasCollection()
@@ -82,7 +100,6 @@ final class MangasViewModel: ObservableObject {
             print("Error al cargar la coleccion\(error)")
         }
     }
-    
     
     
     

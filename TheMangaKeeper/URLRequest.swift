@@ -9,7 +9,8 @@ import Foundation
 
 extension URLRequest {
    static func getCustom(url: URL) -> URLRequest {
-        var request = URLRequest(url: url)
+       
+       var request = URLRequest(url: url)
        
        print("Cargando los datos desde la red")
        request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -29,7 +30,8 @@ extension URLRequest {
         request.timeoutInterval = 30
         return request
     }
-    
+     
     //static func getBestMangas
 }
 
+ 
