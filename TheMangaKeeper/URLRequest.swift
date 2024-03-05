@@ -21,7 +21,7 @@ extension URLRequest {
     // creo una funcion aparte para hacer la llamada y traerme mas mangas
     static func getMoreMangas(url: URL, page: Int, per: Int = 20, contains: String? = nil) -> URLRequest {
         let page = URLQueryItem(name: "page", value: String(page))
-        let  per = URLQueryItem(name: "per", value: String(per))
+        let per = URLQueryItem(name: "per", value: String(per))
         
         var request = URLRequest(url: url.appending(path: contains ?? ""))
         request.url?.append(queryItems: [page, per])
