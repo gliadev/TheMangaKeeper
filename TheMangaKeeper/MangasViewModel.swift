@@ -43,6 +43,9 @@ final class MangasViewModel: ObservableObject {
     func loadMoreMangaIfNeeded(manga: Manga) {
         if isLastManga(manga: manga){
             currentPage += 1
+            Task {
+                await getMangas()
+            }
         }
     }
     

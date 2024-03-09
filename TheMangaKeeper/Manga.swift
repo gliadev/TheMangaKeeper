@@ -19,7 +19,7 @@ struct Manga: Identifiable, Decodable, Encodable {
     let status: Status
     let authors: [Author]
     let titleEnglish: String?
-    let startDate: Date
+    let startDate: Date?
     let score: Double
     let mainPicture: String
     let chapters: Int?

@@ -30,7 +30,7 @@ struct Items: Codable {
     let status: Status
     let authors: [Author]
     let titleEnglish: String?
-    let startDate: Date
+    let startDate: Date?
     let score: Double
     let mainPicture: String
     let chapters: Int?
@@ -68,6 +68,7 @@ enum Status: String, Codable {
     case currentlyPublishing = "currently_publishing"
     case finished = "finished"
     case onHiatus = "on_hiatus"
+    case discontinued = "discontinued"
     
     // consultar
     var statusDescripcion: String {
@@ -78,6 +79,8 @@ enum Status: String, Codable {
             return "Finalizado"
         case .onHiatus:
             return "Pausado"
+        case .discontinued:
+            return "interrumpido"
         }
     }
 }
