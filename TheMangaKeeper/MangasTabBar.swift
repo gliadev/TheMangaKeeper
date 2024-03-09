@@ -27,6 +27,6 @@ struct MangasTabBar: View {
 
 #Preview {
     MangasTabBar()
-        .environmentObject(MangasViewModel.localTestMangas)
-        
+        .environmentObject(MangasViewModel())
+    
 }

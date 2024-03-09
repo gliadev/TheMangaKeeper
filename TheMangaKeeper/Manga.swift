@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Manga: Identifiable, Decodable, Encodable{
+struct Manga: Identifiable, Decodable, Encodable {
     
     let themes: [Theme]
     let endDate: Date?
@@ -29,22 +29,22 @@ struct Manga: Identifiable, Decodable, Encodable{
     let titleJapanese: String?
     var isFavorite: Bool
     
- 
-// para dar formato al mainPicture y eliminar el \ del principio
-//    var mainPictureFormateada: String {
-//        print(mainPicture)
-//        return mainPicture.replacingOccurrences(of: "\\", with: "")
-//    }
-// Tenia hecha esta pero me di cuenta imprimiendo la url que me la traia asi " " y encontre
+    
+    // para dar formato al mainPicture y eliminar el \ del principio
+    //    var mainPictureFormateada: String {
+    //        print(mainPicture)
+    //        return mainPicture.replacingOccurrences(of: "\\", with: "")
+    //    }
+    // Tenia hecha esta pero me di cuenta imprimiendo la url que me la traia asi " " y encontre
     //https://developer.apple.com/documentation/foundation/nsstring/1412937-replacingoccurrences
     //https://developer.apple.com/documentation/swift/stringprotocol/trimmingcharacters(in:)
     
     // otra solucion no estaba viendo que tambien tenia que eliminar las "" de la url de la foto
     var mainPictureFormateada: String {
         //let mainPicture1 = mainPicture.replacingOccurrences(of: "\\", with: "")
-       mainPicture.trimmingCharacters(in: CharacterSet(charactersIn: "\""))
+        mainPicture.trimmingCharacters(in: CharacterSet(charactersIn: "\""))
     }
-
+    
     // para dar formato a la url como es una url opcional
     // cuando la puesto me pedia un valor por defecto
     var urlFormateada: String {

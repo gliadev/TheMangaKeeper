@@ -14,17 +14,17 @@ protocol MangasInteractorProtocol {
     func loadMangasCollection() throws -> [Manga]
     func saveMangasCollection(mangas: [Manga]) throws
     
-} 
- 
+}  
+
 extension MangasInteractorProtocol {
-     
+    
     func getMangas(page: Int) async throws -> [Manga] {
         try await getJSON(request: .getMoreMangas(url: .listaMangasURL, page: page), type: MangasDTO.self).items.map(\.toPresentation)
         
         //try await getJSON(request: .getCustom(url: .listaMangasURL), type: //MangasDTO.self).items.map(\.toPresentation)
     }
     
-    // funcion para cargar los guardaos en mi coleccion
+    // funcion para cargar los guardados en mi coleccion
     func loadMangasCollection() throws -> [Manga] {
         let url = docURL
         guard FileManager.default.fileExists(atPath: url.path) else {
@@ -40,9 +40,9 @@ extension MangasInteractorProtocol {
         let data = try JSONEncoder().encode(mangas)
         try data.write(to: docURL, options: .atomic)
     }
-
+    
 }
- 
+
 struct MangasInteractor: MangasInteractorProtocol {
     
     let urlBundle = Bundle.main.url(forResource: "TestLocalMangas", withExtension: "json")!

@@ -6,7 +6,7 @@
 //
 
 import Foundation
- 
+
 func getJSON<JSON: Codable>(request: URLRequest, type: JSON.Type) async throws -> JSON {
     let (data, response) = try await URLSession.shared.getMangas(request: request)
     //let dateFormater = DateFormatter()
@@ -21,6 +21,7 @@ func getJSON<JSON: Codable>(request: URLRequest, type: JSON.Type) async throws -
         do {
             return try decoder.decode(type .self, from: data)
         } catch {
+            print("Error de paseo:\(error) ")
             throw NetworkErrors.parseJson(error)
         }
     } else {
@@ -29,4 +30,4 @@ func getJSON<JSON: Codable>(request: URLRequest, type: JSON.Type) async throws -
 }
 
 
- 
+

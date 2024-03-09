@@ -17,7 +17,6 @@ struct MangasDetailView: View {
                            image.resizable()
                                 .aspectRatio(contentMode: .fill)
                            
-                                
                        } placeholder: {
                            Rectangle().foregroundColor(.gray)
                        }

@@ -12,7 +12,13 @@ struct MangasDTO: Codable {
     let metadata: Metadata
 }
 
- 
+struct Metadata: Codable {
+    let total: Int
+    let page: Int
+    let per: Int
+}
+
+
 struct Items: Codable {
     let themes: [Theme]
     let endDate: Date?
@@ -61,6 +67,7 @@ struct Genre: Codable {
 enum Status: String, Codable {
     case currentlyPublishing = "currently_publishing"
     case finished = "finished"
+    case onHiatus = "on_hiatus"
     
     // consultar
     var statusDescripcion: String {
@@ -69,6 +76,8 @@ enum Status: String, Codable {
             return "Publicado"
         case .finished:
             return "Finalizado"
+        case .onHiatus:
+            return "Pausado"
         }
     }
 }
@@ -79,9 +88,7 @@ struct Theme: Codable {
 }
 
 
-struct Metadata: Codable {
-    let total, page, per: Int
-}
+
 
 
 
