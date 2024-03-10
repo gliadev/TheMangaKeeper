@@ -43,6 +43,7 @@ struct MangasCellView: View {
                         .lineLimit(1) // Asegurarse de que el texto no se desborde
                 }
                 Text("Puntuacion: \(manga.scoreFormateado)")
+                
                 if manga.isFavorite {
                     Image(systemName: "star")
                         .foregroundStyle(.yellow)
