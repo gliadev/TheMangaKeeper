@@ -4,7 +4,7 @@
 //
 //  Created by Adolfo on 20/12/23.
 //
- 
+
 import Foundation
 
 struct testMangasLocal: MangasInteractorProtocol {
@@ -22,7 +22,13 @@ struct testMangasLocal: MangasInteractorProtocol {
         print("Cargado datos desde local")
         print("Estas en la paguina numero: \(page) de los datos en local")
         return try decoder.decode(MangasDTO.self, from: data).items.map(\.toPresentation)
-        
+    }
+    
+    func searchMangasContains(page: Int, contains: String) async throws -> [Manga] {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(.dateFormatted)
+        let data = try Data(contentsOf: urlBundle)
+        return try decoder.decode(MangasDTO.self, from: data).items.map(\.toPresentation)
     }
 }
 
@@ -32,10 +38,14 @@ extension MangasViewModel {
 
 
 extension Manga {
-    static let testManga = Manga(themes: [], 
+    static let testManga = Manga(themes: [],
                                  endDate: Date.now,
                                  demographics: [], volumes: 6,
-                                 genres: [],
+                                 genres: [
+                                    Genres(id: "4C13067F-96FF-4F14-A1C0-B33215F24E0B", genre: .awardWinning),
+                                    Genres(id: "4312867C-1359-494A-AC46-BADFD2E1D4CD", genre: .drama),
+                                    Genres(id: "97C8609D-856C-419E-A4ED-E13A5C292663", genre: .mystery)
+                                 ],
                                  title: "Patata",
                                  sypnosis: "En el vibrante mundo de Vegetalia, Patatín, una patata valiente y curiosa, sueña con explorar más allá de su campo. Su vida da un giro inesperado cuando un misterioso visitante cae del cielo, revelando que Patatín no es una patata común, sino el elegido para salvar Vegetalia de la sombría amenaza de los Devoradores de Raíces",
                                  status: .currentlyPublishing,
@@ -47,7 +57,7 @@ extension Manga {
                                  chapters: 4,
                                  id: 56,
                                  background: "Aventuras de Patatín. Ha sido publicada digitalmente en español por Vegetalia Comics desde el 22 de agosto de 2023, y en formato impreso desde el 15 de noviembre de 2023. La serie también ha sido publicada simultáneamente a través de la plataforma de manga en línea V Manga",
-                                 url: "https://myanimelist.net/manga/3/20th_Century_Boys", 
+                                 url: "https://myanimelist.net/manga/3/20th_Century_Boys",
                                  titleJapanese: "ベジタリア",
                                  isFavorite: false)
 }

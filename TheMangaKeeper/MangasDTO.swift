@@ -24,7 +24,7 @@ struct Items: Codable {
     let endDate: Date?
     let demographics: [Demographic]
     let volumes: Int?
-    let genres: [GenreDTO]
+    let genres: [Genres]
     let title: String
     let sypnosis: String?
     let status: Status
@@ -60,12 +60,11 @@ struct Demographic: Codable {
 }
 
 // hay que cambiar el nombre a genreDTO para que no de errores
-struct GenreDTO: Codable, Hashable {
+struct Genres: Codable, Hashable {
     let id: String
     let genre: Genre
 }
 enum Genre: String, Codable {
-    var id: Self { self }
     case action = "Action"
     case adventure = "Adventure"
     case awardWinning = "Award Winning"

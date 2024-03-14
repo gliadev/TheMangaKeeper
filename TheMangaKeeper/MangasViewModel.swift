@@ -12,6 +12,7 @@ final class MangasViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var showAlert = false
     @Published var errormenssage = ""
+    @Published var searchBarText = ""
     var currentPage = 1
     
     let mangaInteractor: MangasInteractorProtocol
@@ -42,7 +43,7 @@ final class MangasViewModel: ObservableObject {
             print("Este error desde el getMangas: \(error)")
         }
     }
-     
+    
     // cargar mas mangas scroll infinito
     func loadMoreMangaIfNeeded(manga: Manga) {
         if isLastManga(manga: manga){
@@ -98,7 +99,34 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
-    
+    // buscar mangas por algo "Patata"
+    func searchMangaContains() async {
+        if !searchBarText.isEmpty {
+            do {
+                if currentPage == 1 {
+                    await MainActor.run {
+                        mangas.removeAll()
+                    }
+                }
+                let searchBar = try await mangaInteractor.searchMangasContains(page: currentPage, contains: searchBarText)
+                await MainActor.run {
+                    mangas += searchBar
+                }
+            } catch {
+                print("Error desde la busqueda: \(error) \(errormenssage)")
+            }
+        } else {
+            await MainActor.run {
+                mangas.removeAll()
+                currentPage = 1
+            }
+            await getMangas()
+        }
+    }
     
     
 }
+
+
+
+

@@ -13,7 +13,7 @@ struct Manga: Identifiable, Decodable, Encodable {
     let endDate: Date?
     let demographics: [Demographic]
     let volumes: Int?
-    let genres: [GenreDTO]
+    let genres: [Genres]
     let title: String
     let sypnosis: String?
     let status: Status

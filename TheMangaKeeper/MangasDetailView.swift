@@ -40,7 +40,7 @@ struct MangasDetailView: View {
                            // componente de las estrellas??
                        }
 
-                       Text("Generos: \(manga.genres.map { $0.id }.joined(separator: ", "))")
+                       Text("Generos: \(manga.genres.map { $0.genre.rawValue }.joined(separator: ", "))")
                        Text("Demographic: \(manga.demographics.map { $0.demographic }.joined(separator: ", "))")
 
                        Text("Synopsis")

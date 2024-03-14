@@ -13,7 +13,8 @@ struct MangasTabBar: View {
     
     var body: some View {
         TabView {
-            MangasListView()
+            MangasListViewSecond()
+            //MangasListView()
                 .tabItem {
                     Label("Mangas", systemImage: "list.dash")
                 }
@@ -27,6 +28,6 @@ struct MangasTabBar: View {
 
 #Preview {
     MangasTabBar()
-        .environmentObject(MangasViewModel.localTestMangas)
+        .environmentObject(MangasViewModel())
     
 }

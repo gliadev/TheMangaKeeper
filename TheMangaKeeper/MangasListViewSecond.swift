@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MangasListViewSecond: View {
     @EnvironmentObject var mangasVM: MangasViewModel
+    @State var timer: Timer?
     var body: some View {
         NavigationStack {
                     List {
@@ -30,6 +31,17 @@ struct MangasListViewSecond: View {
                         }
                     }
                     .navigationTitle("Lista de Mangas")
+                    .searchable(text: $mangasVM.searchBarText, prompt: "Buscar un Manga")
+                    .onChange(of: mangasVM.searchBarText) {
+                        _, _ in
+                        timer?.invalidate()
+                        timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) {
+                            _ in
+                            Task {
+                                await mangasVM.searchMangaContains()
+                            }
+                        }
+                    }
                 }
             }
         }
