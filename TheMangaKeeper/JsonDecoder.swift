@@ -21,10 +21,11 @@ func getJSON<JSON: Codable>(request: URLRequest, type: JSON.Type) async throws -
         do {
             return try decoder.decode(type .self, from: data)
         } catch {
-            print("Error de paseo:\(error) ")
+            print("Error de paseo JSON:\(error) ")
             throw NetworkErrors.parseJson(error)
         }
     } else {
+        print("Error en red \(response.statusCode)")
         throw NetworkErrors.badStatusCode(response.statusCode)
     }
 }

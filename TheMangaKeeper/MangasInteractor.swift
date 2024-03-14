@@ -7,6 +7,13 @@
 
 import Foundation
 
+struct MangasInteractor: MangasInteractorProtocol {
+    
+    let urlBundle = Bundle.main.url(forResource: "TestLocalMangas", withExtension: "json")!
+    let docURL = URL.documentsDirectory.appending(path: "mangasSaved.json")
+    
+}
+
 protocol MangasInteractorProtocol {
     var  docURL: URL { get }
     var  urlBundle : URL { get }
@@ -43,12 +50,6 @@ extension MangasInteractorProtocol {
     
 }
 
-struct MangasInteractor: MangasInteractorProtocol {
-    
-    let urlBundle = Bundle.main.url(forResource: "TestLocalMangas", withExtension: "json")!
-    
-    let docURL = URL.documentsDirectory.appending(path: "mangasSaved.json")
-    
-}
+
 
 

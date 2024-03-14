@@ -33,6 +33,9 @@ struct MangasListView: View {
                 }
             }
             .navigationTitle("Lista de Mangas")
+            .alert("App Alert", isPresented: $mangasVM.showAlert) {} message: {
+                Text(mangasVM.errormenssage)
+            }
         }
     }
 }

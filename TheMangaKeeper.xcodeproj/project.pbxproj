@@ -110,9 +110,10 @@
 				914E53022B45B85D006270FA /* MangasTabBar.swift */,
 				916F9B322B2F96DE004F91D3 /* MangasListView.swift */,
 				917DBB5F2B4378F0005FFA42 /* MangasDetailView.swift */,
+				91126C632B9D26DC00B0973D /* MangasListViewSecond.swift */,
 				914E53042B460624006270FA /* MangasBestView.swift */,
 				91F88A5C2B49B85F005587BC /* MangasCollectionView.swift */,
-				91126C632B9D26DC00B0973D /* MangasListViewSecond.swift */,
+				91126C612B9D221300B0973D /* MangasCellViewSecond.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -172,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				910933042B324F5D005615A9 /* MangasCellView.swift */,
-				91126C612B9D221300B0973D /* MangasCellViewSecond.swift */,
 				91F9E1AC2B913931009B1A88 /* MangaCelGridView.swift */,
 				91126C652B9D2AC100B0973D /* StarRatingViewComponent.swift */,
 			);

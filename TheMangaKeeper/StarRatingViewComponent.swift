@@ -43,5 +43,5 @@ struct StarRatingViewComponent: View {
     }
 }
 #Preview {
-    StarRatingViewComponent(rating: 9)
+    StarRatingViewComponent(rating: 4)
 }

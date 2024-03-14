@@ -41,7 +41,7 @@ struct MangasCellViewSecond: View {
                             }
                             
                             Text("Estado: \(manga.status.statusDescripcion)")
-                            Text(manga.scoreFormateado)
+                            //Text(manga.scoreFormateado)
                             StarRatingViewComponent(rating: Int(manga.score))
                             
                         }

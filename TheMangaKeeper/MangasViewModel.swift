@@ -10,6 +10,8 @@ import Foundation
 final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
     @Published var isLoading = false
+    @Published var showAlert = false
+    @Published var errormenssage = ""
     var currentPage = 1
     
     let mangaInteractor: MangasInteractorProtocol
@@ -30,11 +32,13 @@ final class MangasViewModel: ObservableObject {
             await MainActor.run {
                 mangas += manga
                 
-                print(currentPage)
-                print(manga.count)
             }
         }
         catch {
+            await MainActor.run {
+                self.errormenssage = "\(error)"
+                self.showAlert.toggle()
+            }
             print("Este error desde el getMangas: \(error)")
         }
     }

@@ -37,10 +37,10 @@ struct MangasDetailView: View {
                        HStack {
                            Text("Puntuacion: \(manga.scoreFormateado)")
                                .bold()
-                           // Aquí podrías agregar el componente de estrellas más tarde
+                           // componente de las estrellas??
                        }
 
-                       Text("Generos: \(manga.genres.map { $0.genre }.joined(separator: ", "))")
+                       Text("Generos: \(manga.genres.map { $0.id }.joined(separator: ", "))")
                        Text("Demographic: \(manga.demographics.map { $0.demographic }.joined(separator: ", "))")
 
                        Text("Synopsis")
@@ -60,5 +60,5 @@ struct MangasDetailView: View {
 
 #Preview {
     MangasDetailView(manga: .testManga)
-        //.environmentObject(MangasViewModel.localTestMangas)
+        .environmentObject(MangasViewModel.localTestMangas)
 }

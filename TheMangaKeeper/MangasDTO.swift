@@ -24,7 +24,7 @@ struct Items: Codable {
     let endDate: Date?
     let demographics: [Demographic]
     let volumes: Int?
-    let genres: [Genre]
+    let genres: [GenreDTO]
     let title: String
     let sypnosis: String?
     let status: Status
@@ -59,10 +59,37 @@ struct Demographic: Codable {
     let id, demographic: String
 }
 
-
-struct Genre: Codable {
-    let genre, id: String
+// hay que cambiar el nombre a genreDTO para que no de errores
+struct GenreDTO: Codable, Hashable {
+    let id: String
+    let genre: Genre
 }
+enum Genre: String, Codable {
+    var id: Self { self }
+    case action = "Action"
+    case adventure = "Adventure"
+    case awardWinning = "Award Winning"
+    case drama = "Drama"
+    case fantasy = "Fantasy"
+    case horror = "Horror"
+    case supernatural = "Supernatural"
+    case mystery = "Mystery"
+    case sliceOfLife = "Slice of Life"
+    case comedy = "Comedy"
+    case sciFi = "Sci-Fi"
+    case suspense = "Suspense"
+    case sports = "Sports"
+    case ecchi = "Ecchi"
+    case romance = "Romance"
+    case girlsLove = "Girls Love"
+    case boysLove = "Boys Love"
+    case gourmet = "Gourmet"
+    case erotica = "Erotica"
+    case hentai = "Hentai"
+    case avantGarde = "Avant Garde"
+}
+
+
 
 enum Status: String, Codable {
     case currentlyPublishing = "currently_publishing"

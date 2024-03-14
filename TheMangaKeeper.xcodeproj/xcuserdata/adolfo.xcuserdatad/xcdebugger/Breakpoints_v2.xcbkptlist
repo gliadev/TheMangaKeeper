@@ -46,8 +46,8 @@
             filePath = "TheMangaKeeper/TheMangaKeeperApp.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "TheMangaKeeper/TheMangaKeeperApp.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -79,8 +79,7 @@
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "176">
+                  endingLineNumber = "27">
                </Location>
                <Location
                   uuid = "5AE2E9C5-3034-4872-9147-EF79DCD05571 - c87f61e1e760c15a"
@@ -94,8 +93,7 @@
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "268">
+                  endingLineNumber = "28">
                </Location>
             </Locations>
          </BreakpointContent>
