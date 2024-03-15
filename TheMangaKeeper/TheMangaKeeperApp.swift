@@ -11,7 +11,9 @@
 // ✅ TODO: Persistencia de los favoritos de mi coleccion en el interactos un json.
 // ✅ TODO: los datos en local para probar no termina de funcionar
 // ✅ TODO: Paginacion
-// 🚨 TDOO: Busquedas
+
+// 🚨 TODO: error nw_connection_add_timestamp_locked_on_nw_queue [C2] al cargar mangas
+// 🚨 TODO: Busquedas
 
 
 

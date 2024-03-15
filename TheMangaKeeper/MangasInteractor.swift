@@ -37,17 +37,13 @@ extension MangasInteractorProtocol {
     func loadMangasCollection() throws -> [Manga] {
         let url = docURL
         guard FileManager.default.fileExists(atPath: url.path) else { return [] }
-        
         let data = try Data(contentsOf: url)
-        
-        
         let mangas = try JSONDecoder().decode([Manga].self, from: data)
         return mangas
     }
     
     // funcion para guardar los que tenemos en la coleccion
     func saveMangasCollection(mangas: [Manga]) throws {
-        
         let data = try JSONEncoder().encode(mangas)
         try data.write(to: docURL, options: .atomic)
     }

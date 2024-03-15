@@ -36,21 +36,14 @@ extension URLRequest {
     //    }
     
     // V2 revisar
-    static func getMoreMangas(url: URL, page: Int, per: Int = 25, contains: String? = nil) -> URLRequest {
+    static func getMoreMangas(url: URL, page: Int, per: Int = 35, contains: String? = nil) -> URLRequest {
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
-        
-
         var queryItems = [
             URLQueryItem(name: "page", value: String(page)),
-            URLQueryItem(name: "per", value: String(per))
-        ]
+            URLQueryItem(name: "per", value: String(per))]
         
-        
-        if let contains = contains, !contains.isEmpty {
-            
-            queryItems.append(URLQueryItem(name: "search", value: contains))
+        if let contains = contains, !contains.isEmpty { queryItems.append(URLQueryItem(name: "search", value: contains))
         }
-        
         components?.queryItems = queryItems
         
         guard let finalURL = components?.url else {
