@@ -66,36 +66,22 @@
             endingLineNumber = "30"
             landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "5AE2E9C5-3034-4872-9147-EF79DCD05571 - 1c1542ff7fc889f9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TheMangaKeeper.TheMangaKeeperApp.body.getter : some"
-                  moduleName = "TheMangaKeeper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adolfo/Developer/SDP2023/Proyecto%20Final/TheMangaKeeper/TheMangaKeeper/TheMangaKeeperApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27">
-               </Location>
-               <Location
-                  uuid = "5AE2E9C5-3034-4872-9147-EF79DCD05571 - c87f61e1e760c15a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in TheMangaKeeper.TheMangaKeeperApp.body.getter : some"
-                  moduleName = "TheMangaKeeper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adolfo/Developer/SDP2023/Proyecto%20Final/TheMangaKeeper/TheMangaKeeper/TheMangaKeeperApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "386B607E-6669-4E45-8956-7F789A530A48"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheMangaKeeper/TheMangaKeeperApp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
