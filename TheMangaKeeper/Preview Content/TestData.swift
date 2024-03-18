@@ -38,14 +38,16 @@ extension MangasViewModel {
 
 
 extension Manga {
-    static let testManga = Manga(themes: [],
+    static let testManga = Manga(themes: [Theme(id: "ñlijghq", theme: .combatSports),
+                                          Theme(id: "piripi", theme: .delinquents),
+                                          Theme(id: "poropo", theme: .detective)],
                                  endDate: Date.now,
-                                 demographics: [], volumes: 6,
+                                 demographics: [], 
+                                 volumes: 6,
                                  genres: [
                                     Genres(id: "4C13067F-96FF-4F14-A1C0-B33215F24E0B", genre: .awardWinning),
                                     Genres(id: "4312867C-1359-494A-AC46-BADFD2E1D4CD", genre: .drama),
-                                    Genres(id: "97C8609D-856C-419E-A4ED-E13A5C292663", genre: .mystery)
-                                 ],
+                                    Genres(id: "97C8609D-856C-419E-A4ED-E13A5C292663", genre: .mystery)],
                                  title: "Patata",
                                  sypnosis: "En el vibrante mundo de Vegetalia, Patatín, una patata valiente y curiosa, sueña con explorar más allá de su campo. Su vida da un giro inesperado cuando un misterioso visitante cae del cielo, revelando que Patatín no es una patata común, sino el elegido para salvar Vegetalia de la sombría amenaza de los Devoradores de Raíces",
                                  status: .currentlyPublishing,

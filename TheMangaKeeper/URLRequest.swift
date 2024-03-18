@@ -36,7 +36,7 @@ extension URLRequest {
     //    }
     
     // V2 revisar
-    static func getMoreMangas(url: URL, page: Int, per: Int = 35, contains: String? = nil) -> URLRequest {
+    static func getMoreMangas(url: URL, page: Int, per: Int = 29, contains: String? = nil) -> URLRequest {
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         var queryItems = [
             URLQueryItem(name: "page", value: String(page)),
