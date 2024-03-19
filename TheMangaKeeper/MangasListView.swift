@@ -1,48 +1,53 @@
 //
-//  ContentView.swift lo pasamos MangasListView
+//  MangasListViewSecond.swift
 //  TheMangaKeeper
 //
-//  Created by Adolfo on 17/12/23.
+//  Created by Adolfo on 10/3/24.
 //
 
 import SwiftUI
 
 struct MangasListView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
-    //let manga: Manga
-    
+    @State var timer: Timer?
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(mangasVM.mangas) { manga in
-                    NavigationLink(destination: MangasDetailView(manga: manga)) {
-                        MangasCellView(manga: manga)
-                            .onAppear {
-                                // si hay mas cargalos
-                                mangasVM.loadMoreMangaIfNeeded(manga: manga)
+                    List {
+                        ForEach(mangasVM.mangas) { manga in
+                            NavigationLink(destination: MangasDetailView(manga: manga)) {
+                                MangasCellView(manga: manga)
+                                    .onAppear {
+                                        mangasVM.loadMoreMangaIfNeeded(manga: manga)
+                                    }
                             }
-                        
                             .swipeActions(edge: .leading) {
                                 Button {
                                     mangasVM.toogleMangaFavorite(mangaID: manga.id)
                                 } label: {
-                                    Label(manga.isFavorite ? "Eliminar de Colección" : "Añadir a colección", systemImage: manga.isFavorite ? "trash" : "star.fill")
+                                    Label(manga.isFavorite ? "Eliminar de Colección" : "Añadir a colección", systemImage: manga.isFavorite ? "trash" : "heart.fill")
                                 }
-                            }                        .tint(manga.isFavorite ? .red : .yellow)
+                                .tint(manga.isFavorite ? .red : .yellow)
+                            }
+                        }
+                    }
+                    .navigationTitle("Lista de Mangas")
+                    .searchable(text: $mangasVM.searchBarText, prompt: "Buscar un Manga")
+                    .onChange(of: mangasVM.searchBarText) {
+                        _, _ in
+                        timer?.invalidate()
+                        timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) {
+                            _ in
+                            Task {
+                                await mangasVM.searchMangaContains()
+                            }
+                        }
                     }
                 }
             }
-            .navigationTitle("Lista de Mangas")
-            .alert("App Alert", isPresented: $mangasVM.showAlert) {} message: {
-                Text(mangasVM.errormenssage)
-            }
         }
-    }
-}
-
-
+    
 
 #Preview {
     MangasListView()
-        .environmentObject(MangasViewModel())
+        .environmentObject(MangasViewModel.localTestMangas)
 }
