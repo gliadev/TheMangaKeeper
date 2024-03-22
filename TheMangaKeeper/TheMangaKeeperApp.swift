@@ -11,14 +11,18 @@
 // ✅ TODO: Persistencia de los favoritos de mi coleccion en el interactos un json.
 // ✅ TODO: los datos en local para probar no termina de funcionar
 // ✅ TODO: Paginacion
+// 🚨 TODO: Pulir lo que tenemos hasta ahora que funcione fino diferentes pruebas sin errores se mentienen fav que este ok
+// 🚨 TODO: añadir un filtro ORDENAR ARRAY DE MANGAS POR ORDEN ALFABETICO
+// TODO: CREAR LAS TRES PROPIEDADES EN EL MODELO (GESTION COLEECION) BUSCAR MODO DESDE EL DETALLE DARLE UN VALOR
 
 // 🚨 TODO: error nw_connection_add_timestamp_locked_on_nw_queue [C2] al cargar mangas
+// 🚨 TODO: Error for queryMetaDataSync: 2
 // 🚨 TODO: Busquedas
 
 
 
 // ⁉️ TODO:  Para el grid hay tengo que crear un  configuracion para la vista antes y desde la vista de grid llamarla
-// ⁉️ TODO: preguntarle Alberto si es correcto si lo pongo en mi modelo no puedo modificarlo porque no tengo acceso a los casos si no tengo acceso a status
+
 
 
 

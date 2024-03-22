@@ -3,7 +3,7 @@
 //  TheMangaKeeper
 //
 //  Created by Adolfo on 6/1/24.
-
+// en el viemodel
 
 import SwiftUI
 
@@ -15,7 +15,7 @@ struct MangasCollectionView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(mangasVM.mangas.filter { $0.isFavorite }) { manga in
+                ForEach(mangasVM.mangasFavorites) { manga in
                     NavigationLink(destination: MangasDetailView(manga: manga)){
                         MangasCellView(manga: manga)
                     }

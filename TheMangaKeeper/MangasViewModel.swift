@@ -9,6 +9,7 @@ import Foundation
 
 final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
+    @Published var mangasFavorites: [Manga] = []
     @Published var isLoading = false
     @Published var showAlert = false
     @Published var errormenssage = ""
@@ -69,6 +70,8 @@ final class MangasViewModel: ObservableObject {
     func toogleMangaFavorite(mangaID: Int){
         if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
             mangas[index].isFavorite.toggle()
+            let manga = mangas[index]
+            mangasFavorites.append(manga)
             saveFavorites()
         }
     }
@@ -76,7 +79,7 @@ final class MangasViewModel: ObservableObject {
     // guardar coleccion de mis mangas
     func saveFavorites() {
         do {
-            let favorites = mangas.filter { $0.isFavorite }
+            let favorites = mangasFavorites
             try mangaInteractor.saveMangasCollection(mangas: favorites)
         } catch {
             print("Error al guardar los mangas favoritos: \(error)")
@@ -88,11 +91,13 @@ final class MangasViewModel: ObservableObject {
         do {
             let loadedFavorites = try mangaInteractor.loadMangasCollection()
             await MainActor.run {
-                for loadedFavorite in loadedFavorites {
-                    if let index = mangas.firstIndex(where: {$0.id == loadedFavorite.id}) {
-                        mangas[index].isFavorite = true
-                    }
-                }
+                mangasFavorites = loadedFavorites
+//                for loadedFavorite in loadedFavorites {
+//                    if let index = mangas.firstIndex(where: {$0.id == loadedFavorite.id}) {
+//                        mangas[index].isFavorite = true
+//                    }
+//                }
+                
             }
         } catch {
             print("Error al cargar la coleccion\(error)")
@@ -107,7 +112,7 @@ final class MangasViewModel: ObservableObject {
                     await MainActor.run {
                         mangas.removeAll()
                     }
-                }
+                } // cuando valla hacer una busqueda paso la currentpage a 0
                 let searchBar = try await mangaInteractor.searchMangasContains(page: currentPage, contains: searchBarText)
                 await MainActor.run {
                     mangas += searchBar

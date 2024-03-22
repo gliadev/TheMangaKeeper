@@ -44,7 +44,10 @@ extension MangasInteractorProtocol {
     
     // funcion para guardar los que tenemos en la coleccion
     func saveMangasCollection(mangas: [Manga]) throws {
-        let data = try JSONEncoder().encode(mangas)
+        print(docURL)
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        let data = try encoder.encode(mangas)
         try data.write(to: docURL, options: .atomic)
     }
     

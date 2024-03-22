@@ -26,7 +26,7 @@ struct MangasDetailView: View {
                            .font(.title)
                            .fontWeight(.bold)
 
-                       Text(manga.titleJapanese ?? "")
+                       Text(manga.titleJapanese ?? "No Japonese Title")
                            .font(.title3)
                            .foregroundColor(.secondary)
 
@@ -36,7 +36,7 @@ struct MangasDetailView: View {
 
                        HStack {
                            Text("Puntuacion: \(manga.scoreFormateado)")
-                               .bold()
+                        .bold()
                            // componente de las estrellas??
                        }
 
@@ -45,7 +45,7 @@ struct MangasDetailView: View {
 
                        Text("Synopsis")
                            .font(.headline)
-                       Text(manga.sypnosis!)
+                       Text(manga.sypnosis ?? "No Synopsis disponible")
                            //.lineLimit(5)
                            .onTapGesture {
                             // para expandir la sinopsis, no funciona aun
