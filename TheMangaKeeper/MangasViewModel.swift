@@ -113,7 +113,7 @@ final class MangasViewModel: ObservableObject {
                         mangas.removeAll()
                     }
                 } // cuando valla hacer una busqueda paso la currentpage a 0
-                let searchBar = try await mangaInteractor.searchMangasContains(page: currentPage, contains: searchBarText)
+                let searchBar = try await mangaInteractor.searchMangasContains(page: 0, contains: searchBarText)
                 await MainActor.run {
                     mangas += searchBar
                 }

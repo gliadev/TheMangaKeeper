@@ -11,7 +11,7 @@
 // ✅ TODO: Persistencia de los favoritos de mi coleccion en el interactos un json.
 // ✅ TODO: los datos en local para probar no termina de funcionar
 // ✅ TODO: Paginacion
-// 🚨 TODO: Pulir lo que tenemos hasta ahora que funcione fino diferentes pruebas sin errores se mentienen fav que este ok
+// 🚨 TODO: Pulir lo que tenemos hasta ahora que funcione fino diferentes pruebas sin errores se mentienen fav que este ok, se dupblican los mangas de la coleeccion, confirmacion por mensaje para eliminar un manga.
 // 🚨 TODO: añadir un filtro ORDENAR ARRAY DE MANGAS POR ORDEN ALFABETICO
 // TODO: CREAR LAS TRES PROPIEDADES EN EL MODELO (GESTION COLEECION) BUSCAR MODO DESDE EL DETALLE DARLE UN VALOR
 
