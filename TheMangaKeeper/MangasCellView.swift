@@ -51,20 +51,20 @@ struct MangasCellView: View {
                     .background(Color(.secondarySystemBackground))
                     .cornerRadius(12)
 
-                    if manga.isFavorite {
-                        Button(action: {
-                            mangasVM.toogleMangaFavorite(mangaID: manga.id)
-                        }) {
-                            Image(systemName: "heart.fill")
-                                .padding(8)
-                                .foregroundColor(.red)
-                                .background(Color.white.opacity(0.9))
-                                .clipShape(Circle())
-                                .shadow(radius: 3)
-                        }
-                        .padding(.top, 10)
-                        .padding(.trailing, 10)
-                    }
+//                    if manga.isFavorite {
+//                        Button(action: {
+//                            mangasVM.toogleMangaFavorite(mangaID: manga.id)
+//                        }) {
+//                            Image(systemName: "heart.fill")
+//                                .padding(8)
+//                                .foregroundColor(.red)
+//                                .background(Color.white.opacity(0.9))
+//                                .clipShape(Circle())
+//                                .shadow(radius: 3)
+//                        }
+//                        .padding(.top, 10)
+//                        .padding(.trailing, 10)
+//                    }
                 }
             }
         }

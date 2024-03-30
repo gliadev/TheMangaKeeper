@@ -11,7 +11,7 @@ struct MangasCollectionView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
     //let manga: Manga
     
-    
+     
     var body: some View {
         NavigationStack {
             List {

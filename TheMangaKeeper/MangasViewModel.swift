@@ -62,9 +62,11 @@ final class MangasViewModel: ObservableObject {
     
     // eliminar magna de coleccion
     func deleteManga(manga: Manga){
-        mangas.removeAll(where: {$0.id == manga.id})
+        mangasFavorites.removeAll(where: { $0.id == manga.id })
+        //saveFavorites()
+        //mangas.removeAll(where: {$0.id == manga.id})
     }
-    
+     
     
     // añadir manga a coleccion
     func toogleMangaFavorite(mangaID: Int){

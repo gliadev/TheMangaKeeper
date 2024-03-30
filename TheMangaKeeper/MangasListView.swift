@@ -18,7 +18,7 @@ struct MangasListView: View {
                                 MangasCellView(manga: manga)
                                     .onAppear {
                                         mangasVM.loadMoreMangaIfNeeded(manga: manga)
-                                    }
+                                     }
                             }
                             .swipeActions(edge: .leading) {
                                 Button {
