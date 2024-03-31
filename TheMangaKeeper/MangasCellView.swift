@@ -51,7 +51,7 @@ struct MangasCellView: View {
                     .background(Color(.secondarySystemBackground))
                     .cornerRadius(12)
 
-//                    if manga.isFavorite {
+//                    if showFavoriteButton {
 //                        Button(action: {
 //                            mangasVM.toogleMangaFavorite(mangaID: manga.id)
 //                        }) {

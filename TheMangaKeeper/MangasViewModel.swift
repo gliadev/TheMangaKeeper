@@ -10,8 +10,11 @@ import Foundation
 final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
     @Published var mangasFavorites: [Manga] = []
+    @Published var mangaToDelete: Manga?
     @Published var isLoading = false
     @Published var showAlert = false
+    @Published var duplicateMangaAlert = false
+    @Published var deleteMangaAlertConfirmation = false
     @Published var errormenssage = ""
     @Published var searchBarText = ""
     var currentPage = 1
@@ -61,21 +64,32 @@ final class MangasViewModel: ObservableObject {
     }
     
     // eliminar magna de coleccion
-    func deleteManga(manga: Manga){
-        mangasFavorites.removeAll(where: { $0.id == manga.id })
-        //saveFavorites()
-        //mangas.removeAll(where: {$0.id == manga.id})
+    func deleteManga(manga: Manga) async{
+        mangas.removeAll(where: {$0.id == manga.id})
+        saveFavorites()
+        await loadFavorites()
+        
     }
      
     
     // añadir manga a coleccion
     func toogleMangaFavorite(mangaID: Int){
-        if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
+        guard let index = mangas.firstIndex(where: { $0.id == mangaID }) else { return }
+        
+        if mangasFavorites.contains(where: { $0.id == mangaID }) {
+            duplicateMangaAlert = true
+        } else {
             mangas[index].isFavorite.toggle()
             let manga = mangas[index]
             mangasFavorites.append(manga)
             saveFavorites()
         }
+//        if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
+//            mangas[index].isFavorite.toggle()
+//            let manga = mangas[index]
+//            mangasFavorites.append(manga)
+//            saveFavorites()
+//        }
     }
     
     // guardar coleccion de mis mangas
