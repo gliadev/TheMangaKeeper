@@ -30,6 +30,7 @@
 		919237552B30FA5D0031C7CE /* Manga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919237542B30FA5D0031C7CE /* Manga.swift */; };
 		9194DDE42B333C720069D889 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194DDE32B333C720069D889 /* TestData.swift */; };
 		91AB0A152BA8F70300608176 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB0A142BA8F70300608176 /* FavoriteButton.swift */; };
+		91D8E8CA2BB9B74300905657 /* MangaUserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E8C92BB9B74300905657 /* MangaUserDetailView.swift */; };
 		91DB26F52B30A41900D78DBE /* MangasDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DB26F42B30A41900D78DBE /* MangasDTO.swift */; };
 		91F88A5D2B49B85F005587BC /* MangasCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F88A5C2B49B85F005587BC /* MangasCollectionView.swift */; };
 		91F9E1AB2B90B5A0009B1A88 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9E1AA2B90B5A0009B1A88 /* DateFormatter.swift */; };
@@ -61,6 +62,7 @@
 		919237542B30FA5D0031C7CE /* Manga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga.swift; sourceTree = "<group>"; };
 		9194DDE32B333C720069D889 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		91AB0A142BA8F70300608176 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		91D8E8C92BB9B74300905657 /* MangaUserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaUserDetailView.swift; sourceTree = "<group>"; };
 		91DB26F42B30A41900D78DBE /* MangasDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangasDTO.swift; sourceTree = "<group>"; };
 		91F88A5C2B49B85F005587BC /* MangasCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangasCollectionView.swift; sourceTree = "<group>"; };
 		91F9E1AA2B90B5A0009B1A88 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				91126C612B9D221300B0973D /* MangasCellView.swift */,
 				91126C632B9D26DC00B0973D /* MangasListView.swift */,
 				917DBB5F2B4378F0005FFA42 /* MangasDetailView.swift */,
+				91D8E8C92BB9B74300905657 /* MangaUserDetailView.swift */,
 				91F9E1AC2B913931009B1A88 /* MangaCelGridView.swift */,
 				91F88A5C2B49B85F005587BC /* MangasCollectionView.swift */,
 				914E53042B460624006270FA /* MangasBestView.swift */,
@@ -279,6 +282,7 @@
 				910932FA2B31ECA1005615A9 /* JsonDecoder.swift in Sources */,
 				91F9E1AB2B90B5A0009B1A88 /* DateFormatter.swift in Sources */,
 				91F9E1AD2B913931009B1A88 /* MangaCelGridView.swift in Sources */,
+				91D8E8CA2BB9B74300905657 /* MangaUserDetailView.swift in Sources */,
 				9194DDE42B333C720069D889 /* TestData.swift in Sources */,
 				91F88A5D2B49B85F005587BC /* MangasCollectionView.swift in Sources */,
 				910932F82B31E86A005615A9 /* URLSession.swift in Sources */,

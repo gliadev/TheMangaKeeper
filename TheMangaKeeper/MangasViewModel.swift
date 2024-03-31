@@ -145,6 +145,10 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
+// funcion para el filtro y ordenar alfabeticamente
+    func mangasAlphabetic(){
+        mangas.sort { $0.title < $1.title }
+    }
     
 }
 

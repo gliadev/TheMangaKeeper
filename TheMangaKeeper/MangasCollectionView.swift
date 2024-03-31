@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MangasCollectionView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
+    @State var showDeleteConfirmation = false
     //let manga: Manga
     
      
@@ -37,7 +38,7 @@ struct MangasCollectionView: View {
 
 #Preview {
     MangasCollectionView()
-        .environmentObject(MangasViewModel.localTestMangas)
+        .environmentObject(MangasViewModel())
 }
 
 /*
