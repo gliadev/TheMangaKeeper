@@ -31,9 +31,9 @@ struct MangasListView: View {
                            }) {
                                Image(systemName: "arrow.up.arrow.down")
                                    .font(.body)
-                                   .foregroundStyle(.white)
+                                   .foregroundStyle(.red)
                                    .padding(8)
-                                   .background(Circle().fill(Color.blue))
+                                   //.background(Circle().fill(Color.blue))
                                    .frame(width: 36, height: 36, alignment: .center)
                            }
                            //.padding(.leading, 8)

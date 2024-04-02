@@ -11,7 +11,6 @@ final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
     @Published var mangasFavorites: [Manga] = []
     @Published var mangaToDelete: Manga?
-    @Published var isLoading = false
     @Published var showAlert = false
     @Published var duplicateMangaAlert = false
     @Published var deleteMangaAlertConfirmation = false
