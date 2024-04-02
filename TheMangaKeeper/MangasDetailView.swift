@@ -26,7 +26,7 @@ struct MangasDetailView: View {
                            .font(.title)
                            .fontWeight(.bold)
 
-                       Text(manga.titleJapanese ?? "No Japonese Title")
+                       Text(manga.titleJapanese ?? "")
                            .font(.title3)
                            .foregroundColor(.secondary)
 
@@ -39,6 +39,7 @@ struct MangasDetailView: View {
                         .bold()
                            // componente de las estrellas??
                        }
+                       Text("\(String(describing: manga.volumes))")
 
                        Text("Generos: \(manga.genres.map { $0.genre.rawValue }.joined(separator: ", "))")
                        Text("Demographic: \(manga.demographics.map { $0.demographic }.joined(separator: ", "))")

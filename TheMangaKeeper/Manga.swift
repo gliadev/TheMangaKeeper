@@ -30,6 +30,8 @@ struct Manga: Identifiable, Decodable, Encodable {
     var isFavorite: Bool
     
     
+    
+    
     // para dar formato al mainPicture y eliminar el \ del principio
     //    var mainPictureFormateada: String {
     //        print(mainPicture)
