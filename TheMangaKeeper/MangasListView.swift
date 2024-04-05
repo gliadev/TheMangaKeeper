@@ -29,7 +29,7 @@ struct MangasListView: View {
                            Button(action: {
                                mangasVM.mangasAlphabetic()
                            }) {
-                               Image(systemName: "arrow.up.arrow.down")
+                               Image(systemName: "textformat.abc")
                                    .font(.body)
                                    .foregroundStyle(.red)
                                    .padding(8)
@@ -59,7 +59,7 @@ struct MangasListView: View {
                        }
                        .navigationTitle("Lista de Mangas")
                    }
-               }
+               } // modificar la alert
                .alert(isPresented: $mangasVM.duplicateMangaAlert) {
                    Alert(title: Text("Ya tienes este Manga en tu coleccion"), message: Text(mangasVM.errormenssage), dismissButton: .default(Text("OK")))
                }

@@ -11,13 +11,28 @@
 // ✅ TODO: Persistencia de los favoritos de mi coleccion en el interactos un json.
 // ✅ TODO: los datos en local para probar no termina de funcionar
 // ✅ TODO: Paginacion
-// 🚨 TODO: Pulir lo que tenemos hasta ahora que funcione fino diferentes pruebas sin errores se mentienen fav que este ok, se dupblican los mangas de la coleeccion, confirmacion por mensaje para eliminar un manga.
-// 🚨 TODO: añadir un filtro ORDENAR ARRAY DE MANGAS POR ORDEN ALFABETICO
+// ✅ TODO: Busqueda
+// ✅ TODO: añadir un filtro ORDENAR ARRAY DE MANGAS POR ORDEN ALFABETICO
+
+
+// 🚨 TODO: pulir bien las vistas antes de avanzar, empezar hacer bien la vista de grid.
+//          controlar cuando reinicias la app y seleccionas un manga que ya esta en tu coleccion te da opcion de agregarlo
+//          pero no lo agrega si no que lo borra, tengo que controlar mi flujo de ejecucion de los datos
+//
+//          sacar al boton de filtrado de la barra de busqueda y revisar bien como los muestra
+//
+//          revisar la funcion toogle intentar sacar un poco el codigo fuera por ejemplo checkduplicate
+//          revisar el didSet
+
+
+
+
+
 // TODO: CREAR LAS TRES PROPIEDADES EN EL MODELO (GESTION COLEECION) BUSCAR MODO DESDE EL DETALLE DARLE UN VALOR
 
 // 🚨 TODO: error nw_connection_add_timestamp_locked_on_nw_queue [C2] al cargar mangas
 // 🚨 TODO: Error for queryMetaDataSync: 2
-// 🚨 TODO: Busquedas
+
 
 
 

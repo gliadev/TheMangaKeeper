@@ -9,7 +9,11 @@ import Foundation
 
 final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
-    @Published var mangasFavorites: [Manga] = []
+    @Published var mangasFavorites: [Manga] = [] {
+        didSet{
+            saveFavorites()
+        }
+    }
     @Published var mangaToDelete: Manga?
     @Published var showAlert = false
     @Published var duplicateMangaAlert = false
@@ -64,31 +68,58 @@ final class MangasViewModel: ObservableObject {
     
     // eliminar magna de coleccion
     func deleteManga(manga: Manga) async{
-        mangas.removeAll(where: {$0.id == manga.id})
-        saveFavorites()
+        mangasFavorites.removeAll(where: {$0.id == manga.id})
+        //mangas.removeAll(where: {$0.id == manga.id})
+        //saveFavorites()
         await loadFavorites()
         
     }
      
     
+    // metodo chechduplicate array de mi coleccion esta el magna que quiero añadir
+  //  func checkDu
+    
     // añadir manga a coleccion
     func toogleMangaFavorite(mangaID: Int){
-        guard let index = mangas.firstIndex(where: { $0.id == mangaID }) else { return }
+        if let index = mangasFavorites.firstIndex(where: { $0.id == mangaID }) {
+                // Manga ya está en favoritos, lo eliminamos de favoritos
         
-        if mangasFavorites.contains(where: { $0.id == mangaID }) {
-            duplicateMangaAlert = true
-        } else {
-            mangas[index].isFavorite.toggle()
-            let manga = mangas[index]
-            mangasFavorites.append(manga)
+                mangasFavorites.remove(at: index)
+                // Actualiza el estado isFavorite del manga en la lista general si es necesario
+                if let mainIndex = mangas.firstIndex(where: { $0.id == mangaID }) {
+                    mangas[mainIndex].isFavorite = false
+                }
+            } else {
+                // Intentamos añadir el manga a favoritos
+                if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
+                    if mangas[index].isFavorite {
+                        // El manga ya es favorito, mostrar alerta
+                        duplicateMangaAlert = true
+                    } else {
+                        // El manga no es favorito aún, lo añadimos a favoritos
+                        mangas[index].isFavorite.toggle() // Cambiamos el estado a favorito
+                        mangasFavorites.append(mangas[index])
+                    }
+                }
+            }
             saveFavorites()
-        }
-//        if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
+
+//        guard let index = mangas.firstIndex(where: { $0.id == mangaID }) else { return }
+//
+//        if mangasFavorites.contains(where: { $0.id == mangaID }) {
+//            duplicateMangaAlert = true
+//        } else {
 //            mangas[index].isFavorite.toggle()
 //            let manga = mangas[index]
 //            mangasFavorites.append(manga)
 //            saveFavorites()
 //        }
+////        if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
+////            mangas[index].isFavorite.toggle()
+////            let manga = mangas[index]
+////            mangasFavorites.append(manga)
+////            saveFavorites()
+////        }
     }
     
     // guardar coleccion de mis mangas
