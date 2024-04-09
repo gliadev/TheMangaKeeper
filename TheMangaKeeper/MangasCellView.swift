@@ -53,15 +53,6 @@ struct MangasCellView: View {
         }
         .padding(.vertical, 14)
         
-//        if manga.isFavorite {
-//            Image(systemName: "heart.fill")
-//                .foregroundColor(.red)
-//                .background(Color.white.opacity(0.9))
-//                .clipShape(Circle())
-//                .shadow(radius: 3)
-//                .padding(.all, 10)
-//                .position(x: 20, y: 20)
-//        }
     }
 }
 

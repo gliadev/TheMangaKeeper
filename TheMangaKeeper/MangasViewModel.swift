@@ -1,4 +1,3 @@
-//
 //  MangasViewModel.swift
 //  TheMangaKeeper
 //
@@ -181,7 +180,3 @@ final class MangasViewModel: ObservableObject {
     }
     
 }
-
-
-
-
