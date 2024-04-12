@@ -80,9 +80,7 @@ struct MangasListView: View {
     }
 }
 
-       
-
-   #Preview {
-       MangasListView()
-           .environmentObject(MangasViewModel())
-   }
+#Preview {
+    MangasListView()
+        .environmentObject(MangasViewModel())
+}
