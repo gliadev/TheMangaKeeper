@@ -41,23 +41,5 @@ struct MangasCollectionView: View {
         .environmentObject(MangasViewModel.localTestMangas)
 }
 
-/*
- NavigationStack {
- //ScrollView {
- //LazyVGrid(columns: gridItems,spacing: 20) {
- ForEach(mangasVM.mangas.filter { $0.isFavorite }) { manga in
- NavigationLink(destination: MangasDetailView(manga: manga)){
- MangasCellView(manga: manga)
- }
- }
- }
- }
- .navigationTitle("Mi Coleccion")
- .bold()
- }
- }
- }
- */
-
 
 
