@@ -16,19 +16,7 @@ struct MangasCellView: View {
                        .cornerRadius(12)
                        .shadow(color: .gray.opacity(0.5), radius: 3, x: 0, y: 2)
                    HStack(spacing: 16) {
-                       AsyncImage(url: URL(string: manga.mainPictureFormateada)) { image in
-                           image.resizable()
-                               .aspectRatio(contentMode: .fit)
-                               .frame(width: 100, height: 150)
-                               .cornerRadius(12)
-                               .shadow(radius: 3)
-                       } placeholder: {
-                           Image(systemName: "photo.fill")
-                               .resizable()
-                               .scaledToFit()
-                               .frame(width: 100, height: 150)
-                               .foregroundColor(.gray)
-                       }
+                       MangaCoverImage(manga: manga)
                        VStack(alignment: .leading, spacing: 4) {
                            Text(manga.title)
                                .font(.headline)

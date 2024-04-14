@@ -10,22 +10,18 @@ import SwiftUI
 struct MangasCollectionView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
     @State var showDeleteConfirmation = false
+    let itemFix = GridItem(.fixed(100), spacing: 20, alignment: .center)
+    let itemFlexible = GridItem(.flexible())
     //let manga: Manga
     
      
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(mangasVM.mangasFavorites) { manga in
-                    NavigationLink(destination: MangasDetailView(manga: manga)){
-                        MangasCellView(manga: manga)
-                    }
-                    .swipeActions(edge: .leading) {
-                        Button(role: .destructive) {
-                            mangasVM.toogleMangaFavorite(mangaID: manga.id)
-                        } label: {
-                            Label("Eliminar de Colección", systemImage: "trash")
-                        }
+        NavigationStack{
+            ScrollView {
+                LazyVGrid(columns: [itemFlexible, itemFlexible, itemFlexible]) {
+                    ForEach(mangasVM.mangasFavorites) {
+                        manga in
+                        MangaCelGridView(manga: manga)
                     }
                 }
             }

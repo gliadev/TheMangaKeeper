@@ -12,18 +12,16 @@ struct MangaCelGridView: View {
     let manga: Manga
     
     var body: some View {
-        
-            AsyncImage(url: URL(string: manga.mainPictureFormateada)){
-                image in image
-                    .image?.resizable()
-                    .scaledToFit()
-                    .frame(width: 200, height: 300)
-                    
-            
+        VStack {
+            MangaCoverImage(manga: manga)
+            Text(manga.title)
+            Text(manga.titleJapanese ?? "")
         }
+            
     }
 }
 
 #Preview {
     MangaCelGridView(manga: .testManga)
+        .environmentObject(MangasViewModel.localTestMangas)
 }
