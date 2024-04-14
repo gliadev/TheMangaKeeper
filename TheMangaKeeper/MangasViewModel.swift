@@ -5,7 +5,6 @@
 //
 
 import Foundation
-
 final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
     @Published var mangasFavorites: [Manga] = [] {
@@ -26,23 +25,26 @@ final class MangasViewModel: ObservableObject {
     init(mangaInteractor: MangasInteractorProtocol = MangasInteractor()) {
         self.mangaInteractor = mangaInteractor
         Task {
-            async let getMangas: () = await getMangas()
-            async let loadFavorites: () = await loadFavorites()
-            _ = await (getMangas, loadFavorites)
+            await getMangas()
+            await loadFavorites()
         }
     }
     
     // llamada a red
-    @MainActor
     func getMangas() async {
         do {
             print("Llamada de red")
             let manga = try await mangaInteractor.getMangas(page: currentPage)
-            mangas += manga
+            await MainActor.run {
+                mangas += manga
+                
+            }
         }
         catch {
-            self.errormenssage = "\(error)"
-            self.showAlert.toggle()
+            await MainActor.run {
+                self.errormenssage = "\(error)"
+                self.showAlert.toggle()
+            }
             print("Este error desde el getMangas: \(error)")
         }
     }
@@ -68,59 +70,54 @@ final class MangasViewModel: ObservableObject {
         //mangas.removeAll(where: {$0.id == manga.id})
         //saveFavorites()
         await loadFavorites()
+        
     }
-    
+     
     
     // metodo chechduplicate array de mi coleccion esta el magna que quiero añadir
-    //  func checkDu
-    
-    func isMangaFavorite(mangaId: Manga.ID) -> Bool {
-        mangasFavorites.contains {
-            $0.id == mangaId
-        }
-    }
+  //  func checkDu
     
     // añadir manga a coleccion
-    func toogleMangaFavorite(mangaID: Manga.ID){
+    func toogleMangaFavorite(mangaID: Int){
         if let index = mangasFavorites.firstIndex(where: { $0.id == mangaID }) {
-            // Manga ya está en favoritos, lo eliminamos de favoritos
-            
-            mangasFavorites.remove(at: index)
-            // Actualiza el estado isFavorite del manga en la lista general si es necesario
-            if let mainIndex = mangas.firstIndex(where: { $0.id == mangaID }) {
-                mangas[mainIndex].isFavorite = false
-            }
-        } else {
-            // Intentamos añadir el manga a favoritos
-            if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
-                if mangas[index].isFavorite {
-                    // El manga ya es favorito, mostrar alerta
-                    duplicateMangaAlert = true
-                } else {
-                    // El manga no es favorito aún, lo añadimos a favoritos
-                    mangas[index].isFavorite.toggle() // Cambiamos el estado a favorito
-                    mangasFavorites.append(mangas[index])
+                // Manga ya está en favoritos, lo eliminamos de favoritos
+        
+                mangasFavorites.remove(at: index)
+                // Actualiza el estado isFavorite del manga en la lista general si es necesario
+                if let mainIndex = mangas.firstIndex(where: { $0.id == mangaID }) {
+                    mangas[mainIndex].isFavorite = false
+                }
+            } else {
+                // Intentamos añadir el manga a favoritos
+                if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
+                    if mangas[index].isFavorite {
+                        // El manga ya es favorito, mostrar alerta
+                        duplicateMangaAlert = true
+                    } else {
+                        // El manga no es favorito aún, lo añadimos a favoritos
+                        mangas[index].isFavorite.toggle() // Cambiamos el estado a favorito
+                        mangasFavorites.append(mangas[index])
+                    }
                 }
             }
-        }
-        saveFavorites()
-        
-        //        guard let index = mangas.firstIndex(where: { $0.id == mangaID }) else { return }
-        //
-        //        if mangasFavorites.contains(where: { $0.id == mangaID }) {
-        //            duplicateMangaAlert = true
-        //        } else {
-        //            mangas[index].isFavorite.toggle()
-        //            let manga = mangas[index]
-        //            mangasFavorites.append(manga)
-        //            saveFavorites()
-        //        }
-        ////        if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
-        ////            mangas[index].isFavorite.toggle()
-        ////            let manga = mangas[index]
-        ////            mangasFavorites.append(manga)
-        ////            saveFavorites()
-        ////        }
+            saveFavorites()
+
+//        guard let index = mangas.firstIndex(where: { $0.id == mangaID }) else { return }
+//
+//        if mangasFavorites.contains(where: { $0.id == mangaID }) {
+//            duplicateMangaAlert = true
+//        } else {
+//            mangas[index].isFavorite.toggle()
+//            let manga = mangas[index]
+//            mangasFavorites.append(manga)
+//            saveFavorites()
+//        }
+////        if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
+////            mangas[index].isFavorite.toggle()
+////            let manga = mangas[index]
+////            mangasFavorites.append(manga)
+////            saveFavorites()
+////        }
     }
     
     // guardar coleccion de mis mangas
@@ -134,42 +131,49 @@ final class MangasViewModel: ObservableObject {
     }
     
     // cargar la coleccion
-    @MainActor
     func loadFavorites() async {
         do {
             let loadedFavorites = try mangaInteractor.loadMangasCollection()
-            mangasFavorites = loadedFavorites
-            //                for loadedFavorite in loadedFavorites {
-            //                    if let index = mangas.firstIndex(where: {$0.id == loadedFavorite.id}) {
-            //                        mangas[index].isFavorite = true
-            //                    }
-            //                }
+            await MainActor.run {
+                mangasFavorites = loadedFavorites
+//                for loadedFavorite in loadedFavorites {
+//                    if let index = mangas.firstIndex(where: {$0.id == loadedFavorite.id}) {
+//                        mangas[index].isFavorite = true
+//                    }
+//                }
+                
+            }
         } catch {
             print("Error al cargar la coleccion\(error)")
         }
     }
     
     // buscar mangas por algo "Patata"
-    @MainActor
-    func searchMangaContains(searchBarText: String) async {
+    func searchMangaContains() async {
         if !searchBarText.isEmpty {
             do {
-                let searchBar = try await mangaInteractor.searchMangasContains(page: 0, contains: searchBarText)
                 if currentPage == 1 {
-                    mangas.removeAll()
+                    await MainActor.run {
+                        mangas.removeAll()
+                    }
                 } // cuando valla hacer una busqueda paso la currentpage a 0
-                mangas += searchBar
+                let searchBar = try await mangaInteractor.searchMangasContains(page: 0, contains: searchBarText)
+                await MainActor.run {
+                    mangas += searchBar
+                }
             } catch {
                 print("Error desde la busqueda: \(error) \(errormenssage)")
             }
         } else {
-            mangas.removeAll()
-            currentPage = 1
+            await MainActor.run {
+                mangas.removeAll()
+                currentPage = 1
+            }
             await getMangas()
         }
     }
     
-    // funcion para el filtro y ordenar alfabeticamente
+// funcion para el filtro y ordenar alfabeticamente
     func mangasAlphabetic(){
         mangas.sort { $0.title < $1.title }
     }
