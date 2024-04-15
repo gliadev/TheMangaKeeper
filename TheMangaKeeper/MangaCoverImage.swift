@@ -11,9 +11,11 @@ struct MangaCoverImage: View {
     let manga: Manga
     var body: some View {
         AsyncImage(url: URL(string: manga.mainPictureFormateada)) { image in
-            image.resizable()
+            image
+                .resizable()
+                .scaledToFit()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 150)
+                .frame(width: 100)
                 .cornerRadius(12)
                 .shadow(radius: 3)
         } placeholder: {

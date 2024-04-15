@@ -14,9 +14,19 @@ struct MangaCelGridView: View {
     var body: some View {
         VStack {
             MangaCoverImage(manga: manga)
+                //.resizable()
+                .scaledToFit()
+                .frame(height: 120)
             Text(manga.title)
+                .lineLimit(1)
+                .font(.caption)
             Text(manga.titleJapanese ?? "")
+                .lineLimit(1)
+                .font(.caption2)
         }
+        .padding(4)
+        .background(Color.gray.opacity(0.3))
+        .clipShape(RoundedRectangle(cornerRadius: 8))
             
     }
 }
