@@ -32,6 +32,7 @@
 		919ABA572BCC526F00A3E09B /* MangaCoverImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919ABA562BCC526F00A3E09B /* MangaCoverImage.swift */; };
 		91AB0A152BA8F70300608176 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB0A142BA8F70300608176 /* FavoriteButton.swift */; };
 		91C78DAC2BCE690F0055B9BE /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C78DAB2BCE690F0055B9BE /* SearchBarView.swift */; };
+		91C78DAE2BCE9DEE0055B9BE /* MangasColectionButtoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C78DAD2BCE9DED0055B9BE /* MangasColectionButtoView.swift */; };
 		91DB26F52B30A41900D78DBE /* MangasDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DB26F42B30A41900D78DBE /* MangasDTO.swift */; };
 		91F88A5D2B49B85F005587BC /* MangasCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F88A5C2B49B85F005587BC /* MangasCollectionView.swift */; };
 		91F9E1AB2B90B5A0009B1A88 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9E1AA2B90B5A0009B1A88 /* DateFormatter.swift */; };
@@ -65,6 +66,7 @@
 		919ABA562BCC526F00A3E09B /* MangaCoverImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaCoverImage.swift; sourceTree = "<group>"; };
 		91AB0A142BA8F70300608176 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		91C78DAB2BCE690F0055B9BE /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		91C78DAD2BCE9DED0055B9BE /* MangasColectionButtoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangasColectionButtoView.swift; sourceTree = "<group>"; };
 		91DB26F42B30A41900D78DBE /* MangasDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangasDTO.swift; sourceTree = "<group>"; };
 		91F88A5C2B49B85F005587BC /* MangasCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangasCollectionView.swift; sourceTree = "<group>"; };
 		91F9E1AA2B90B5A0009B1A88 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				91AB0A142BA8F70300608176 /* FavoriteButton.swift */,
 				91126C652B9D2AC100B0973D /* StarRatingViewComponent.swift */,
 				91C78DAB2BCE690F0055B9BE /* SearchBarView.swift */,
+				91C78DAD2BCE9DED0055B9BE /* MangasColectionButtoView.swift */,
 			);
 			name = ViewComponents;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				91126C662B9D2AC100B0973D /* StarRatingViewComponent.swift in Sources */,
 				914E53072B4620AE006270FA /* BestMangas.swift in Sources */,
 				914E53052B460624006270FA /* MangasBestView.swift in Sources */,
+				91C78DAE2BCE9DEE0055B9BE /* MangasColectionButtoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

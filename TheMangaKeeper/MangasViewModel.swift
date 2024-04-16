@@ -67,57 +67,38 @@ final class MangasViewModel: ObservableObject {
     // eliminar magna de coleccion
     func deleteManga(manga: Manga) async{
         mangasFavorites.removeAll(where: {$0.id == manga.id})
-        //mangas.removeAll(where: {$0.id == manga.id})
-        //saveFavorites()
         await loadFavorites()
         
     }
-     
+    
     
     // metodo chechduplicate array de mi coleccion esta el magna que quiero añadir
-  //  func checkDu
+    //  func checkDu
     
     // añadir manga a coleccion
     func toogleMangaFavorite(mangaID: Int){
         if let index = mangasFavorites.firstIndex(where: { $0.id == mangaID }) {
-                // Manga ya está en favoritos, lo eliminamos de favoritos
-        
-                mangasFavorites.remove(at: index)
-                // Actualiza el estado isFavorite del manga en la lista general si es necesario
-                if let mainIndex = mangas.firstIndex(where: { $0.id == mangaID }) {
-                    mangas[mainIndex].isFavorite = false
-                }
-            } else {
-                // Intentamos añadir el manga a favoritos
-                if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
-                    if mangas[index].isFavorite {
-                        // El manga ya es favorito, mostrar alerta
-                        duplicateMangaAlert = true
-                    } else {
-                        // El manga no es favorito aún, lo añadimos a favoritos
-                        mangas[index].isFavorite.toggle() // Cambiamos el estado a favorito
-                        mangasFavorites.append(mangas[index])
-                    }
+            // Manga ya está en favoritos, lo eliminamos de favoritos
+            
+            mangasFavorites.remove(at: index)
+            // Actualiza el estado isFavorite del manga en la lista general si es necesario
+            if let mainIndex = mangas.firstIndex(where: { $0.id == mangaID }) {
+                mangas[mainIndex].isFavorite = false
+            }
+        } else {
+            // Intentamos añadir el manga a favoritos
+            if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
+                if mangas[index].isFavorite {
+                    // El manga ya es favorito, mostrar alerta
+                    duplicateMangaAlert = true
+                } else {
+                    // El manga no es favorito aún, lo añadimos a favoritos
+                    mangas[index].isFavorite.toggle() // Cambiamos el estado a favorito
+                    mangasFavorites.append(mangas[index])
                 }
             }
-            saveFavorites()
-
-//        guard let index = mangas.firstIndex(where: { $0.id == mangaID }) else { return }
-//
-//        if mangasFavorites.contains(where: { $0.id == mangaID }) {
-//            duplicateMangaAlert = true
-//        } else {
-//            mangas[index].isFavorite.toggle()
-//            let manga = mangas[index]
-//            mangasFavorites.append(manga)
-//            saveFavorites()
-//        }
-////        if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
-////            mangas[index].isFavorite.toggle()
-////            let manga = mangas[index]
-////            mangasFavorites.append(manga)
-////            saveFavorites()
-////        }
+        }
+        saveFavorites()
     }
     
     // guardar coleccion de mis mangas
@@ -136,11 +117,7 @@ final class MangasViewModel: ObservableObject {
             let loadedFavorites = try mangaInteractor.loadMangasCollection()
             await MainActor.run {
                 mangasFavorites = loadedFavorites
-//                for loadedFavorite in loadedFavorites {
-//                    if let index = mangas.firstIndex(where: {$0.id == loadedFavorite.id}) {
-//                        mangas[index].isFavorite = true
-//                    }
-//                }
+                
                 
             }
         } catch {
@@ -173,7 +150,7 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
-// funcion para el filtro y ordenar alfabeticamente
+    // funcion para el filtro y ordenar alfabeticamente
     func mangasAlphabetic(){
         mangas.sort { $0.title < $1.title }
     }
