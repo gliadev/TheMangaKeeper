@@ -9,7 +9,10 @@ final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
     @Published var mangasFavorites: [Manga] = [] {
         didSet{
-            saveFavorites()
+            Task {
+                saveFavorites()
+            }
+            
         }
     }
     @Published var mangaToDelete: Manga?
@@ -25,12 +28,14 @@ final class MangasViewModel: ObservableObject {
     init(mangaInteractor: MangasInteractorProtocol = MangasInteractor()) {
         self.mangaInteractor = mangaInteractor
         Task {
-            await getMangas()
-            await loadFavorites()
+            async let getMangas: () = await getMangas()
+            async let loadFavorites: () = await loadFavorites()
+            _ = await (getMangas, loadFavorites)
         }
     }
     
     // llamada a red
+    @MainActor
     func getMangas() async {
         do {
             print("Llamada de red")
@@ -112,6 +117,7 @@ final class MangasViewModel: ObservableObject {
     }
     
     // cargar la coleccion
+    @MainActor
     func loadFavorites() async {
         do {
             let loadedFavorites = try mangaInteractor.loadMangasCollection()
@@ -126,26 +132,21 @@ final class MangasViewModel: ObservableObject {
     }
     
     // buscar mangas por algo "Patata"
-    func searchMangaContains() async {
+    @MainActor
+    func searchMangaContains(searchBarText: String) async {
         if !searchBarText.isEmpty {
             do {
-                if currentPage == 1 {
-                    await MainActor.run {
-                        mangas.removeAll()
-                    }
-                } // cuando valla hacer una busqueda paso la currentpage a 0
                 let searchBar = try await mangaInteractor.searchMangasContains(page: 0, contains: searchBarText)
-                await MainActor.run {
-                    mangas += searchBar
-                }
+                if currentPage == 1 {
+                    mangas.removeAll()
+                } // cuando valla hacer una busqueda paso la currentpage a 0
+                mangas += searchBar
             } catch {
                 print("Error desde la busqueda: \(error) \(errormenssage)")
             }
         } else {
-            await MainActor.run {
-                mangas.removeAll()
-                currentPage = 1
-            }
+            mangas.removeAll()
+            currentPage = 1
             await getMangas()
         }
     }

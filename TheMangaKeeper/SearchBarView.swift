@@ -9,20 +9,25 @@ import SwiftUI
 
 struct SearchBarView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
-    @State var timer: Timer?
+    //@State var timer: Timer?
     var body: some View {
         VStack {
             TextField("Buscar un Manga", text: $mangasVM.searchBarText)
                 .textFieldStyle(.roundedBorder)
-                .padding()
-                .onChange(of: mangasVM.searchBarText) {
-                    timer?.invalidate()
-                    timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { _ in
-                        Task {
-                            await mangasVM.searchMangaContains()
-                        }
+                .onReceive(mangasVM
+                    .$searchBarText
+                    .delay(
+                        for: .seconds(0.4),
+                        scheduler: DispatchQueue.main,
+                        options: nil
+                    )
+                ) { text in
+                    guard !text.isEmpty else { return }
+                    Task {
+                        await mangasVM.searchMangaContains(searchBarText: text)
                     }
                 }
+                .frame(maxWidth: .infinity)
             HStack {
                 Button(action: {}) {
                     Image(systemName: "camera.filters")

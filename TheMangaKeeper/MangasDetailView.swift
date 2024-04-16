@@ -20,7 +20,11 @@ struct MangasDetailView: View {
                        } placeholder: {
                            Rectangle().foregroundColor(.gray)
                        }
-                       
+                       MangasColectionButtoView(manga: manga)
+                                           .buttonStyle(.borderedProminent)
+                                           .controlSize(.large)
+                                           .tint(manga.isFavorite ? .red : .blue)
+                                       
 
                        Text(manga.title)
                            .font(.title)
