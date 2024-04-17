@@ -11,7 +11,7 @@ final class MangasViewModel: ObservableObject {
     @Published var mangasFavorites: [Manga] = [] {
         didSet{
             Task {
-                saveFavorites()
+                await saveFavorites()
             }
             
         }
@@ -47,8 +47,8 @@ final class MangasViewModel: ObservableObject {
             }
         }
         catch {
-                self.errormenssage = "\(error)"
-                self.showAlert.toggle()
+            self.errormenssage = "\(error)"
+            self.showAlert.toggle()
             print("Este error desde el getMangas: \(error)")
         }
     }
@@ -68,18 +68,12 @@ final class MangasViewModel: ObservableObject {
         mangas.last?.id == manga.id
     }
     
-    // eliminar magna de coleccion
-    func deleteManga(manga: Manga) async{
-        mangasFavorites.removeAll(where: {$0.id == manga.id})
-        await loadFavorites()
-        
-    }
-    
     
     // metodo chechduplicate array de mi coleccion esta el magna que quiero añadir
     //  func checkDu
     
     // añadir manga a coleccion
+    @MainActor
     func toogleMangaFavorite(mangaID: Int){
         if let index = mangasFavorites.firstIndex(where: { $0.id == mangaID }) {
             // Manga ya está en favoritos, lo eliminamos de favoritos
@@ -101,18 +95,31 @@ final class MangasViewModel: ObservableObject {
                     mangasFavorites.append(mangas[index])
                 }
             }
+            Task {
+                saveFavorites()
+            }
         }
-        saveFavorites()
     }
     
     // guardar coleccion de mis mangas
+    @MainActor
     func saveFavorites() {
-        do {
-            let favorites = mangasFavorites
-            try mangaInteractor.saveMangasCollection(mangas: favorites)
-        } catch {
-            print("Error al guardar los mangas favoritos: \(error)")
+        Task {
+            do {
+                let favorites = mangasFavorites
+                try mangaInteractor.saveMangasCollection(mangas: favorites)
+            } catch {
+                print("Error al guardar los mangas favoritos: \(error)")
+            }
         }
+    }
+    
+    // eliminar magna de coleccion
+    @MainActor
+    func deleteManga(manga: Manga) async{
+        mangasFavorites.removeAll(where: {$0.id == manga.id})
+        await loadFavorites()
+        
     }
     
     // cargar la coleccion
