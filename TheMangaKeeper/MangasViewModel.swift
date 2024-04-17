@@ -74,53 +74,44 @@ final class MangasViewModel: ObservableObject {
     
     // añadir manga a coleccion
     @MainActor
-    func toogleMangaFavorite(mangaID: Int){
+    func toogleMangaFavorite(mangaID: Int) async {
         if let index = mangasFavorites.firstIndex(where: { $0.id == mangaID }) {
-            // Manga ya está en favoritos, lo eliminamos de favoritos
-            
-            mangasFavorites.remove(at: index)
-            // Actualiza el estado isFavorite del manga en la lista general si es necesario
-            if let mainIndex = mangas.firstIndex(where: { $0.id == mangaID }) {
-                mangas[mainIndex].isFavorite = false
-            }
-        } else {
-            // Intentamos añadir el manga a favoritos
-            if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
-                if mangas[index].isFavorite {
-                    // El manga ya es favorito, mostrar alerta
-                    duplicateMangaAlert = true
-                } else {
-                    // El manga no es favorito aún, lo añadimos a favoritos
-                    mangas[index].isFavorite.toggle() // Cambiamos el estado a favorito
-                    mangasFavorites.append(mangas[index])
+                // Manga ya está en favoritos, lo eliminamos
+                mangasFavorites.remove(at: index)
+                if let mainIndex = mangas.firstIndex(where: { $0.id == mangaID }) {
+                    mangas[mainIndex].isFavorite = false
                 }
+            } else if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
+                // Añadir a favoritos si no está ya
+                mangas[index].isFavorite = true
+                mangasFavorites.append(mangas[index])
             }
-            Task {
-                saveFavorites()
-            }
+        objectWillChange.send()
+                await saveFavorites()
         }
-    }
     
     // guardar coleccion de mis mangas
     @MainActor
-    func saveFavorites() {
-        Task {
+    func saveFavorites() async {
             do {
                 let favorites = mangasFavorites
                 try mangaInteractor.saveMangasCollection(mangas: favorites)
             } catch {
                 print("Error al guardar los mangas favoritos: \(error)")
             }
-        }
     }
     
     // eliminar magna de coleccion
     @MainActor
-    func deleteManga(manga: Manga) async{
-        mangasFavorites.removeAll(where: {$0.id == manga.id})
-        await loadFavorites()
-        
-    }
+    func deleteManga(mangaID: Int) async {
+        mangasFavorites.removeAll(where: {$0.id == mangaID})
+        mangas.indices.forEach { index in
+               if mangas[index].id == mangaID {
+                   mangas[index].isFavorite = false
+               }
+           }
+            await saveFavorites()
+       }
     
     // cargar la coleccion
     @MainActor
@@ -158,6 +149,26 @@ final class MangasViewModel: ObservableObject {
     // funcion para el filtro y ordenar alfabeticamente
     func mangasAlphabetic(){
         mangas.sort { $0.title < $1.title }
+    }
+    
+    // funcion para actualizar el estado de la coleccion de los mangas
+    func updateFavoriteStatus(for mangaID: Int, isFavorite: Bool) {
+        // Actualizar en la lista principal si es necesario
+        if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
+            mangas[index].isFavorite = isFavorite
+        }
+        // Actualizar en la lista de favoritos
+        if isFavorite {
+            if !mangasFavorites.contains(where: { $0.id == mangaID }) {
+                if let mangaToAdd = mangas.first(where: { $0.id == mangaID }) {
+                    mangasFavorites.append(mangaToAdd)
+                }
+            }
+        } else {
+            mangasFavorites.removeAll(where: { $0.id == mangaID })
+        }
+        // Notificar a SwiftUI que necesita actualizar las vistas
+        objectWillChange.send()
     }
     
 }
