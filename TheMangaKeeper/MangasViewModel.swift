@@ -7,6 +7,7 @@
 import Foundation
 final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
+    @Published var mangasUserCollection: [Manga] = []
     @Published var mangasFavorites: [Manga] = [] {
         didSet{
             Task {
@@ -46,10 +47,8 @@ final class MangasViewModel: ObservableObject {
             }
         }
         catch {
-            await MainActor.run {
                 self.errormenssage = "\(error)"
                 self.showAlert.toggle()
-            }
             print("Este error desde el getMangas: \(error)")
         }
     }
@@ -123,8 +122,6 @@ final class MangasViewModel: ObservableObject {
             let loadedFavorites = try mangaInteractor.loadMangasCollection()
             await MainActor.run {
                 mangasFavorites = loadedFavorites
-                
-                
             }
         } catch {
             print("Error al cargar la coleccion\(error)")

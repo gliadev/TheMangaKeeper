@@ -28,8 +28,6 @@ extension MangasInteractorProtocol {
     
     func getMangas(page: Int) async throws -> [Manga] {
         try await getJSON(request: .getMoreMangas(url: .listaMangasURL, page: page), type: MangasDTO.self).items.map(\.toPresentation)
-        
-        //try await getJSON(request: .getCustom(url: .listaMangasURL), type: //MangasDTO.self).items.map(\.toPresentation)
     }
     
     
