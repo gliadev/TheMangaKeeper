@@ -21,14 +21,6 @@ struct MangasListView: View {
                                     mangasVM.loadMoreMangaIfNeeded(manga: manga)
                                 }
                         }
-                        //                        .swipeActions(edge: .leading) {
-                        //                            Button {
-                        //                                mangasVM.toogleMangaFavorite(mangaID: manga.id)
-                        //                            } label: {
-                        //                                Label(manga.isFavorite ? "Eliminar de Colección" : "Añadir a colección", systemImage: manga.isFavorite ? "trash" : "heart.fill")
-                        //                            }
-                        //                            .tint(manga.isFavorite ? .red : .yellow)
-                        //                        }
                     }
                 }
                 .navigationTitle("Lista de Mangas")
