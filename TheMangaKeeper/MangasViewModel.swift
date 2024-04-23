@@ -152,6 +152,7 @@ final class MangasViewModel: ObservableObject {
     }
     
     // funcion para actualizar el estado de la coleccion de los mangas
+    @MainActor
     func updateFavoriteStatus(for mangaID: Int, isFavorite: Bool) {
         // Actualizar en la lista principal si es necesario
         if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
@@ -171,4 +172,24 @@ final class MangasViewModel: ObservableObject {
         objectWillChange.send()
     }
     
+    // funcion para cargar la coleccion de volumenes de la coleccion
+    func loadUserMangasVolumenCollection() async {
+        do {
+            let loadedMangas = try mangaInteractor.loadMangasCollection()
+            await MainActor.run {
+                self.mangasUserCollection = loadedMangas
+            }
+        } catch {
+            print("Error al cargar los volumenes de la coleccion: \(error)")
+        }
+    }
+    
+    // funcion para guardar la coleccion de los volumenes de la coleccion
+    func saveUserMangasVolumenCollection() async {
+            do {
+                try mangaInteractor.saveUserMangasVolumenCollection(mangas: mangasUserCollection)
+            } catch {
+                print("Error al guardar la colección de mangas del usuario: \(error)")
+            }
+        }
 }

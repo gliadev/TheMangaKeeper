@@ -15,7 +15,7 @@
 // ✅ TODO: añadir un filtro ORDENAR ARRAY DE MANGAS POR ORDEN ALFABETICO
 
 
-// 🚨 TODO: pulir bien las vistas antes de avanzar, empezar hacer bien la vista de grid.
+// ✅ TODO: pulir bien las vistas antes de avanzar, empezar hacer bien la vista de grid.
 //          controlar cuando reinicias la app y seleccionas un manga que ya esta en tu coleccion te da opcion de agregarlo
 //          pero no lo agrega si no que lo borra, tengo que controlar mi flujo de ejecucion de los datos
 //

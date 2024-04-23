@@ -10,16 +10,22 @@ import Foundation
 struct MangasInteractor: MangasInteractorProtocol {
     let urlBundle = Bundle.main.url(forResource: "TestLocalMangas", withExtension: "json")!
     let docURL = URL.documentsDirectory.appending(path: "mangasSaved.json")
+    let docURLUserCollectionManagement = URL.documentsDirectory.appending(path: "userMangasColectionManagement.json")
     
 }
 
 protocol MangasInteractorProtocol {
+    
     var  docURL: URL { get }
     var  urlBundle : URL { get }
+    var  docURLUserCollectionManagement: URL { get }
+    
     func getMangas(page: Int) async throws -> [Manga]
     func loadMangasCollection() throws -> [Manga]
     func saveMangasCollection(mangas: [Manga]) throws
     func searchMangasContains(page: Int, contains: String) async throws -> [Manga]
+    func saveUserMangasVolumenCollection(mangas: [Manga]) throws
+    func loadUserMangaVolumenCollection() throws -> [Manga]
     
     
 }
@@ -54,6 +60,20 @@ extension MangasInteractorProtocol {
         try await getJSON(request: .getMangasContains(url: .mangasSearchByContains, contains: contains, page: page), type: MangasDTO.self).items.map(\.toPresentation)
     }
     
+    // funcion para guardar la gestion de la coleccion
+    func saveUserMangasVolumenCollection(mangas: [Manga]) throws {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        let data = try encoder.encode(mangas)
+        try data.write(to: docURLUserCollectionManagement, options: .atomic)
+    }
+    
+    // funcion para cargar la gestion de la coleecion
+    func loadUserMangaVolumenCollection() throws -> [Manga] {
+        guard FileManager.default.fileExists(atPath: docURLUserCollectionManagement.path) else { return [] }
+        let data = try Data(contentsOf: docURLUserCollectionManagement)
+        return try JSONDecoder().decode([Manga].self, from: data)
+    }
     
     
 }

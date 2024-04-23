@@ -19,7 +19,7 @@ struct MangasCollectionView: View {
             if mangasVM.mangasFavorites.isEmpty {
                 VStack {
                     Text("No tienes mangas en tu colección.")
-                    Text("Vuelve a la lista y agrega un manga a tus favoritos.")
+                    Text("Vuelve a la lista y agrega un mangas a tus coleccion.")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }

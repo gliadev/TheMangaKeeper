@@ -24,6 +24,7 @@ struct MangasDetailView: View {
                                            .buttonStyle(.borderedProminent)
                                            .controlSize(.large)
                                            .tint(manga.isFavorite ? .red : .blue)
+                                           
                                        
 
                        Text(manga.title)

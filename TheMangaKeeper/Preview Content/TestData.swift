@@ -4,13 +4,13 @@
 //
 //  Created by Adolfo on 20/12/23.
 //
-
+ 
 import Foundation
 
 struct testMangasLocal: MangasInteractorProtocol {
     let urlBundle = Bundle.main.url(forResource: "TestLocalMangas", withExtension: "json")!
-    
     let docURL = URL.documentsDirectory.appending(path: "TestMangasSaved.json")
+    let docURLUserCollectionManagement = URL.documentsDirectory.appending(path: "TestUserMangasColectionManagement.json")
     
     func getMangas(page: Int) async throws -> [Manga] {
         //let dateFormater = DateFormatter()
@@ -30,6 +30,22 @@ struct testMangasLocal: MangasInteractorProtocol {
         let data = try Data(contentsOf: urlBundle)
         return try decoder.decode(MangasDTO.self, from: data).items.map(\.toPresentation)
     }
+    
+    // Función para guardar la colección de mangas del usuario pruebas
+       func saveUserMangasVolumenCollection(mangas: [Manga]) throws {
+           let encoder = JSONEncoder()
+           encoder.outputFormatting = .prettyPrinted
+           let data = try encoder.encode(mangas)
+           try data.write(to: docURLUserCollectionManagement, options: .atomic)
+       }
+
+       // Función para cargar la colección de mangas del usuario pruebas
+       func loadUserMangaVolumenCollection() throws -> [Manga] {
+           guard FileManager.default.fileExists(atPath: docURLUserCollectionManagement.path) else { return [] }
+           let data = try Data(contentsOf: docURLUserCollectionManagement)
+           return try JSONDecoder().decode([Manga].self, from: data)
+       }
+   
 }
 
 extension MangasViewModel {
