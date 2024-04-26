@@ -28,7 +28,9 @@ struct Manga: Identifiable, Decodable, Encodable {
     let url: String?
     let titleJapanese: String?
     var isFavorite: Bool
+   
     
+   
     
     // otra solucion no estaba viendo que tambien tenia que eliminar las "" de la url de la foto
     var mainPictureFormateada: String {
@@ -48,23 +50,7 @@ struct Manga: Identifiable, Decodable, Encodable {
     }
     
     // voy a intentar llevar el control de los que compro, leo y leido
-    struct UserMangaCollectionManagement: Codable, Identifiable {
-        let id: Int
-        var volumenOwned: Int
-        var volumenReading: Int
-        var volumenCompleted: Bool
-        
-    }
     
     
     
 }
-
-// para dar formato al mainPicture y eliminar el \ del principio
-//    var mainPictureFormateada: String {
-//        print(mainPicture)
-//        return mainPicture.replacingOccurrences(of: "\\", with: "")
-//    }
-// Tenia hecha esta pero me di cuenta imprimiendo la url que me la traia asi " " y encontre
-//https://developer.apple.com/documentation/foundation/nsstring/1412937-replacingoccurrences
-//https://developer.apple.com/documentation/swift/stringprotocol/trimmingcharacters(in:)

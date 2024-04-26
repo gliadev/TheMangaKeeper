@@ -7,7 +7,7 @@
 import Foundation
 final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
-    @Published var mangasUserCollection: [Manga] = []
+    @Published var mangasUserVolumenCollection: [Manga] = []
     @Published var mangasFavorites: [Manga] = [] {
         didSet{
             Task {
@@ -35,6 +35,7 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
+    // PETICIONES DE LOS MANGAS
     // llamada a red
     @MainActor
     func getMangas() async {
@@ -53,6 +54,8 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
+    // CARGA DEL SCROLL DE MAS MANGAS
+    
     // cargar mas mangas scroll infinito
     func loadMoreMangaIfNeeded(manga: Manga) {
         if isLastManga(manga: manga){
@@ -69,6 +72,9 @@ final class MangasViewModel: ObservableObject {
     }
     
     
+    
+// GESTION DE LA COLLECION PARA AÑADIR ELIMINAR A FAVORITOS
+    
     // metodo chechduplicate array de mi coleccion esta el magna que quiero añadir
     //  func checkDu
     
@@ -76,29 +82,29 @@ final class MangasViewModel: ObservableObject {
     @MainActor
     func toogleMangaFavorite(mangaID: Int) async {
         if let index = mangasFavorites.firstIndex(where: { $0.id == mangaID }) {
-                // Manga ya está en favoritos, lo eliminamos
-                mangasFavorites.remove(at: index)
-                if let mainIndex = mangas.firstIndex(where: { $0.id == mangaID }) {
-                    mangas[mainIndex].isFavorite = false
-                }
-            } else if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
-                // Añadir a favoritos si no está ya
-                mangas[index].isFavorite = true
-                mangasFavorites.append(mangas[index])
+            // Manga ya está en favoritos, lo eliminamos
+            mangasFavorites.remove(at: index)
+            if let mainIndex = mangas.firstIndex(where: { $0.id == mangaID }) {
+                mangas[mainIndex].isFavorite = false
             }
-        objectWillChange.send()
-                await saveFavorites()
+        } else if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
+            // Añadir a favoritos si no está ya
+            mangas[index].isFavorite = true
+            mangasFavorites.append(mangas[index])
         }
+        objectWillChange.send()
+        await saveFavorites()
+    }
     
     // guardar coleccion de mis mangas
     @MainActor
     func saveFavorites() async {
-            do {
-                let favorites = mangasFavorites
-                try mangaInteractor.saveMangasCollection(mangas: favorites)
-            } catch {
-                print("Error al guardar los mangas favoritos: \(error)")
-            }
+        do {
+            let favorites = mangasFavorites
+            try mangaInteractor.saveMangasCollection(mangas: favorites)
+        } catch {
+            print("Error al guardar los mangas favoritos: \(error)")
+        }
     }
     
     // eliminar magna de coleccion
@@ -106,12 +112,12 @@ final class MangasViewModel: ObservableObject {
     func deleteManga(mangaID: Int) async {
         mangasFavorites.removeAll(where: {$0.id == mangaID})
         mangas.indices.forEach { index in
-               if mangas[index].id == mangaID {
-                   mangas[index].isFavorite = false
-               }
-           }
-            await saveFavorites()
-       }
+            if mangas[index].id == mangaID {
+                mangas[index].isFavorite = false
+            }
+        }
+        await saveFavorites()
+    }
     
     // cargar la coleccion
     @MainActor
@@ -126,30 +132,7 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
-    // buscar mangas por algo "Patata"
-    @MainActor
-    func searchMangaContains(searchBarText: String) async {
-        if !searchBarText.isEmpty {
-            do {
-                let searchBar = try await mangaInteractor.searchMangasContains(page: 0, contains: searchBarText)
-                if currentPage == 1 {
-                    mangas.removeAll()
-                } // cuando valla hacer una busqueda paso la currentpage a 0
-                mangas += searchBar
-            } catch {
-                print("Error desde la busqueda: \(error) \(errormenssage)")
-            }
-        } else {
-            mangas.removeAll()
-            currentPage = 1
-            await getMangas()
-        }
-    }
     
-    // funcion para el filtro y ordenar alfabeticamente
-    func mangasAlphabetic(){
-        mangas.sort { $0.title < $1.title }
-    }
     
     // funcion para actualizar el estado de la coleccion de los mangas
     @MainActor
@@ -172,24 +155,44 @@ final class MangasViewModel: ObservableObject {
         objectWillChange.send()
     }
     
-    // funcion para cargar la coleccion de volumenes de la coleccion
-    func loadUserMangasVolumenCollection() async {
-        do {
-            let loadedMangas = try mangaInteractor.loadMangasCollection()
-            await MainActor.run {
-                self.mangasUserCollection = loadedMangas
+    
+    
+// BUSQUEDAS
+    
+    // buscar mangas por algo "Patata"
+    @MainActor
+    func searchMangaContains(searchBarText: String) async {
+        if !searchBarText.isEmpty {
+            do {
+                let searchBar = try await mangaInteractor.searchMangasContains(page: 0, contains: searchBarText)
+                if currentPage == 1 {
+                    mangas.removeAll()
+                } // cuando valla hacer una busqueda paso la currentpage a 0
+                mangas += searchBar
+            } catch {
+                print("Error desde la busqueda: \(error) \(errormenssage)")
             }
-        } catch {
-            print("Error al cargar los volumenes de la coleccion: \(error)")
+        } else {
+            mangas.removeAll()
+            currentPage = 1
+            await getMangas()
         }
     }
     
-    // funcion para guardar la coleccion de los volumenes de la coleccion
-    func saveUserMangasVolumenCollection() async {
-            do {
-                try mangaInteractor.saveUserMangasVolumenCollection(mangas: mangasUserCollection)
-            } catch {
-                print("Error al guardar la colección de mangas del usuario: \(error)")
-            }
-        }
+    
+    
+// FILTROS
+    
+    // funcion para el filtro y ordenar alfabeticamente
+    func mangasAlphabetic(){
+        mangas.sort { $0.title < $1.title }
+    }
+    
+    
+    
+// GESTION DE LOS VOLUMENES DE LA COLECCION
+    
+    
+    
+
 }
