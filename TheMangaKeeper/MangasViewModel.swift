@@ -7,21 +7,21 @@
 import Foundation
 final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
-    @Published var mangasUserVolumenCollection: [Manga] = []
+    @Published var mangasUserVolumenCollection: [Manga] = [] // intentar unificar en al modelo de manga
     @Published var mangasFavorites: [Manga] = [] {
         didSet{
             Task {
                 await saveFavorites()
             }
-            
         }
     }
-    @Published var mangaToDelete: Manga?
+    @Published var mangaToDelete: Manga? // limpiar
     @Published var showAlert = false
-    @Published var duplicateMangaAlert = false
+    @Published var duplicateMangaAlert = false // limpiar
     @Published var deleteMangaAlertConfirmation = false
     @Published var errormenssage = ""
     @Published var searchBarText = ""
+    @Published var isTheMangaCollectionVolumeCompleted = false
     var currentPage = 1
     
     let mangaInteractor: MangasInteractorProtocol
@@ -35,7 +35,7 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
-    // PETICIONES DE LOS MANGAS
+//PETICIONES DE LOS MANGAS
     // llamada a red
     @MainActor
     func getMangas() async {
@@ -73,7 +73,7 @@ final class MangasViewModel: ObservableObject {
     
     
     
-// GESTION DE LA COLLECION PARA AÑADIR ELIMINAR A FAVORITOS
+//GESTION DE LA COLLECION PARA AÑADIR ELIMINAR A FAVORITOS
     
     // metodo chechduplicate array de mi coleccion esta el magna que quiero añadir
     //  func checkDu
@@ -92,8 +92,8 @@ final class MangasViewModel: ObservableObject {
             mangas[index].isFavorite = true
             mangasFavorites.append(mangas[index])
         }
-        objectWillChange.send()
         await saveFavorites()
+        objectWillChange.send()
     }
     
     // guardar coleccion de mis mangas
@@ -107,15 +107,23 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
+    // checfavorito
+    // necestio un favorito
+    
+    
     // eliminar magna de coleccion
     @MainActor
     func deleteManga(mangaID: Int) async {
         mangasFavorites.removeAll(where: {$0.id == mangaID})
-        mangas.indices.forEach { index in
-            if mangas[index].id == mangaID {
-                mangas[index].isFavorite = false
-            }
+        if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
+            mangas[index].isFavorite.toggle()
         }
+// revisar
+//        mangas.indices.forEach { index in
+//            if mangas[index].id == mangaID {
+//                mangas[index].isFavorite = false
+//            }
+//        }
         await saveFavorites()
     }
     
@@ -137,27 +145,39 @@ final class MangasViewModel: ObservableObject {
     // funcion para actualizar el estado de la coleccion de los mangas
     @MainActor
     func updateFavoriteStatus(for mangaID: Int, isFavorite: Bool) {
-        // Actualizar en la lista principal si es necesario
-        if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
-            mangas[index].isFavorite = isFavorite
-        }
-        // Actualizar en la lista de favoritos
-        if isFavorite {
-            if !mangasFavorites.contains(where: { $0.id == mangaID }) {
-                if let mangaToAdd = mangas.first(where: { $0.id == mangaID }) {
-                    mangasFavorites.append(mangaToAdd)
+//        // Actualizar en la lista principal si es necesario
+//        if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
+//            mangas[index].isFavorite = isFavorite
+//        }
+//        // Actualizar en la lista de favoritos
+//        if isFavorite {
+//            if !mangasFavorites.contains(where: { $0.id == mangaID }) {
+//                if let mangaToAdd = mangas.first(where: { $0.id == mangaID }) {
+//                    mangasFavorites.append(mangaToAdd)
+//                }
+//            }
+//        } else {
+//            mangasFavorites.removeAll(where: { $0.id == mangaID })
+//        }
+//        // Notificar a SwiftUI que necesita actualizar las vistas
+//        objectWillChange.send()
+//    }
+        for index in mangas.indices where mangas[index].id == mangaID {
+                mangas[index].isFavorite = isFavorite
+                if isFavorite {
+                    if !mangasFavorites.contains(where: { $0.id == mangaID }) {
+                        mangasFavorites.append(mangas[index])
+                    }
+                } else {
+                    mangasFavorites.removeAll(where: { $0.id == mangaID })
                 }
             }
-        } else {
-            mangasFavorites.removeAll(where: { $0.id == mangaID })
+            objectWillChange.send() // revisar conbine
         }
-        // Notificar a SwiftUI que necesita actualizar las vistas
-        objectWillChange.send()
-    }
     
     
     
-// BUSQUEDAS
+//BUSQUEDAS
     
     // buscar mangas por algo "Patata"
     @MainActor
@@ -181,7 +201,7 @@ final class MangasViewModel: ObservableObject {
     
     
     
-// FILTROS
+//FILTROS
     
     // funcion para el filtro y ordenar alfabeticamente
     func mangasAlphabetic(){
@@ -190,8 +210,29 @@ final class MangasViewModel: ObservableObject {
     
     
     
-// GESTION DE LOS VOLUMENES DE LA COLECCION
+//GESTION DE LOS VOLUMENES DE LA COLECCION
+    // Función para actualizar el estado de un volumen específico en la colección de usuario
+    func updateVolumeStatus(mangaID: Int, volumeID: Int, newStatus: VolumeStatus) {
+        guard let mangaIndex = mangasUserVolumenCollection.firstIndex(where: { $0.id == mangaID }) else { return }
+        if let volumeIndex = mangasUserVolumenCollection[mangaIndex].volumeDetails.firstIndex(where: { $0.id == volumeID }) {
+            mangasUserVolumenCollection[mangaIndex].volumeDetails[volumeIndex].status = newStatus
+            try? saveUserVolumeCollection()
+        }
+    }
+
+    // Función para guardar la colección de volúmenes del usuario
+    func saveUserVolumeCollection() throws {
+        do {
+            try mangaInteractor.saveUserMangasVolumenCollection(mangas: mangasUserVolumenCollection)
+        } catch {
+            print("Error al guardar la colección de volúmenes: \(error)")
+        }
+    }
     
+   
+    func checkIsFavorite(manga: Manga)-> Bool {
+        mangasFavorites.contains(where: { $0.id == manga.id })
+    }
     
     
 

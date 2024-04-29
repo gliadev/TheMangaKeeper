@@ -24,7 +24,7 @@
 //          revisar la funcion toogle intentar sacar un poco el codigo fuera por ejemplo checkduplicate
 //          revisar el didSet
 
-
+// ESTO LIMPIAR CODIGO Y REPASAR METODOS LIMPIAR CODIGO
 
 
 

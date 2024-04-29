@@ -8,18 +8,23 @@
 import SwiftUI
 
 struct MangasColecctionVolumeProgresView: View {
+    @EnvironmentObject var mangasVM: MangasViewModel
     let manga: Manga
     var body: some View {
         VStack {
-            HStack {
-                Text(manga.title)
-                Text(manga.titleJapanese ?? "")
+            VStack {
+                VStack {
+                    Text(manga.title)
+                    Text(manga.titleJapanese ?? "")
+                }
+                
             }
         }
-       
+        
     }
 }
 
 #Preview {
     MangasColecctionVolumeProgresView(manga: .testManga)
+        .environmentObject(MangasViewModel.localTestMangas)
 }

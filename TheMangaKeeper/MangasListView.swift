@@ -25,7 +25,8 @@ struct MangasListView: View {
                 }
                 .navigationTitle("Lista de Mangas")
             }
-        }           }
+        }
+    }
 }
 
 

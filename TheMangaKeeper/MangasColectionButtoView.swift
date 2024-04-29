@@ -9,17 +9,17 @@ import SwiftUI
 
 struct MangasColectionButtoView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
-    @State var isFavorite: Bool
+   // @State var isFavorite: Bool
     var manga: Manga
 
     init(manga: Manga) {
         self.manga = manga
-        _isFavorite = State(initialValue: manga.isFavorite)
+      //  _isFavorite = State(initialValue: manga.isFavorite)
     }
     
        var body: some View {
            Button(action: {
-               if isFavorite {
+               if mangasVM.checkIsFavorite(manga: manga) {
                    mangasVM.deleteMangaAlertConfirmation = true
                } else {
                    Task {
@@ -28,20 +28,20 @@ struct MangasColectionButtoView: View {
                }
            }) {
                HStack {
-                   Image(systemName: manga.isFavorite ? "star.fill" : "star")
-                       .foregroundColor(manga.isFavorite ? .yellow : .gray)
-                   Text(isFavorite ? "Eliminar de favoritos" : "Añadir a favoritos")
+                   Image(systemName: mangasVM.checkIsFavorite(manga: manga) ? "star.fill" : "star")
+                       .foregroundColor(mangasVM.checkIsFavorite(manga: manga) ? .yellow : .gray)
+                   Text(mangasVM.checkIsFavorite(manga: manga) ? "Eliminar de favoritos" : "Añadir a favoritos")
                }
                .padding()
-               .background(isFavorite ? Color.red : Color.blue)
+               .background(mangasVM.checkIsFavorite(manga: manga) ? Color.red : Color.blue)
                .foregroundColor(.white)
                .clipShape(RoundedRectangle(cornerRadius: 10))
            }
-           .confirmationDialog("¿Estás seguro que deseas eliminar este manga de tus colección?", isPresented: $mangasVM.deleteMangaAlertConfirmation, titleVisibility: .visible) {
+           .confirmationDialog("¿Estas seguro que deseas eliminar este manga de tus colección?", isPresented: $mangasVM.deleteMangaAlertConfirmation, titleVisibility: .visible) {
                Button("Eliminar", role: .destructive) {
                    Task {
                        await mangasVM.deleteManga(mangaID: manga.id)
-                       isFavorite = false
+                      // manga.isFavorite = false
                    }
                }
                Button("Cancelar", role: .cancel) {}

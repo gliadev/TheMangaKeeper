@@ -28,8 +28,7 @@ struct Manga: Identifiable, Decodable, Encodable {
     let url: String?
     let titleJapanese: String?
     var isFavorite: Bool
-   
-    
+    var volumeDetails: [Volume]
    
     
     // otra solucion no estaba viendo que tambien tenia que eliminar las "" de la url de la foto
@@ -51,6 +50,15 @@ struct Manga: Identifiable, Decodable, Encodable {
     
     // voy a intentar llevar el control de los que compro, leo y leido
     
-    
-    
+}
+
+
+struct Volume: Codable {
+    var id: Int
+    var status: VolumeStatus
+}
+enum VolumeStatus: String, Codable {
+    case purchased = "Comprado"
+    case reading = "Leyendo"
+    case read = "Leído"
 }
