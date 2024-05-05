@@ -4,7 +4,7 @@
 //
 //  Created by Adolfo on 20/12/23.
 //
- 
+
 import Foundation
 
 struct testMangasLocal: MangasInteractorProtocol {
@@ -32,20 +32,20 @@ struct testMangasLocal: MangasInteractorProtocol {
     }
     
     // Función para guardar la colección de mangas del usuario pruebas
-       func saveUserMangasVolumenCollection(mangas: [Manga]) throws {
-           let encoder = JSONEncoder()
-           encoder.outputFormatting = .prettyPrinted
-           let data = try encoder.encode(mangas)
-           try data.write(to: docURLUserCollectionManagement, options: .atomic)
-       }
-
-       // Función para cargar la colección de mangas del usuario pruebas
-       func loadUserMangaVolumenCollection() throws -> [Manga] {
-           guard FileManager.default.fileExists(atPath: docURLUserCollectionManagement.path) else { return [] }
-           let data = try Data(contentsOf: docURLUserCollectionManagement)
-           return try JSONDecoder().decode([Manga].self, from: data)
-       }
-   
+    func saveUserMangasVolumenCollection(mangas: [Manga]) throws {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        let data = try encoder.encode(mangas)
+        try data.write(to: docURLUserCollectionManagement, options: .atomic)
+    }
+    
+    // Función para cargar la colección de mangas del usuario pruebas
+    func loadUserMangaVolumenCollection() throws -> [Manga] {
+        guard FileManager.default.fileExists(atPath: docURLUserCollectionManagement.path) else { return [] }
+        let data = try Data(contentsOf: docURLUserCollectionManagement)
+        return try JSONDecoder().decode([Manga].self, from: data)
+    }
+    
 }
 
 extension MangasViewModel {
@@ -58,8 +58,8 @@ extension Manga {
                                           Theme(id: "piripi", theme: .delinquents),
                                           Theme(id: "poropo", theme: .detective)],
                                  endDate: Date.now,
-                                 demographics: [], 
-                                 volumes: 6,
+                                 demographics: [],
+                                 volumes: 3,
                                  genres: [
                                     Genres(id: "4C13067F-96FF-4F14-A1C0-B33215F24E0B", genre: .awardWinning),
                                     Genres(id: "4312867C-1359-494A-AC46-BADFD2E1D4CD", genre: .drama),
@@ -77,6 +77,10 @@ extension Manga {
                                  background: "Aventuras de Patatín. Ha sido publicada digitalmente en español por Vegetalia Comics desde el 22 de agosto de 2023, y en formato impreso desde el 15 de noviembre de 2023. La serie también ha sido publicada simultáneamente a través de la plataforma de manga en línea V Manga",
                                  url: "https://myanimelist.net/manga/3/20th_Century_Boys",
                                  titleJapanese: "ベジタリア",
-                                 isFavorite: false, volumeDetails: [Volume(id: 1, status: .purchased),
-                                                                    Volume(id: 2, status: .reading),])
+                                 isFavorite: false,
+                                 volumeDetails:
+                                    [Volume(id: 1, status: .isbought),
+                                     Volume(id: 2, status: .isreading),
+                                     Volume(id: 3, status: .noStatus),
+                                    ])
 }

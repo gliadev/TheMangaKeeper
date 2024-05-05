@@ -9,11 +9,6 @@ import Foundation
 
 func getJSON<JSON: Codable>(request: URLRequest, type: JSON.Type) async throws -> JSON {
     let (data, response) = try await URLSession.shared.getMangas(request: request)
-    //let dateFormater = DateFormatter()
-    //dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    //let decoder = JSONDecoder()
-    //decoder.dateDecodingStrategy = .formatted(dateFormater)
-    
     let decoder = JSONDecoder()
     decoder.dateDecodingStrategy = .formatted(.dateFormatted)
     

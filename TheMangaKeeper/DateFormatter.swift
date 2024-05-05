@@ -14,6 +14,3 @@ extension DateFormatter {
         return formattedDate
     }()
 }
-
-//let dateFormater = DateFormatter()
-//dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"

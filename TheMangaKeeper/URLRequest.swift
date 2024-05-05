@@ -21,21 +21,7 @@ extension URLRequest {
         return request
     }
     
-    // creo una funcion aparte para hacer la llamada y traerme mas mangas
-    //    static func getMoreMangas(url: URL, page: Int, per: Int = 25, contains: String? = nil) -> URLRequest {
-    //        let page = URLQueryItem(name: "page", value: String(page))
-    //        let per = URLQueryItem(name: "per", value: String(per))
-    //        print("Cargando los datos desde la red")
-    //        print("Cargando desde URL: \(url.absoluteString)")
-    //
-    //        var request = URLRequest(url: url.appending(path: contains ?? ""))
-    //        request.url?.append(queryItems: [page, per])
-    //        request.httpMethod = "GET"
-    //        request.timeoutInterval = 30
-    //        return request
-    //    }
     
-    // V2 revisar
     static func getMoreMangas(url: URL, page: Int, per: Int = 29, contains: String? = nil) -> URLRequest {
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         var queryItems = [
@@ -58,10 +44,6 @@ extension URLRequest {
         request.timeoutInterval = 30
         return request
     }
-    
-    
-    
-    //static func getBestMangas
     
     
     // para buscar un manga por algo "patata"

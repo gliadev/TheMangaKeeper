@@ -59,7 +59,7 @@ struct Demographic: Codable {
     let id, demographic: String
 }
 
-// hay que cambiar el nombre a genreDTO para que no de errores
+
 struct Genres: Codable, Hashable {
     let id: String
     let genre: Genre
@@ -96,7 +96,7 @@ enum Status: String, Codable {
     case onHiatus = "on_hiatus"
     case discontinued = "discontinued"
     
-    // consultar
+   
     var statusDescripcion: String {
         switch self {
         case .currentlyPublishing:
@@ -175,6 +175,10 @@ enum themes: String, Codable {
 
 extension Items {
     var toPresentation: Manga {
-        Manga(themes: themes, endDate: endDate, demographics: demographics, volumes: volumes, genres: genres, title: title, sypnosis: sypnosis, status: status, authors: authors, titleEnglish: titleEnglish, startDate: startDate, score: score, mainPicture: mainPicture, chapters: chapters, id: id, background: background, url: url, titleJapanese: titleJapanese, isFavorite: false, volumeDetails: [Volume(id: 1, status: .purchased),Volume(id: 2, status: .reading),])
+        Manga(themes: themes, endDate: endDate, demographics: demographics, volumes: volumes, genres: genres, title: title, sypnosis: sypnosis, status: status, authors: authors, titleEnglish: titleEnglish, startDate: startDate, score: score, mainPicture: mainPicture, chapters: chapters, id: id, background: background, url: url, titleJapanese: titleJapanese, isFavorite: false, volumeDetails:
+                [Volume(id: 1, status: .isbought),
+                 Volume(id: 2, status: .isreading),
+                 Volume(id: 3, status: .noStatus),
+                ])
     }
 }

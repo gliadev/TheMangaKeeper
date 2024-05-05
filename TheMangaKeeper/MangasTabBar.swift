@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct MangasTabBar: View {
-    //let manga: Manga
-    
     
     var body: some View {
         TabView {
