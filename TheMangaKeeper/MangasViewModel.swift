@@ -102,6 +102,11 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
+    // funcion comprobar Favoritos
+    func checkIsFavorite(manga: Manga)-> Bool {
+        mangasFavorites.contains(where: { $0.id == manga.id })
+    }
+    
     // checfavorito
     // necestio un favorito
     
@@ -141,23 +146,6 @@ final class MangasViewModel: ObservableObject {
     // funcion para actualizar el estado de la coleccion de los mangas
     @MainActor
     func updateFavoriteStatus(for mangaID: Int, isFavorite: Bool) {
-        //        // Actualizar en la lista principal si es necesario
-        //        if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
-        //            mangas[index].isFavorite = isFavorite
-        //        }
-        //        // Actualizar en la lista de favoritos
-        //        if isFavorite {
-        //            if !mangasFavorites.contains(where: { $0.id == mangaID }) {
-        //                if let mangaToAdd = mangas.first(where: { $0.id == mangaID }) {
-        //                    mangasFavorites.append(mangaToAdd)
-        //                }
-        //            }
-        //        } else {
-        //            mangasFavorites.removeAll(where: { $0.id == mangaID })
-        //        }
-        //        // Notificar a SwiftUI que necesita actualizar las vistas
-        //        objectWillChange.send()
-        //    }
         for index in mangas.indices where mangas[index].id == mangaID {
             mangas[index].isFavorite = isFavorite
             if isFavorite {
@@ -208,13 +196,7 @@ final class MangasViewModel: ObservableObject {
     
     //GESTION DE LOS VOLUMENES DE LA COLECCION
     // Función para actualizar el estado de un volumen específico en la colección de usuario
-    func updateVolumeStatus(mangaID: Int, volumeID: Int, newStatus: VolumeStatus) {
-        guard let mangaIndex = mangasUserVolumenCollection.firstIndex(where: { $0.id == mangaID }) else { return }
-        if let volumeIndex = mangasUserVolumenCollection[mangaIndex].volumeDetails.firstIndex(where: { $0.id == volumeID }) {
-            mangasUserVolumenCollection[mangaIndex].volumeDetails[volumeIndex].status = newStatus
-            try? saveUserVolumeCollection()
-        }
-    }
+    
     
     // Función para guardar la colección de volúmenes del usuario
     func saveUserVolumeCollection() throws {
@@ -226,7 +208,5 @@ final class MangasViewModel: ObservableObject {
     }
     
     
-    func checkIsFavorite(manga: Manga)-> Bool {
-        mangasFavorites.contains(where: { $0.id == manga.id })
-    }
+    
 }

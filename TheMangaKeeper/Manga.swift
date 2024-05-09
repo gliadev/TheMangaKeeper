@@ -28,7 +28,7 @@ struct Manga: Identifiable, Decodable, Encodable {
     let url: String?
     let titleJapanese: String?
     var isFavorite: Bool
-    var volumeDetails: [Volume]
+    
     var volumensCompleted: Bool = false
    
     
@@ -51,13 +51,3 @@ struct Manga: Identifiable, Decodable, Encodable {
 }
 
 
-struct Volume: Codable {
-    var id: Int
-    var status: VolumeStatus
-}
-
-enum VolumeStatus: String, Codable {
-    case noStatus = "Sin estado"
-    case isbought = "Comprado"
-    case isreading = "Leyendo"
-}

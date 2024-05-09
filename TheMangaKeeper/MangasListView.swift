@@ -23,6 +23,7 @@ struct MangasListView: View {
                         }
                     }
                 }
+                .listStyle(.plain)
                 .navigationTitle("Lista de Mangas")
             }
         }

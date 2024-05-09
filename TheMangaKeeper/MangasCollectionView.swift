@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MangasCollectionView: View {
+   
     @EnvironmentObject var mangasVM: MangasViewModel
     @State var showDeleteConfirmation = false
     let gridItems = Array(repeating: GridItem(.flexible(), spacing: 10), count: 3)
@@ -21,7 +22,7 @@ struct MangasCollectionView: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
-                .padding()
+                
                 
             } else {
                 ScrollView {

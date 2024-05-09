@@ -14,21 +14,24 @@ struct MangasCellView: View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.white, .gray.opacity(0.1)]), startPoint: .top, endPoint: .bottom)
                 .cornerRadius(12)
-                .shadow(color: .gray.opacity(0.5), radius: 3, x: 0, y: 2)
+                //.shadow(color: .gray.opacity(0.5), radius: 3, x: 0, y: 2)
             HStack(spacing: 16) {
                 MangaCoverImage(manga: manga)
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: 8) {
                     Text(manga.title)
                         .font(.headline)
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
-                        .lineLimit(1)
+                        .lineLimit(nil)
+                        .fixedSize(horizontal: false, vertical: true)
+                       // .background(LinearGradient(gradient: Gradient(colors: [Color.clear, Color.gray.opacity(0.1)]), startPoint: .leading, endPoint: .trailing))
                     
                     if let titleJapanese = manga.titleJapanese {
                         Text(titleJapanese)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
-                            .lineLimit(1)
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                     
                     Text("Estado: \(manga.status.statusDescripcion)")

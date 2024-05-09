@@ -10,17 +10,30 @@ import SwiftUI
 struct MangasDetailView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
     @State var showVolumeManagement = false
+    @State var expandedSynopsis = false
     let manga: Manga
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 8) {
-                AsyncImage(url: URL(string: "\(manga.mainPictureFormateada)")) { image in
-                    image.resizable()
-                        .aspectRatio(contentMode: .fill)
+                VStack {
+                    Text(manga.title)
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
+                        .padding(.top, 20)
+                    if let titleJapanese = manga.titleJapanese {
+                        Text(titleJapanese)
+                            .font(.title2)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.bottom, 10)
+                    }
+                    MangaDetailCoverImage(manga: manga)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .shadow(radius: 5)
+                        .padding(.vertical, 20)
                     
-                } placeholder: {
-                    Rectangle().foregroundColor(.gray)
                 }
                 Button(action: {
                     if manga.isFavorite {
@@ -29,9 +42,8 @@ struct MangasDetailView: View {
                 }) {
                     Text("Gestion de los Volumenes")
                 }
-                .opacity(mangasVM.checkIsFavorite(manga: manga) ? 1 : 0) 
-               // .controlSize(.large)
-                //.tint(manga.isFavorite ? .red : .gray)
+                .opacity(mangasVM.checkIsFavorite(manga: manga) ? 1 : 0)
+                
                 MangasColectionButtoView(manga: manga)
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
@@ -39,46 +51,44 @@ struct MangasDetailView: View {
                 
                 
                 
-                Text(manga.title)
-                    .font(.title)
-                    .fontWeight(.bold)
-                
-                Text(manga.titleJapanese ?? "")
-                    .font(.title3)
-                    .foregroundColor(.secondary)
-                
-                Text("By \(manga.authors.map { "\($0.firstName) \($0.lastName)" }.joined(separator: ", "))")
-                    .font(.headline)
-                    .foregroundColor(.secondary)
-                
-                HStack {
-                    Text("Puntuacion: \(manga.scoreFormateado)")
+                Group {
+                    Text("By \(manga.authors.map { "\($0.firstName) \($0.lastName)" }.joined(separator: ", "))")
+                        .font(.headline)
+                        .foregroundColor(.secondary)
+                    
+                    Text("Puntuación: \(manga.scoreFormateado)")
                         .bold()
-                    // componente de las estrellas??
+                    
+                    Text("Volúmenes: \(String(describing: manga.volumes))")
+                    
+                    Text("Géneros: \(manga.genres.map { $0.genre.rawValue }.joined(separator: ", "))")
+                    Text("Demográfico: \(manga.demographics.map { $0.demographic }.joined(separator: ", "))")
                 }
-                Text("\(String(describing: manga.volumes))")
+                .padding(.vertical, 2)
                 
-                Text("Generos: \(manga.genres.map { $0.genre.rawValue }.joined(separator: ", "))")
-                Text("Demographic: \(manga.demographics.map { $0.demographic }.joined(separator: ", "))")
                 
                 Text("Synopsis")
                     .font(.headline)
                 Text(manga.sypnosis ?? "No Synopsis disponible")
-                //.lineLimit(5)
+                    .lineLimit(expandedSynopsis ? nil : 3)  // Limitar a 3 líneas a menos que esté expandido
                     .onTapGesture {
-                        // para expandir la sinopsis, no funciona aun
+                        expandedSynopsis.toggle()  // Cambiar entre expandido y no expandido
                     }
+                    .animation(.easeInOut, value: expandedSynopsis)
+                    .padding(.bottom, 20)
                 
                 Spacer()
             }
             .padding([.horizontal, .bottom])
             .sheet(isPresented: $showVolumeManagement) {
-                MangaVolumesManagementView(manga: manga).environmentObject(mangasVM)
+                
+                Text("Vista para la gestión de volúmenes")
             }
         }
+        .navigationTitle("Detalle del Manga")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
-
 
 #Preview {
     MangasDetailView(manga: .testManga)

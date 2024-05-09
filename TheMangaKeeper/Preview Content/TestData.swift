@@ -77,10 +77,5 @@ extension Manga {
                                  background: "Aventuras de Patatín. Ha sido publicada digitalmente en español por Vegetalia Comics desde el 22 de agosto de 2023, y en formato impreso desde el 15 de noviembre de 2023. La serie también ha sido publicada simultáneamente a través de la plataforma de manga en línea V Manga",
                                  url: "https://myanimelist.net/manga/3/20th_Century_Boys",
                                  titleJapanese: "ベジタリア",
-                                 isFavorite: false,
-                                 volumeDetails:
-                                    [Volume(id: 1, status: .isbought),
-                                     Volume(id: 2, status: .isreading),
-                                     Volume(id: 3, status: .noStatus),
-                                    ])
+                                 isFavorite: false)
 }

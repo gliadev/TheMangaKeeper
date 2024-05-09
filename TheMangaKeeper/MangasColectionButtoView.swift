@@ -28,11 +28,13 @@ struct MangasColectionButtoView: View {
                     .foregroundColor(mangasVM.checkIsFavorite(manga: manga) ? .yellow : .gray)
                 Text(mangasVM.checkIsFavorite(manga: manga) ? "Eliminar de favoritos" : "Añadir a favoritos")
             }
+            .frame(maxWidth: .infinity)
             .padding()
             .background(mangasVM.checkIsFavorite(manga: manga) ? Color.red : Color.blue)
             .foregroundColor(.white)
             .clipShape(RoundedRectangle(cornerRadius: 10))
         }
+        .padding(.horizontal)
         .confirmationDialog("¿Estas seguro que deseas eliminar este manga de tus colección?", isPresented: $mangasVM.deleteMangaAlertConfirmation, titleVisibility: .visible) {
             Button("Eliminar", role: .destructive) {
                 Task {
