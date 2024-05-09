@@ -11,6 +11,7 @@ struct MangasCollectionView: View {
    
     @EnvironmentObject var mangasVM: MangasViewModel
     @State var showDeleteConfirmation = false
+
     let gridItems = Array(repeating: GridItem(.flexible(), spacing: 10), count: 3)
     
     var body: some View {
