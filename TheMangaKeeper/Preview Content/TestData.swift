@@ -67,7 +67,7 @@ extension Manga {
                                  title: "Patata",
                                  sypnosis: "En el vibrante mundo de Vegetalia, Patatín, una patata valiente y curiosa, sueña con explorar más allá de su campo. Su vida da un giro inesperado cuando un misterioso visitante cae del cielo, revelando que Patatín no es una patata común, sino el elegido para salvar Vegetalia de la sombría amenaza de los Devoradores de Raíces",
                                  status: .currentlyPublishing,
-                                 authors: [],
+                                 authors: [Author(id: "54BE174C-2FE9-42C8-A842-85D291A6AEDD", lastName: "Urasawa", role: .storyArt, firstName: "Naoki")],
                                  titleEnglish: "The Patata",
                                  startDate: Date.now,
                                  score: 8.9,

@@ -54,7 +54,7 @@ enum Role: String, Codable {
     case storyArt = "Story & Art"
 }
 
-
+ 
 struct Demographic: Codable {
     let id, demographic: String
 }
