@@ -16,19 +16,22 @@ struct MangasDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 8) {
-                Text(manga.title)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.leading)
-                    .padding(.top, 20)
-                
-                if let titleJapanese = manga.titleJapanese {
-                    Text(titleJapanese)
-                        .font(.title2)
-                        .foregroundStyle(.secondary)
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(manga.title)
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
-                        .padding(.bottom, 10)
+                        .padding(.top, 20)
+                    
+                    if let titleJapanese = manga.titleJapanese {
+                        Text(titleJapanese)
+                            .font(.title2)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.leading)
+                            .padding(.bottom, 10)
+                    }
                 }
+                
                 MangaDetailCoverImage(manga: manga)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
                     .shadow(radius: 5)
@@ -54,7 +57,7 @@ struct MangasDetailView: View {
                         .font(.headline)
                         .foregroundColor(.secondary)
                     
-                    Text("Puntuación: \(manga.scoreFormateado)")
+                    Text("Puntuación: \(manga.scoreFormateado) / 10")
                         .bold()
                     
                     Text("Volúmenes: \(String(describing: manga.volumes))")
@@ -89,8 +92,6 @@ struct MangasDetailView: View {
     }
     
 }
-
-
 
 
 #Preview {

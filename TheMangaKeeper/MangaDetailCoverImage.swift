@@ -18,6 +18,8 @@ struct MangaDetailCoverImage: View {
                 .scaledToFit()
                 .clipShape(RoundedRectangle(cornerRadius: 14))
                 .shadow(radius: 15)
+                .frame(width: 300, height: 450)
+                .padding(.horizontal)
             
         } placeholder: {
             Image(systemName: "photo")
@@ -27,6 +29,7 @@ struct MangaDetailCoverImage: View {
                 .frame(width: 300, height: 450)
                 .background(Color.secondary.opacity(0.1))
                 .clipShape(RoundedRectangle(cornerRadius: 14))
+                .padding(.horizontal)
         }
     }
 }

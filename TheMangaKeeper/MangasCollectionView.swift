@@ -38,6 +38,7 @@ struct MangasCollectionView: View {
                     .padding(.all, 10)
                 }
                 .navigationTitle("Mi Coleccion")
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }

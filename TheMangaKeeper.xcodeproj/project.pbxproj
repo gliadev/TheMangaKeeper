@@ -177,10 +177,10 @@
 		91C17D072B486B1B00A168EE /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
-				919ABA562BCC526F00A3E09B /* MangaCoverImage.swift */,
-				91126C652B9D2AC100B0973D /* StarRatingViewComponent.swift */,
 				91C78DAB2BCE690F0055B9BE /* SearchBarView.swift */,
+				91126C652B9D2AC100B0973D /* StarRatingViewComponent.swift */,
 				91C78DAD2BCE9DED0055B9BE /* MangasColectionButtoView.swift */,
+				919ABA562BCC526F00A3E09B /* MangaCoverImage.swift */,
 				91238EE92BED037B00874A8A /* MangaDetailCoverImage.swift */,
 			);
 			name = ViewComponents;
