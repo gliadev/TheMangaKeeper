@@ -43,14 +43,14 @@ struct MangasDetailView: View {
                     .tint(mangasVM.checkIsFavorite(manga: manga) ? .red : .blue)
                     .padding(.bottom, 20)
                 
-                Button(action: {
-                    if manga.isFavorite {
-                        showVolumeManagement = true
-                    } else {}
-                }) {
-                    Text("Gestion de los Volumenes")
-                }
-                .opacity(mangasVM.checkIsFavorite(manga: manga) ? 1 : 0)
+//                Button(action: {
+//                    if manga.isFavorite {
+//                        showVolumeManagement = true
+//                    } else {}
+//                }) {
+//                    Text("Gestion de los Volumenes")
+//                }
+//                .opacity(mangasVM.checkIsFavorite(manga: manga) ? 1 : 0)
                 
                 Group {
                     Text("By \(manga.authors.map { "\($0.firstName) \($0.lastName)" }.joined(separator: ", "))")
@@ -60,11 +60,33 @@ struct MangasDetailView: View {
                     Text("Puntuación: \(manga.scoreFormateado) / 10")
                         .bold()
                     
-                    if let volumes = manga.volumes {
-                        Text("Volumenes: \(volumes)")
-                    } else {
-                        Text("Volumnes: - sin informacion -")
+//                    if let volumes = manga.volumes {
+//                        Text("Volumenes: \(volumes)")
+//                    } else {
+//                        Text("Volumnes: - sin informacion -")
+//                    }
+                    HStack {
+                        
+                        if let volumes = manga.volumes {
+                            Text("Volúmenes: \(volumes)")
+                        } else {
+                            Text("Volúmenes: - sin información -")
+                        }
+
+                        
+                        Button(action: {
+                            if manga.isFavorite {
+                                showVolumeManagement = true
+                            }
+                        }) {
+                            HStack {
+                                Image(systemName: "gear")
+                                
+                            }
+                        }
+                        .opacity(mangasVM.checkIsFavorite(manga: manga) ? 1 : 0)
                     }
+                    .padding()
                     
                     Text("Géneros: \(manga.genres.map { $0.genre.rawValue }.joined(separator: ", "))")
                     
