@@ -60,10 +60,18 @@ struct MangasDetailView: View {
                     Text("Puntuación: \(manga.scoreFormateado) / 10")
                         .bold()
                     
-                    Text("Volúmenes: \(String(describing: manga.volumes))")
+                    if let volumes = manga.volumes {
+                        Text("Volumenes: \(volumes)")
+                    } else {
+                        Text("Volumnes: - sin informacion -")
+                    }
                     
                     Text("Géneros: \(manga.genres.map { $0.genre.rawValue }.joined(separator: ", "))")
-                    Text("Demográfico: \(manga.demographics.map { $0.demographic }.joined(separator: ", "))")
+                    
+                    if !manga.demographics.isEmpty {
+                        Text("Demográfico: \(manga.demographics.map { $0.demographic }.joined(separator: ", "))")
+                    }
+                    
                 }
                 .padding(.vertical, 2)
                 
