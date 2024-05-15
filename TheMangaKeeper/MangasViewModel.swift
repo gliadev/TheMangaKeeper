@@ -88,7 +88,6 @@ final class MangasViewModel: ObservableObject {
             mangasFavorites.append(mangas[index])
         }
         await saveFavorites()
-        //objectWillChange.send()
     }
     
     // guardar coleccion de mis mangas
@@ -118,14 +117,7 @@ final class MangasViewModel: ObservableObject {
         if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
             mangas[index].isFavorite.toggle()
         }
-        // revisar
-        //        mangas.indices.forEach { index in
-        //            if mangas[index].id == mangaID {
-        //                mangas[index].isFavorite = false
-        //            }
-        //        }
         await saveFavorites()
-     
     }
     
     // cargar la coleccion
@@ -156,7 +148,6 @@ final class MangasViewModel: ObservableObject {
                 mangasFavorites.removeAll(where: { $0.id == mangaID })
             }
         }
-       // objectWillChange.send() // revisar conbine
     }
     
     
