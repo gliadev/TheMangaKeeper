@@ -19,11 +19,19 @@ Niveles de Desarrollo
 La app se planteó como un desafío a varios niveles:
 
 🟢 Producto Mínimo Viable (MVP): Funcionalidades básicas para la gestión de mangas.
+
 🔧 Implementaciones Adicionales: Mejora continua con nuevas funcionalidades en versiones posteriores.
+
+
 Tecnologías Utilizadas
+
 Swift: El lenguaje principal para el desarrollo.
+
 SwiftUI: Para la interfaz de usuario.
+
 API REST: Integración con una API externa para obtener datos de mangas.
+
 Xcode: Entorno de desarrollo integrado.
+
 
 Capturas de Pantalla
