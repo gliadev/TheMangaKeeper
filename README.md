@@ -36,24 +36,24 @@ Xcode: Entorno de desarrollo integrado.
 
 Capturas de Pantalla
 <p align="center">
-  <b>Inicio de la Aplicación</b><br>
+  <b>Inicio de la Aplicación</b>
   <img src="https://github.com/gliadev/TheMangaKeeper/assets/78279221/1ff23fa8-3945-41a8-9753-2e9f8def348b" width="250" />
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <b>Vista detalle, Eliminar de la colección</b><br>
+  <b>Vista detalle, Eliminar de la colección</b>
   <img src="https://github.com/gliadev/TheMangaKeeper/assets/78279221/60f6e354-1233-4b7e-9b33-4926c22be68d" width="250" />
 </p>
 <p align="center">
-  <b>Vista detalle</b><br>
+  <b>Vista detalle</b>
   <img src="https://github.com/gliadev/TheMangaKeeper/assets/78279221/7b5dbe8c-8730-4b33-b648-5b940a23b777" width="250" />
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <b>Detalles del Manga</b><br>
+  <b>Detalles del Manga</b>
   <img src="https://github.com/gliadev/TheMangaKeeper/assets/78279221/1cea03ef-5d82-45eb-b7c4-300eac991bc6" width="250" />
 </p>
 <p align="center">
-  <b>Gestión de Colección</b><br>
+  <b>Gestión de Colección</b>
   <img src="https://github.com/gliadev/TheMangaKeeper/assets/78279221/8cb96f4e-f5a4-4a04-9fd8-9274b7bd2e02" width="250" />
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <b>Barra de búsqueda</b><br>
+  <b>Barra de búsqueda</b>
   <img src="https://github.com/gliadev/TheMangaKeeper/assets/78279221/d4bbfa76-d5b0-4fe0-bece-fa4fbc1679c4" width="250" />
 </p>
 
