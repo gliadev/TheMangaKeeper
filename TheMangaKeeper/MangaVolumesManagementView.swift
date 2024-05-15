@@ -12,7 +12,14 @@ struct MangaVolumesManagementView: View {
     let manga: Manga
     var body: some View {
             VStack {
-                Text("Hola")
+                if let volumes = manga.volumes {
+                    ForEach(1...volumes, id: \.self) {
+                        volume in
+                        Text("Volumen: \(volume)")
+                    }
+                } else {
+                    Text("No hay informacion de volumenes")
+                }
             }
         }
     }
