@@ -6,9 +6,15 @@ Descripción del Proyecto
 Esta app fue desarrollada como parte del proyecto final de la III Edición del Swift Developer Program en 2023. La aplicación consume una API REST con más de 64,000 mangas publicados, permitiendo a los usuarios gestionar su colección de manera eficiente.
 
 Funcionalidades Principales
+
 📖 Gestión de Colección de Mangas: Guarda qué mangas tienes en tu colección.
+
 🔢 Seguimiento de la Colección: Registra en qué tomo llevas tu colección.
+
+
 📘 Progreso de Lectura: Mantén un seguimiento de los tomos leídos.
+
+
 Niveles de Desarrollo
 La app se planteó como un desafío a varios niveles:
 
