@@ -36,8 +36,9 @@ Xcode: Entorno de desarrollo integrado.
 
 Capturas de Pantalla
 <p align="center">
- 
+ <b>Inicio de la Aplicación</b><br>
   <img src="https://github.com/gliadev/TheMangaKeeper/assets/78279221/1ff23fa8-3945-41a8-9753-2e9f8def348b" width="250" />
+ <b>Vista detalle, Eliminar de la coleccion</b><br>
   <img src="https://github.com/gliadev/TheMangaKeeper/assets/78279221/60f6e354-1233-4b7e-9b33-4926c22be68d" width="250" />
 </p>
 <p align="center">
