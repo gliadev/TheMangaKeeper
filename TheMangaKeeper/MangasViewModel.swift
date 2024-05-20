@@ -186,18 +186,60 @@ final class MangasViewModel: ObservableObject {
     
     
     //GESTION DE LOS VOLUMENES DE LA COLECCION
-    // Función para actualizar el estado de un volumen específico en la colección de usuario
-    
-    
-    // Función para guardar la colección de volúmenes del usuario
-    func saveUserVolumeCollection() throws {
-        do {
-            try mangaInteractor.saveUserMangasVolumenCollection(mangas: mangasUserVolumenCollection)
-        } catch {
-            print("Error al guardar la colección de volúmenes: \(error)")
+    @MainActor
+        func updateMangaVolumeStates(mangaID: Int, newVolumeStates: [Manga.VolumeState], isCollectionComplete: Bool) {
+            if let mangaIndex = mangas.firstIndex(where: { $0.id == mangaID }) {
+                mangas[mangaIndex].volumeStates = newVolumeStates
+                mangas[mangaIndex].isCollectionComplete = isCollectionComplete
+            }
         }
-    }
+
+        @MainActor
+        func updateVolumeState(mangaID: Int, volumeID: Int, isPurchased: Bool? = nil, isBeingRead: Bool? = nil) {
+            if let mangaIndex = mangas.firstIndex(where: { $0.id == mangaID }) {
+                if let volumeIndex = mangas[mangaIndex].volumeStates.firstIndex(where: { $0.id == volumeID }) {
+                    if let isPurchased = isPurchased {
+                        mangas[mangaIndex].volumeStates[volumeIndex].isPurchased = isPurchased
+                    }
+                    if let isBeingRead = isBeingRead {
+                        mangas[mangaIndex].volumeStates[volumeIndex].isBeingRead = isBeingRead
+                    }
+                    mangas[mangaIndex].isCollectionComplete = mangas[mangaIndex].volumeStates.allSatisfy { $0.isPurchased }
+                    try? saveUserVolumeCollection()
+                }
+            }
+        }
+
+        func saveUserVolumeCollection() throws {
+            do {
+                try mangaInteractor.saveUserMangasVolumenCollection(mangas: mangas)
+            } catch {
+                throw error
+            }
+        }
+
+        @MainActor
+        func loadUserMangaVolumenCollection() async {
+            do {
+                let loadedCollections = try mangaInteractor.loadUserMangaVolumenCollection()
+                await MainActor.run {
+                    for collection in loadedCollections {
+                        if let index = mangas.firstIndex(where: { $0.id == collection.id }) {
+                            mangas[index].volumeStates = collection.volumeStates
+                            mangas[index].isCollectionComplete = collection.isCollectionComplete
+                        }
+                    }
+                }
+            } catch {
+                print("Error al cargar la colección de volúmenes del usuario: \(error)")
+            }
+        }
     
     
     
 }
+
+
+
+
+

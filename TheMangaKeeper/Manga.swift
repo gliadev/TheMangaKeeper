@@ -28,9 +28,9 @@ struct Manga: Identifiable, Decodable, Encodable {
     let url: String?
     let titleJapanese: String?
     var isFavorite: Bool
+    var volumeStates: [VolumeState]
+    var isCollectionComplete: Bool
     
-    var volumensCompleted: Bool = false
-   
     
     // otra solucion no estaba viendo que tambien tenia que eliminar las "" de la url de la foto
     var mainPictureFormateada: String {
@@ -47,6 +47,12 @@ struct Manga: Identifiable, Decodable, Encodable {
     var scoreFormateado: String {
         //Text("Puntuacion: \(manga.score, specifier: "%.2f")")
         String(Int(score))
+    }
+    
+    struct VolumeState: Identifiable, Codable {
+        var id: Int
+        var isPurchased: Bool
+        var isBeingRead: Bool
     }
 }
 

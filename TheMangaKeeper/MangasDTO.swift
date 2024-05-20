@@ -175,7 +175,7 @@ enum themes: String, Codable {
 
 extension Items {
     var toPresentation: Manga {
-        Manga(themes: themes, endDate: endDate, demographics: demographics, volumes: volumes, genres: genres, title: title, sypnosis: sypnosis, status: status, authors: authors, titleEnglish: titleEnglish, startDate: startDate, score: score, mainPicture: mainPicture, chapters: chapters, id: id, background: background, url: url, titleJapanese: titleJapanese, isFavorite: false)
+        Manga(themes: themes, endDate: endDate, demographics: demographics, volumes: volumes, genres: genres, title: title, sypnosis: sypnosis, status: status, authors: authors, titleEnglish: titleEnglish, startDate: startDate, score: score, mainPicture: mainPicture, chapters: chapters, id: id, background: background, url: url, titleJapanese: titleJapanese, isFavorite: false, volumeStates: [Manga.VolumeState(id: 1, isPurchased: false, isBeingRead: false),Manga.VolumeState(id: 1, isPurchased: false, isBeingRead: false)], isCollectionComplete: false)
     }
 }
 
