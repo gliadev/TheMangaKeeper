@@ -54,7 +54,7 @@ enum Role: String, Codable {
     case storyArt = "Story & Art"
 }
 
- 
+
 struct Demographic: Codable {
     let id, demographic: String
 }
@@ -175,7 +175,30 @@ enum themes: String, Codable {
 
 extension Items {
     var toPresentation: Manga {
-        Manga(themes: themes, endDate: endDate, demographics: demographics, volumes: volumes, genres: genres, title: title, sypnosis: sypnosis, status: status, authors: authors, titleEnglish: titleEnglish, startDate: startDate, score: score, mainPicture: mainPicture, chapters: chapters, id: id, background: background, url: url, titleJapanese: titleJapanese, isFavorite: false, volumeStates: [Manga.VolumeState(id: 1, isPurchased: false, isBeingRead: false),Manga.VolumeState(id: 1, isPurchased: false, isBeingRead: false)], isCollectionComplete: false)
+        Manga(themes: themes,
+              endDate: endDate,
+              demographics: demographics,
+              volumes: volumes,
+              genres: genres,
+              title: title,
+              sypnosis: sypnosis,
+              status: status,
+              authors: authors,
+              titleEnglish: titleEnglish,
+              startDate: startDate,
+              score: score,
+              mainPicture: mainPicture,
+              chapters: chapters,
+              id: id,
+              background: background,
+              url: url,
+              titleJapanese: titleJapanese,
+              isFavorite: false,
+              volumeStates: [
+                Manga.VolumeState(id: 1, isPurchased: false, isBeingRead: false),
+                Manga.VolumeState(id: 2, isPurchased: false, isBeingRead: false),
+                Manga.VolumeState(id: 3, isPurchased: false, isBeingRead: false)],
+              isCollectionComplete: false)
     }
 }
 

@@ -59,7 +59,7 @@ extension Manga {
                                           Theme(id: "poropo", theme: .detective)],
                                  endDate: Date.now,
                                  demographics: [],
-                                 volumes: 3,
+                                 volumes: 6,
                                  genres: [
                                     Genres(id: "4C13067F-96FF-4F14-A1C0-B33215F24E0B", genre: .awardWinning),
                                     Genres(id: "4312867C-1359-494A-AC46-BADFD2E1D4CD", genre: .drama),
