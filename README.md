@@ -23,9 +23,10 @@ Swift: El lenguaje principal para el desarrollo.
 SwiftUI: Para la interfaz de usuario.
 API REST: Integración con una API externa para obtener datos de mangas.
 Xcode: Entorno de desarrollo integrado.
-📸 Capturas de Pantalla
 
-Capturas de Pantalla
+
+
+📸 Capturas de Pantalla
 <p align="center">
   <b>Inicio de la Aplicación</b>
   <img src="https://github.com/gliadev/TheMangaKeeper/assets/78279221/1ff23fa8-3945-41a8-9753-2e9f8def348b" width="250" />
