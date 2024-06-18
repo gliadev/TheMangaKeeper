@@ -12,14 +12,14 @@ struct MangasDTO: Codable {
     let metadata: Metadata
 }
 
-struct Metadata: Codable {
+struct Metadata: Codable, Hashable {
     let total: Int
     let page: Int
     let per: Int
 }
 
 
-struct Items: Codable {
+struct Items: Codable, Hashable {
     let themes: [Theme]
     let endDate: Date?
     let demographics: [Demographic]
@@ -42,20 +42,20 @@ struct Items: Codable {
 }
 
 
-struct Author: Codable {
+struct Author: Codable, Hashable {
     let id, lastName: String
     let role: Role
     let firstName: String
 }
 
-enum Role: String, Codable {
+enum Role: String, Codable, Hashable {
     case art = "Art"
     case story = "Story"
     case storyArt = "Story & Art"
 }
 
-
-struct Demographic: Codable {
+ 
+struct Demographic: Codable, Hashable {
     let id, demographic: String
 }
 
@@ -64,7 +64,7 @@ struct Genres: Codable, Hashable {
     let id: String
     let genre: Genre
 }
-enum Genre: String, Codable {
+enum Genre: String, Codable, Hashable {
     case action = "Action"
     case adventure = "Adventure"
     case awardWinning = "Award Winning"
@@ -175,30 +175,33 @@ enum themes: String, Codable {
 
 extension Items {
     var toPresentation: Manga {
-        Manga(themes: themes,
-              endDate: endDate,
-              demographics: demographics,
-              volumes: volumes,
-              genres: genres,
-              title: title,
-              sypnosis: sypnosis,
-              status: status,
-              authors: authors,
-              titleEnglish: titleEnglish,
-              startDate: startDate,
-              score: score,
-              mainPicture: mainPicture,
-              chapters: chapters,
-              id: id,
-              background: background,
-              url: url,
-              titleJapanese: titleJapanese,
-              isFavorite: false,
-              volumeStates: [
-                Manga.VolumeState(id: 1, isPurchased: false, isBeingRead: false),
-                Manga.VolumeState(id: 2, isPurchased: false, isBeingRead: false),
-                Manga.VolumeState(id: 3, isPurchased: false, isBeingRead: false)],
-              isCollectionComplete: false)
+        return Manga(
+            themes: themes,
+            endDate: endDate,
+            demographics: demographics,
+            volumes: volumes,
+            genres: genres,
+            title: title,
+            sypnosis: sypnosis,
+            status: status,
+            authors: authors,
+            titleEnglish: titleEnglish,
+            startDate: startDate,
+            score: score,
+            mainPicture: mainPicture,
+            chapters: chapters,
+            id: id,
+            background: background,
+            url: url,
+            titleJapanese: titleJapanese,
+            isFavorite: false,
+            volumeStates: volumes.flatMap {
+                (0..<$0).map {
+                    Manga.VolumeState(id: $0, isPurchased: false, isBeingRead: false)
+                }
+            } ?? [],
+            isCollectionComplete: false
+        )
     }
 }
 

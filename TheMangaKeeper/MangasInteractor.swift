@@ -65,6 +65,7 @@ extension MangasInteractorProtocol {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         let data = try encoder.encode(mangas)
+        print(docURLUserCollectionManagement)
         try data.write(to: docURLUserCollectionManagement, options: .atomic)
     }
     
@@ -77,7 +78,3 @@ extension MangasInteractorProtocol {
     
     
 }
-
-
-
-

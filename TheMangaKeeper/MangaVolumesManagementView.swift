@@ -40,8 +40,8 @@ struct MangaVolumesManagementView: View {
             if let volumes = manga.volumes {
                 ScrollView {
                     VStack {
-                        ForEach(1...volumes, id: \.self) { volumeID in
-                            if volumeID - 1 < localVolumeStates.count {
+                        ForEach(0..<volumes, id: \.self) { volumeID in
+                            if volumeID < localVolumeStates.count {
                                 VStack(alignment: .leading) {
                                     Text("Volumen \(volumeID)")
                                         .font(.headline)
@@ -49,10 +49,7 @@ struct MangaVolumesManagementView: View {
                                     
                                     HStack {
                                         Toggle("Comprado", isOn: Binding(
-                                            get: {
-                                                guard volumeID - 1 < localVolumeStates.count else { return false }
-                                                return localVolumeStates[volumeID - 1].isPurchased
-                                            },
+                                            get: { localVolumeStates[volumeID].isPurchased },
                                             set: { isPurchased in
                                                 mangasVM.updateVolumeState(mangaID: manga.id, volumeID: volumeID, isPurchased: isPurchased)
                                                 localVolumeStates = mangasVM.mangas.first { $0.id == manga.id }?.volumeStates ?? []
@@ -65,10 +62,7 @@ struct MangaVolumesManagementView: View {
                                     
                                     HStack {
                                         Toggle("Leyendo", isOn: Binding(
-                                            get: {
-                                                guard volumeID - 1 < localVolumeStates.count else { return false }
-                                                return localVolumeStates[volumeID - 1].isBeingRead
-                                            },
+                                            get: { localVolumeStates[volumeID].isBeingRead },
                                             set: { isBeingRead in
                                                 mangasVM.updateVolumeState(mangaID: manga.id, volumeID: volumeID, isBeingRead: isBeingRead)
                                                 localVolumeStates = mangasVM.mangas.first { $0.id == manga.id }?.volumeStates ?? []
