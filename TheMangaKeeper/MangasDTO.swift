@@ -64,7 +64,9 @@ struct Genres: Codable, Hashable {
     let id: String
     let genre: Genre
 }
-enum Genre: String, Codable, Hashable {
+enum Genre: String, Codable, CaseIterable, Identifiable {
+    
+    var id: Self { self }
     case action = "Action"
     case adventure = "Adventure"
     case awardWinning = "Award Winning"

@@ -31,6 +31,11 @@ struct testMangasLocal: MangasInteractorProtocol {
         return try decoder.decode(MangasDTO.self, from: data).items.map(\.toPresentation)
     }
     
+    // funcion para buscar por genero
+    func searchMangaByGenre(genre: Genre) async throws -> [Manga] {
+        try await getJSON(request: .getMangaByGenre(url: .mangasSearchByGenre, genre: genre), type: MangasDTO.self).items.map(\.toPresentation)
+    }
+    
     // Función para guardar la colección de mangas del usuario pruebas
     func saveUserMangasVolumenCollection(mangas: [Manga]) throws {
         let encoder = JSONEncoder()

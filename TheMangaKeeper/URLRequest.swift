@@ -57,6 +57,14 @@ extension URLRequest {
         
     }
     
+    // buscar manga por genero
+    static func getMangaByGenre(url: URL, genre: Genre) -> URLRequest {
+        var request = URLRequest(url: url.appending(path: String(genre.rawValue)))
+        request.httpMethod = "GET"
+        request.timeoutInterval = 40
+        return request
+    }
+    
     
     
 }

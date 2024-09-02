@@ -21,12 +21,16 @@ extension URL {
     // para traerme la lista de los mejores mangas
     static let BestMangas = mainURL.appending(path: "list/bestMangas")
     
-// search endpoints
+    // search endpoints
     // buscar un manga que contenga algo Patata Dragon
     static let mangasSearchByContains = mainURL.appending(path: "search/mangasContains" )
+    
+    // busqueda por genero
+    static let mangasSearchByGenre = mainURL.appending(path: "list/mangaByGenre")
 }
 
 
 
 // list/mangas?page=2&per=20 Devolverá la página 2, de 20 en 20.
 // list/mangas?page=1&per=50 Devolverá 50 mangas para la página 1.
+// revisar hacer con un swich y enum

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct SearchBarView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
+    @State private var showGenreFilter = false
     //@State var timer: Timer?
+    
     var body: some View {
         VStack {
             TextField("Buscar un Manga", text: $mangasVM.searchBarText)
@@ -29,13 +31,17 @@ struct SearchBarView: View {
                 }
                 .frame(maxWidth: .infinity)
             HStack {
-                Button(action: {}) {
+                Button(action: {showGenreFilter.toggle()}) {
                     Image(systemName: "camera.filters")
                         .foregroundStyle(.gray)
+                        .frame(width: 36, height: 36, alignment: .center)
                 }
-                .disabled(true)
-                .padding(.bottom)
+                
                 .padding(.leading, 24)
+                .sheet(isPresented: $showGenreFilter) {
+                                    SearchByGenreFilterView()
+                                        .environmentObject(mangasVM)
+                                }
                 Spacer()
                 Button(action: {
                     mangasVM.mangasAlphabetic()

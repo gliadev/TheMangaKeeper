@@ -28,3 +28,6 @@ struct MangasTabBar: View {
         .environmentObject(MangasViewModel())
     
 }
+
+
+// .onTag

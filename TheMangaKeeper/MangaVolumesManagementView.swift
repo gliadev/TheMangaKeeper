@@ -9,16 +9,10 @@ import SwiftUI
 
 struct MangaVolumesManagementView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
-    @State private var localVolumeStates: [Manga.VolumeState]
-    @State private var isCollectionComplete: Bool
+    @State private var localVolumeStates: [Manga.VolumeState] = []
+    @State private var isCollectionComplete: Bool = false
     
     let manga: Manga
-    
-    init(manga: Manga) {
-        self.manga = manga
-        _localVolumeStates = State(initialValue: manga.volumeStates)
-        _isCollectionComplete = State(initialValue: manga.isCollectionComplete)
-    }
     
     var body: some View {
         VStack {
@@ -30,28 +24,34 @@ struct MangaVolumesManagementView: View {
                 .padding()
                 .onChange(of: isCollectionComplete) { _, newValue in
                     if let volumes = manga.volumes {
-                        for volumeID in 0...volumes {
+                        for volumeID in 0..<volumes {
                             mangasVM.updateVolumeState(mangaID: manga.id, volumeID: volumeID, isPurchased: newValue)
                         }
                         localVolumeStates = mangasVM.mangas.first { $0.id == manga.id }?.volumeStates ?? []
+                        
+                        // Sincronizar localVolumeStates con el número de volúmenes
+                        if localVolumeStates.count != volumes {
+                            localVolumeStates = Array(repeating: Manga.VolumeState(id: 0, isPurchased: false, isBeingRead: false), count: volumes)
+                        }
                     }
                 }
             
             if let volumes = manga.volumes {
                 ScrollView {
                     VStack {
-                        ForEach(0..<volumes, id: \.self) { volumeID in
-                            if volumeID < localVolumeStates.count {
+                        ForEach(1...volumes, id: \.self) { volumeID in
+                            let actualIndex = volumeID - 1
+                            if actualIndex < localVolumeStates.count {
                                 VStack(alignment: .leading) {
-                                    Text("Volumen \(volumeID+1)")
+                                    Text("Volumen \(volumeID)")
                                         .font(.headline)
                                         .padding(.top)
                                     
                                     HStack {
                                         Toggle("Comprado", isOn: Binding(
-                                            get: { localVolumeStates[volumeID].isPurchased },
+                                            get: { localVolumeStates[actualIndex].isPurchased },
                                             set: { isPurchased in
-                                                mangasVM.updateVolumeState(mangaID: manga.id, volumeID: volumeID, isPurchased: isPurchased)
+                                                mangasVM.updateVolumeState(mangaID: manga.id, volumeID: actualIndex, isPurchased: isPurchased)
                                                 localVolumeStates = mangasVM.mangas.first { $0.id == manga.id }?.volumeStates ?? []
                                                 isCollectionComplete = localVolumeStates.allSatisfy { $0.isPurchased }
                                             }
@@ -61,9 +61,9 @@ struct MangaVolumesManagementView: View {
                                     .padding(.bottom, 5)
                                     HStack {
                                         Toggle("Leyendo", isOn: Binding(
-                                            get: { localVolumeStates[volumeID].isBeingRead },
+                                            get: { localVolumeStates[actualIndex].isBeingRead },
                                             set: { isBeingRead in
-                                                mangasVM.updateVolumeState(mangaID: manga.id, volumeID: volumeID, isBeingRead: isBeingRead)
+                                                mangasVM.updateVolumeState(mangaID: manga.id, volumeID: actualIndex, isBeingRead: isBeingRead)
                                                 localVolumeStates = mangasVM.mangas.first { $0.id == manga.id }?.volumeStates ?? []
                                             }
                                         ))
@@ -84,7 +84,10 @@ struct MangaVolumesManagementView: View {
                 mangasVM.updateMangaVolumeStates(mangaID: manga.id, newVolumeStates: localVolumeStates, isCollectionComplete: isCollectionComplete)
                 do {
                     try mangasVM.saveUserVolumeCollection()
+                    print("Cambios en la colección guardados")
                 } catch {
+                    mangasVM.showAlert = true
+                    mangasVM.errormenssage = "Error al guardar la colección de volúmenes: \(error)"
                     print("Error al guardar la colección de volúmenes: \(error)")
                 }
             }
@@ -94,13 +97,29 @@ struct MangaVolumesManagementView: View {
             Spacer()
         }
         .padding()
+        .onAppear {
+            loadMangaData()
+        }
+    }
+    
+    private func loadMangaData() {
+        if let loadedManga = mangasVM.mangas.first(where: { $0.id == manga.id }) {
+            localVolumeStates = loadedManga.volumeStates
+            isCollectionComplete = loadedManga.isCollectionComplete
+        } else {
+            localVolumeStates = manga.volumeStates
+            isCollectionComplete = manga.isCollectionComplete
+        }
+        
+        // Sincronizar localVolumeStates con el número de volúmenes
+        let volumeCount = manga.volumes ?? 0
+        if localVolumeStates.count != volumeCount {
+            localVolumeStates = Array(repeating: Manga.VolumeState(id: 0, isPurchased: false, isBeingRead: false), count: volumeCount)
+        }
     }
 }
-
-
 
 #Preview {
     MangaVolumesManagementView(manga: .testManga)
         .environmentObject(MangasViewModel.localTestMangas)
-    
 }

@@ -26,6 +26,7 @@ protocol MangasInteractorProtocol {
     func searchMangasContains(page: Int, contains: String) async throws -> [Manga]
     func saveUserMangasVolumenCollection(mangas: [Manga]) throws
     func loadUserMangaVolumenCollection() throws -> [Manga]
+    func searchMangaByGenre(genre: Genre) async throws -> [Manga] 
     
     
 }
@@ -60,6 +61,11 @@ extension MangasInteractorProtocol {
         try await getJSON(request: .getMangasContains(url: .mangasSearchByContains, contains: contains, page: page), type: MangasDTO.self).items.map(\.toPresentation)
     }
     
+    // funcion para buscar mangas por genero
+    func searchMangaByGenre(genre: Genre) async throws -> [Manga] {
+        try await getJSON(request: .getMangaByGenre(url: .mangasSearchByGenre, genre: genre), type: MangasDTO.self).items.map(\.toPresentation)
+    }
+    
     // funcion para guardar la gestion de la coleccion
     func saveUserMangasVolumenCollection(mangas: [Manga]) throws {
         let encoder = JSONEncoder()
@@ -75,6 +81,7 @@ extension MangasInteractorProtocol {
         let data = try Data(contentsOf: docURLUserCollectionManagement)
         return try JSONDecoder().decode([Manga].self, from: data)
     }
+    
     
     
 }

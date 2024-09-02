@@ -19,6 +19,16 @@ final class MangasViewModel: ObservableObject {
     @Published var deleteMangaAlertConfirmation = false
     @Published var errormenssage = ""
     @Published var searchBarText = ""
+    @Published var GenreIsSelect: String = "" {
+        didSet {
+            if let genre = Genre(rawValue: GenreIsSelect) {
+                Task {
+                    await mangaSelectByGenre(genre: genre)
+                }
+            }
+        }
+    }
+    
     var currentPage = 1
     
     let mangaInteractor: MangasInteractorProtocol
@@ -28,7 +38,8 @@ final class MangasViewModel: ObservableObject {
         Task {
             async let getMangas: () = await getMangas()
             async let loadFavorites: () = await loadFavorites()
-            _ = await (getMangas, loadFavorites)
+            async let loadUserCollection: () = await loadUserMangaVolumenCollection()
+            _ = await (getMangas, loadFavorites, loadUserCollection)
         }
     }
     
@@ -183,6 +194,30 @@ final class MangasViewModel: ObservableObject {
         mangas.sort { $0.title < $1.title }
     }
     
+    // busqueda por filtro de genero
+    func mangaSelectByGenre(genre: Genre) async -> [Manga] {
+        if !GenreIsSelect.isEmpty {
+            do {
+                let manga = try await mangaInteractor.searchMangaByGenre(genre: genre)
+                await MainActor.run {
+                    if currentPage == 1 {
+                        mangas.removeAll()
+                    }
+                    mangas += manga
+                }
+            } catch {
+                print("Error busqueda por genero \(error)")
+            }
+        } else {
+            await MainActor.run {
+                mangas.removeAll()
+            }
+            await getMangas()
+            currentPage = 1
+            GenreIsSelect = ""
+        }
+        return []
+    }
     
     
     //GESTION DE LOS VOLUMENES DE LA COLECCION
