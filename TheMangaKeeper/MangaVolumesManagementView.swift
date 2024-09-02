@@ -30,7 +30,7 @@ struct MangaVolumesManagementView: View {
                 .padding()
                 .onChange(of: isCollectionComplete) { _, newValue in
                     if let volumes = manga.volumes {
-                        for volumeID in 1...volumes {
+                        for volumeID in 0...volumes {
                             mangasVM.updateVolumeState(mangaID: manga.id, volumeID: volumeID, isPurchased: newValue)
                         }
                         localVolumeStates = mangasVM.mangas.first { $0.id == manga.id }?.volumeStates ?? []
@@ -59,7 +59,6 @@ struct MangaVolumesManagementView: View {
                                         .padding(.leading)
                                     }
                                     .padding(.bottom, 5)
-                                    
                                     HStack {
                                         Toggle("Leyendo", isOn: Binding(
                                             get: { localVolumeStates[volumeID].isBeingRead },
