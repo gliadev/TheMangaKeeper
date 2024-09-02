@@ -43,7 +43,7 @@ struct MangaVolumesManagementView: View {
                         ForEach(0..<volumes, id: \.self) { volumeID in
                             if volumeID < localVolumeStates.count {
                                 VStack(alignment: .leading) {
-                                    Text("Volumen \(volumeID)")
+                                    Text("Volumen \(volumeID+1)")
                                         .font(.headline)
                                         .padding(.top)
                                     

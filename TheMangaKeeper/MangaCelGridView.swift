@@ -24,7 +24,7 @@ struct MangaCelGridView: View {
                 .lineLimit(1)
                 .font(.caption2)
         }
-        .padding(4)
+        .padding(7)
         .background(Color.gray.opacity(0.3))
         .clipShape(RoundedRectangle(cornerRadius: 8))
             

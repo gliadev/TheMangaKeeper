@@ -46,4 +46,6 @@ struct MangasCellView: View {
 
 #Preview {
     MangasCellView(manga: .testManga)
+    // @State viewModel = MangasViewModel
+// return MangasCellView = mangasVM
 }
