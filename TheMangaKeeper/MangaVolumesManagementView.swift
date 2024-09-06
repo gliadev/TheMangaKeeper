@@ -102,22 +102,30 @@ struct MangaVolumesManagementView: View {
         }
     }
     
+    /// Función para cargar los datos del manga en la vista
     private func loadMangaData() {
-        if let loadedManga = mangasVM.mangas.first(where: { $0.id == manga.id }) {
-            localVolumeStates = loadedManga.volumeStates
-            isCollectionComplete = loadedManga.isCollectionComplete
-        } else {
-            localVolumeStates = manga.volumeStates
-            isCollectionComplete = manga.isCollectionComplete
-        }
-        
-        // Sincronizar localVolumeStates con el número de volúmenes
-        let volumeCount = manga.volumes ?? 0
-        if localVolumeStates.count != volumeCount {
-            localVolumeStates = Array(repeating: Manga.VolumeState(id: 0, isPurchased: false, isBeingRead: false), count: volumeCount)
-        }
-    }
-}
+           if let loadedManga = mangasVM.mangas.first(where: { $0.id == manga.id }) {
+               localVolumeStates = loadedManga.volumeStates
+               isCollectionComplete = loadedManga.isCollectionComplete
+           } else {
+               localVolumeStates = manga.volumeStates
+               isCollectionComplete = manga.isCollectionComplete
+           }
+           
+           // Obtener el número de volúmenes del manga
+           let volumeCount = manga.volumes ?? 0
+           
+           // Si el número de estados de volúmenes no coincide con el número de volúmenes del manga, inicializamos los estados
+           if localVolumeStates.count != volumeCount {
+               localVolumeStates = Array(repeating: Manga.VolumeState(id: 0, isPurchased: false, isBeingRead: false), count: volumeCount)
+               
+               // Asegurar que los `id` de los estados de volumen se asignan correctamente
+               for i in 0..<volumeCount {
+                   localVolumeStates[i].id = i + 1
+               }
+           }
+       }
+   }
 
 #Preview {
     MangaVolumesManagementView(manga: .testManga)

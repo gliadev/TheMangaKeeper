@@ -43,15 +43,6 @@ struct MangasDetailView: View {
                     .tint(mangasVM.checkIsFavorite(manga: manga) ? .red : .blue)
                     .padding(.bottom, 20)
                 
-//                Button(action: {
-//                    if manga.isFavorite {
-//                        showVolumeManagement = true
-//                    } else {}
-//                }) {
-//                    Text("Gestion de los Volumenes")
-//                }
-//                .opacity(mangasVM.checkIsFavorite(manga: manga) ? 1 : 0)
-                
                 Group {
                     Text("By \(manga.authors.map { "\($0.firstName) \($0.lastName)" }.joined(separator: ", "))")
                         .font(.headline)
@@ -60,11 +51,6 @@ struct MangasDetailView: View {
                     Text("Puntuación: \(manga.scoreFormateado) / 10")
                         .bold()
                     
-//                    if let volumes = manga.volumes {
-//                        Text("Volumenes: \(volumes)")
-//                    } else {
-//                        Text("Volumnes: - sin informacion -")
-//                    }
                     HStack {
                         
                         if let volumes = manga.volumes {
@@ -72,7 +58,7 @@ struct MangasDetailView: View {
                         } else {
                             Text("Volúmenes: - sin información -")
                         }
-
+                        
                         
                         Button(action: {
                             if manga.isFavorite {
