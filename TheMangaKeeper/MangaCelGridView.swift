@@ -33,5 +33,5 @@ struct MangaCelGridView: View {
 
 #Preview {
     MangaCelGridView(manga: .testManga)
-        .environmentObject(MangasViewModel.localTestMangas)
+        //.environmentObject(MangasViewModel.localTestMangas)
 }

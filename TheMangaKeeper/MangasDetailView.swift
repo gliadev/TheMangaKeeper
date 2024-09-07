@@ -58,8 +58,6 @@ struct MangasDetailView: View {
                         } else {
                             Text("Volúmenes: - sin información -")
                         }
-                        
-                        
                         Button(action: {
                             if manga.isFavorite {
                                 showVolumeManagement = true

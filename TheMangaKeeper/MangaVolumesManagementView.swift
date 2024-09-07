@@ -98,7 +98,12 @@ struct MangaVolumesManagementView: View {
         }
         .padding()
         .onAppear {
-            loadMangaData()
+            Task {
+                await mangasVM.loadUserMangaVolumenCollection() // deberia cargar los mangas en local
+                print("carga los datos del json que tenemos guarados")
+                loadMangaData()
+            }
+            
         }
     }
     
