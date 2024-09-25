@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MangasCellView: View {
-    @EnvironmentObject var mangasVM: MangasViewModel
     let manga: Manga
     var body: some View {
         ZStack {
@@ -46,6 +45,4 @@ struct MangasCellView: View {
 
 #Preview {
     MangasCellView(manga: .testManga)
-    // @State viewModel = MangasViewModel
-// return MangasCellView = mangasVM
 }

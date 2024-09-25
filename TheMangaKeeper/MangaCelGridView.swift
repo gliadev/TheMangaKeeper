@@ -14,7 +14,6 @@ struct MangaCelGridView: View {
     var body: some View {
         VStack {
             MangaCoverImage(manga: manga)
-                //.resizable()
                 .scaledToFit()
                 .frame(height: 120)
             Text(manga.title)
@@ -33,5 +32,4 @@ struct MangaCelGridView: View {
 
 #Preview {
     MangaCelGridView(manga: .testManga)
-        //.environmentObject(MangasViewModel.localTestMangas)
 }
