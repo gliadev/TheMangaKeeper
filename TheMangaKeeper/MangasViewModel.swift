@@ -2,12 +2,14 @@
 //  TheMangaKeeper
 //
 //  Created by Adolfo on 19/12/23.
-//
+// mensaje de error
+// /Users/adolfo/Developer/SDP2023/Proyecto Final/TheMangaKeeper/TheMangaKeeper/MangasViewModel.swift:9 Publishing changes from within view updates is not allowed, this will cause undefined behavior.
+
 
 import Foundation
 final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
-    @Published var mangasUserVolumenCollection: [Manga] = [] // intentar unificar en al modelo de manga
+   // @Published var mangasUserVolumenCollection: [Manga] = [] // intentar unificar en al modelo de manga
     @Published var mangasFavorites: [Manga] = [] {
         didSet{
             Task {
