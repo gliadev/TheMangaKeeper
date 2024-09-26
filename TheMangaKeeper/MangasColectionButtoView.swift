@@ -11,7 +11,7 @@ struct MangasColectionButtoView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
     var manga: Manga
     
-    init(manga: Manga) { self.manga = manga }
+    
     
     var body: some View {
         Button(action: {
