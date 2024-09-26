@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MangaCoverImage: View {
     let manga: Manga
+    
     var body: some View {
         AsyncImage(url: URL(string: manga.mainPictureFormateada)) { image in
             image

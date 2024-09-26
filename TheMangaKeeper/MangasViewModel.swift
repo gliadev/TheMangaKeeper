@@ -9,7 +9,6 @@
 import Foundation
 final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
-   // @Published var mangasUserVolumenCollection: [Manga] = [] // intentar unificar en al modelo de manga
     @Published var mangasFavorites: [Manga] = [] {
         didSet{
             Task {
@@ -47,7 +46,7 @@ final class MangasViewModel: ObservableObject {
     
     //PETICIONES DE LOS MANGAS
     // llamada a red
-    @MainActor
+  //  @MainActor este sobra porque que lo stoy llanando con el MainActor.run
     func getMangas() async {
         do {
             print("Llamada de red")
@@ -119,9 +118,7 @@ final class MangasViewModel: ObservableObject {
         mangasFavorites.contains(where: { $0.id == manga.id })
     }
     
-    // checfavorito
-    // necestio un favorito
-    
+   
     
     // eliminar magna de coleccion
     @MainActor
@@ -271,9 +268,6 @@ final class MangasViewModel: ObservableObject {
                 print("Error al cargar la colección de volúmenes del usuario: \(error)")
             }
         }
-    
-    
-    
 }
 
 
