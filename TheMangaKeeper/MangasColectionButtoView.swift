@@ -10,13 +10,13 @@ import SwiftUI
 struct MangasColectionButtoView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
     var manga: Manga
-    
+    @State var deleteMangaAlertConfirmation = false
     
     
     var body: some View {
         Button(action: {
             if mangasVM.checkIsFavorite(manga: manga) {
-                mangasVM.deleteMangaAlertConfirmation = true
+                deleteMangaAlertConfirmation = true
             } else {
                 Task {
                     await mangasVM.toogleMangaFavorite(mangaID: manga.id)
@@ -35,7 +35,7 @@ struct MangasColectionButtoView: View {
             .clipShape(RoundedRectangle(cornerRadius: 10))
         }
         .padding(.horizontal)
-        .confirmationDialog("¿Estas seguro que deseas eliminar este manga de tus colección?", isPresented: $mangasVM.deleteMangaAlertConfirmation, titleVisibility: .visible) {
+        .confirmationDialog("¿Estas seguro que deseas eliminar este manga de tus colección?", isPresented: $deleteMangaAlertConfirmation, titleVisibility: .visible) {
             Button("Eliminar", role: .destructive) {
                 Task {
                     await mangasVM.deleteManga(mangaID: manga.id)
