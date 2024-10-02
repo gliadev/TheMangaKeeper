@@ -80,13 +80,18 @@ final class MangasViewModel: ObservableObject {
         mangas.last?.id == manga.id
     }
     
+    // localizar un manga por su IS
+    func getMangaByID(id: Int) -> Manga? {
+        return mangas.first(where: { $0.id == id })
+    }
+    
     
     
     //GESTION DE LA COLLECION PARA AÑADIR ELIMINAR A FAVORITOS
     
     
     // añadir manga a coleccion
-    @MainActor
+    //@MainActor
     func toogleMangaFavorite(mangaID: Int) async {
         if let index = mangasFavorites.firstIndex(where: { $0.id == mangaID }) {
             // Manga ya está en favoritos, lo eliminamos
@@ -95,15 +100,16 @@ final class MangasViewModel: ObservableObject {
                 mangas[mainIndex].isFavorite = false
             }
         } else if let index = mangas.firstIndex(where: { $0.id == mangaID }) {
-            // Añadir a favoritos si no está ya
-            mangas[index].isFavorite = true
-            mangasFavorites.append(mangas[index])
+            await MainActor.run{
+                mangas[index].isFavorite = true
+                mangasFavorites.append(mangas[index])
+            }
         }
         await saveFavorites()
     }
     
     // guardar coleccion de mis mangas
-    @MainActor
+    //@MainActor
     func saveFavorites() async {
         do {
             let favorites = mangasFavorites

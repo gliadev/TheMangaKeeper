@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct MangasTabBar: View {
+    //@State var selectedTab = 0
     
     var body: some View {
-        TabView {
-            MangasListView()
+        TabView() {
+            MangasListView16_2()
+            //MangasListView()
                 .tabItem {
                     Label("Mangas", systemImage: "list.dash")
                 }
+                .tag(0)
             MangasCollectionView()
                 .tabItem {
                     Label("Mi Coleccion", systemImage: "star.fill")

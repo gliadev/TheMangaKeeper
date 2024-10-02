@@ -6,14 +6,16 @@
 
 import SwiftUI
 
-struct MangasListView: View {
+struct MangasListView15_2: View {
     @EnvironmentObject var mangasVM: MangasViewModel
     @State var timer: Timer?
+    @State var mangaSelected: Manga.ID?
+    
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
                 SearchBarView()
-                List {
+                List (selection: $mangaSelected){
                     ForEach(mangasVM.mangas) { manga in
                         NavigationLink(destination: MangasDetailView(manga: manga)) {
                             MangasCellView(manga: manga)
@@ -23,10 +25,13 @@ struct MangasListView: View {
                         }
                     }
                 }
+            }
                 .listStyle(.plain)
                 .navigationTitle("Listado de Mangas")
                 .navigationBarTitleDisplayMode(.inline)
-                //.navigationViewStyle(.stack)
+           
+            if let first = mangasVM.mangas.first {
+                MangasDetailView(manga: first)
             }
         }
     }
@@ -34,6 +39,6 @@ struct MangasListView: View {
 
 
 #Preview {
-    MangasListView()
+    MangasListView15_2()
         .environmentObject(MangasViewModel.localTestMangas)
 }

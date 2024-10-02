@@ -9,9 +9,8 @@ import SwiftUI
 
 struct MangasColectionButtoView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
-    var manga: Manga
     @State var deleteMangaAlertConfirmation = false
-    
+    var manga: Manga
     
     var body: some View {
         Button(action: {

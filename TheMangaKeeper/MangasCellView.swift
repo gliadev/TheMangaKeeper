@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MangasCellView: View {
-    let manga: Manga
+    var manga: Manga
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.white, .gray.opacity(0.1)]), startPoint: .top, endPoint: .bottom)
