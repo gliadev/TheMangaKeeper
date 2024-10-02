@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct MangasTabBar: View {
+struct MangasTabBarPad: View {
+    //@State var selectedTab = 0
     
     var body: some View {
         TabView() {
-            MangasListView()
+            MangasListView16_2()
                 .tabItem {
                     Label("Mangas", systemImage: "list.dash")
                 }
@@ -25,10 +26,10 @@ struct MangasTabBar: View {
 }
 
 #Preview {
-    MangasTabBar()
+    MangasTabBarPad()
         .environmentObject(MangasViewModel.localTestMangas)
     
 }
 
 
-
+// .onTag
