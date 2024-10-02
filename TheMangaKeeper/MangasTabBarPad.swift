@@ -16,7 +16,6 @@ struct MangasTabBarPad: View {
                 .tabItem {
                     Label("Mangas", systemImage: "list.dash")
                 }
-                .tag(0)
             MangasCollectionView()
                 .tabItem {
                     Label("Mi Coleccion", systemImage: "star.fill")
