@@ -3,7 +3,7 @@
 //  TheMangaKeeper
 //
 //  Created by Adolfo on 3/1/24.
-//å
+//
 
 import SwiftUI
 
@@ -15,7 +15,6 @@ struct MangasTabBar: View {
                 .tabItem {
                     Label("Mangas", systemImage: "list.dash")
                 }
-                .tag(0)
             MangasCollectionView()
                 .tabItem {
                     Label("Mi Coleccion", systemImage: "star.fill")
@@ -26,7 +25,7 @@ struct MangasTabBar: View {
 
 #Preview {
     MangasTabBar()
-        .environmentObject(MangasViewModel.localTestMangas)
+        .environmentObject(MangasViewModel())
     
 }
 

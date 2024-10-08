@@ -12,11 +12,7 @@ extension URLSession {
         
         do {
             let (data, response) = try await URLSession.shared.data(for: request)
-            //print(data)
-            //print(response)
-            guard let httpResponse = response as? HTTPURLResponse else { 
-                throw NetworkErrors.noHTTP }
-            //print("Cargando los datos desde la rede")
+            guard let httpResponse = response as? HTTPURLResponse else { throw NetworkErrors.noHTTP }
             return (data, httpResponse)
         } catch {
             throw NetworkErrors.general(error)

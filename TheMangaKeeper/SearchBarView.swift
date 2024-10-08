@@ -10,7 +10,6 @@ import SwiftUI
 struct SearchBarView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
     @State private var showGenreFilter = false
-    //@State var timer: Timer?
     
     var body: some View {
         VStack {
@@ -59,5 +58,5 @@ struct SearchBarView: View {
 }
     #Preview {
         SearchBarView()
-            .environmentObject(MangasViewModel())
+            .environmentObject(MangasViewModel.localTestMangas)
     }

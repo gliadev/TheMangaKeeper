@@ -2,11 +2,11 @@
 //  TheMangaKeeper
 //
 //  Created by Adolfo on 19/12/23.
-// mensaje de error
-// /Users/adolfo/Developer/SDP2023/Proyecto Final/TheMangaKeeper/TheMangaKeeper/MangasViewModel.swift:9 Publishing changes from within view updates is not allowed, this will cause undefined behavior.
+
 
 
 import Foundation
+
 final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
     @Published var mangasFavorites: [Manga] = [] {
@@ -44,28 +44,26 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
-    //PETICIONES DE LOS MANGAS
-    // llamada a red
-  //  @MainActor este sobra porque que lo stoy llanando con el MainActor.run
+    // hasta aqui
     func getMangas() async {
         do {
-            print("Llamada de red")
             let manga = try await mangaInteractor.getMangas(page: currentPage)
             await MainActor.run {
                 mangas += manga
-                
+                self.showAlert = false
             }
         }
         catch {
-            self.errormenssage = "\(error)"
-            self.showAlert.toggle()
-            print("Este error desde el getMangas: \(error)")
+            let networkError = error as? NetworkErrors
+            await MainActor.run {
+                self.errormenssage = networkError?.description ?? "error en la carga de la API"
+                self.showAlert = true
+
+            }
         }
     }
     
-    // CARGA DEL SCROLL DE MAS MANGAS
-    
-    // cargar mas mangas scroll infinito
+
     func loadMoreMangaIfNeeded(manga: Manga) {
         if isLastManga(manga: manga){
             currentPage += 1
@@ -75,23 +73,18 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
-    // cargar mangas siguiente paguina
+    
     func isLastManga(manga: Manga) -> Bool {
         mangas.last?.id == manga.id
     }
     
-    // localizar un manga por su IS
+  
     func getMangaByID(id: Int) -> Manga? {
         return mangas.first(where: { $0.id == id })
     }
     
     
     
-    //GESTION DE LA COLLECION PARA AÑADIR ELIMINAR A FAVORITOS
-    
-    
-    // añadir manga a coleccion
-    //@MainActor
     func toogleMangaFavorite(mangaID: Int) async {
         if let index = mangasFavorites.firstIndex(where: { $0.id == mangaID }) {
             // Manga ya está en favoritos, lo eliminamos
@@ -108,8 +101,7 @@ final class MangasViewModel: ObservableObject {
         await saveFavorites()
     }
     
-    // guardar coleccion de mis mangas
-    //@MainActor
+    
     func saveFavorites() async {
         do {
             let favorites = mangasFavorites
@@ -119,14 +111,13 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
-    // funcion comprobar Favoritos
+  
     func checkIsFavorite(manga: Manga)-> Bool {
         mangasFavorites.contains(where: { $0.id == manga.id })
     }
     
    
     
-    // eliminar magna de coleccion
     @MainActor
     func deleteManga(mangaID: Int) async {
         mangasFavorites.removeAll(where: {$0.id == mangaID})
@@ -136,7 +127,6 @@ final class MangasViewModel: ObservableObject {
         await saveFavorites()
     }
     
-    // cargar la coleccion
     @MainActor
     func loadFavorites() async {
         do {
@@ -151,7 +141,6 @@ final class MangasViewModel: ObservableObject {
     
     
     
-    // funcion para actualizar el estado de la coleccion de los mangas
     @MainActor
     func updateFavoriteStatus(for mangaID: Int, isFavorite: Bool) {
         for index in mangas.indices where mangas[index].id == mangaID {
@@ -168,9 +157,6 @@ final class MangasViewModel: ObservableObject {
     
     
     
-    //BUSQUEDAS
-    
-    // buscar mangas por algo "Patata"
     @MainActor
     func searchMangaContains(searchBarText: String) async {
         if !searchBarText.isEmpty {
@@ -178,7 +164,7 @@ final class MangasViewModel: ObservableObject {
                 let searchBar = try await mangaInteractor.searchMangasContains(page: 0, contains: searchBarText)
                 if currentPage == 1 {
                     mangas.removeAll()
-                } // cuando valla hacer una busqueda paso la currentpage a 0
+                }
                 mangas += searchBar
             } catch {
                 print("Error desde la busqueda: \(error) \(errormenssage)")
@@ -192,14 +178,12 @@ final class MangasViewModel: ObservableObject {
     
     
     
-    //FILTROS
-    
-    // funcion para el filtro y ordenar alfabeticamente
+  
     func mangasAlphabetic(){
         mangas.sort { $0.title < $1.title }
     }
     
-    // busqueda por filtro de genero
+
     func mangaSelectByGenre(genre: Genre) async -> [Manga] {
         if !GenreIsSelect.isEmpty {
             do {
@@ -225,7 +209,7 @@ final class MangasViewModel: ObservableObject {
     }
     
     
-    //GESTION DE LOS VOLUMENES DE LA COLECCION
+    
     @MainActor
         func updateMangaVolumeStates(mangaID: Int, newVolumeStates: [Manga.VolumeState], isCollectionComplete: Bool) {
             if let mangaIndex = mangas.firstIndex(where: { $0.id == mangaID }) {
@@ -249,6 +233,7 @@ final class MangasViewModel: ObservableObject {
                 }
             }
         }
+    
 
         func saveUserVolumeCollection() throws {
             do {
@@ -257,6 +242,7 @@ final class MangasViewModel: ObservableObject {
                 throw error
             }
         }
+    
 
         @MainActor
         func loadUserMangaVolumenCollection() async {
@@ -274,6 +260,9 @@ final class MangasViewModel: ObservableObject {
                 print("Error al cargar la colección de volúmenes del usuario: \(error)")
             }
         }
+    
+    
+    
 }
 
 

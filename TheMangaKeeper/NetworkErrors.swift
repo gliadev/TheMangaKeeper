@@ -15,6 +15,7 @@ enum NetworkErrors: Error, CustomStringConvertible {
     case general(Error)
     case fileNotFound
     
+    
     var description: String {
         switch self {
         case .noHTTP:
@@ -27,6 +28,7 @@ enum NetworkErrors: Error, CustomStringConvertible {
             "Error general \(error)"
         case .fileNotFound:
             "Error no encontrado archvivo de carga local"
+    
         }
     }
 }

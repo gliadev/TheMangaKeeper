@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MangasTabBarPad: View {
-    //@State var selectedTab = 0
     
     var body: some View {
         TabView() {
@@ -31,4 +30,3 @@ struct MangasTabBarPad: View {
 }
 
 
-// .onTag

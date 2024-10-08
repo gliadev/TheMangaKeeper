@@ -8,7 +8,7 @@ import SwiftUI
 
 struct MangasListView: View {
     @EnvironmentObject var mangasVM: MangasViewModel
-    @State var timer: Timer?
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -26,7 +26,14 @@ struct MangasListView: View {
                 .listStyle(.plain)
                 .navigationTitle("Listado de Mangas")
                 .navigationBarTitleDisplayMode(.inline)
-                //.navigationViewStyle(.stack)
+            }
+            .alert("No se ha podido cargar los datos de la API, danos un rato y vuelve a intentarlo", isPresented: $mangasVM.showAlert) {
+                Button("Reintentar", role: .cancel) {
+                    Task {
+                        await mangasVM.getMangas()
+                    }
+                    
+                }
             }
         }
     }

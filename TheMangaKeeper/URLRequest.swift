@@ -46,7 +46,6 @@ extension URLRequest {
     }
     
     
-    // para buscar un manga por algo "patata"
     static func getMangasContains(url: URL, contains: String, page: Int) -> URLRequest {
         var request = URLRequest(url: url.appending(path: contains))
         print("Cargando Busqueda")
@@ -57,7 +56,6 @@ extension URLRequest {
         
     }
     
-    // buscar manga por genero
     static func getMangaByGenre(url: URL, genre: Genre) -> URLRequest {
         var request = URLRequest(url: url.appending(path: String(genre.rawValue)))
         request.httpMethod = "GET"

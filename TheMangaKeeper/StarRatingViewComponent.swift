@@ -22,7 +22,6 @@ struct StarRatingViewComponent: View {
     
     func colorForStar(starNumber: Int) -> Color {
         let activeStarCount = Int(ceil(Double(rating) / 2.0))
-       // let activeStarCount = rating
         let color: Color
         
         if activeStarCount == 1 || activeStarCount == 2 {
@@ -43,5 +42,5 @@ struct StarRatingViewComponent: View {
     }
 }
 #Preview {
-    StarRatingViewComponent(rating: 4)
+    StarRatingViewComponent(rating: 1)
 }

@@ -32,20 +32,18 @@ struct Manga: Identifiable, Decodable, Encodable {
     var isCollectionComplete: Bool
     
     
-    // otra solucion no estaba viendo que tambien tenia que eliminar las "" de la url de la foto
+   
     var mainPictureFormateada: String {
-        //let mainPicture1 = mainPicture.replacingOccurrences(of: "\\", with: "")
         mainPicture.trimmingCharacters(in: CharacterSet(charactersIn: "\""))
     }
     
     
-    // cuando la puesto me pedia un valor por defecto
+    
     var urlFormateada: String {
         return url?.replacingOccurrences(of: "\\", with: "") ?? ""
     }
     
     var scoreFormateado: String {
-        //Text("Puntuacion: \(manga.score, specifier: "%.2f")")
         String(Int(score))
     }
     
@@ -54,6 +52,8 @@ struct Manga: Identifiable, Decodable, Encodable {
         var isPurchased: Bool
         var isBeingRead: Bool
     }
+    
+    
 }
 
 
