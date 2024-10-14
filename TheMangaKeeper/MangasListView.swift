@@ -27,12 +27,11 @@ struct MangasListView: View {
                 .navigationTitle("Listado de Mangas")
                 .navigationBarTitleDisplayMode(.inline)
             }
-            .alert("No se ha podido cargar los datos de la API, danos un rato y vuelve a intentarlo", isPresented: $mangasVM.showAlert) {
+            .alert("No se ha podido cargar los datos de la API, vuelve a intentarlo o sal y ven en un rato", isPresented: $mangasVM.showAlert) {
                 Button("Reintentar", role: .cancel) {
                     Task {
                         await mangasVM.getMangas()
                     }
-                    
                 }
             }
         }

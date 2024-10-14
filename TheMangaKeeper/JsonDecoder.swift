@@ -11,16 +11,13 @@ func getJSON<JSON: Codable>(request: URLRequest, type: JSON.Type) async throws -
     let (data, response) = try await URLSession.shared.getMangas(request: request)
     let decoder = JSONDecoder()
     decoder.dateDecodingStrategy = .formatted(.dateFormatted)
-    
     if response.statusCode == 200 {
         do {
             return try decoder.decode(type .self, from: data)
         } catch {
-            print("Error de paseo JSON:\(error) ")
             throw NetworkErrors.parseJson(error)
         }
     } else {
-        print("Error en red \(response.statusCode)")
         throw NetworkErrors.badStatusCode(response.statusCode)
     }
 }

@@ -8,7 +8,6 @@ import SwiftUI
 
 struct MangasListView16_2: View {
     @EnvironmentObject var mangasVM: MangasViewModel
-    @State var timer: Timer?
     @State var mangaSelected: Manga.ID?
     
     
@@ -25,7 +24,6 @@ struct MangasListView16_2: View {
                 }
                 .navigationTitle("Mangas")
                 .navigationSplitViewColumnWidth(400)
-
             } detail: {
                         if let mangaSelected,
                            let manga = mangasVM.getMangaByID(id: mangaSelected) {
@@ -50,5 +48,5 @@ struct MangasListView16_2: View {
 
 #Preview {
     MangasListView16_2()
-        .environmentObject(MangasViewModel.localTestMangas)
+        .environmentObject(MangasViewModel())
 }

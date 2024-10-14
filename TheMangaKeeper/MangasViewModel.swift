@@ -44,7 +44,6 @@ final class MangasViewModel: ObservableObject {
         }
     }
     
-    // hasta aqui
     func getMangas() async {
         do {
             let manga = try await mangaInteractor.getMangas(page: currentPage)
@@ -87,7 +86,6 @@ final class MangasViewModel: ObservableObject {
     
     func toogleMangaFavorite(mangaID: Int) async {
         if let index = mangasFavorites.firstIndex(where: { $0.id == mangaID }) {
-            // Manga ya está en favoritos, lo eliminamos
             mangasFavorites.remove(at: index)
             if let mainIndex = mangas.firstIndex(where: { $0.id == mangaID }) {
                 mangas[mainIndex].isFavorite = false
@@ -135,7 +133,8 @@ final class MangasViewModel: ObservableObject {
                 mangasFavorites = loadedFavorites
             }
         } catch {
-            print("Error al cargar la coleccion\(error)")
+            errormenssage = "No se pudo cargar la coleciion de favoritos"
+            showAlert = true
         }
     }
     

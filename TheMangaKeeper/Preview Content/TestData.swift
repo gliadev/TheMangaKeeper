@@ -13,14 +13,10 @@ struct testMangasLocal: MangasInteractorProtocol {
     let docURLUserCollectionManagement = URL.documentsDirectory.appending(path: "TestUserMangasColectionManagement.json")
     
     func getMangas(page: Int) async throws -> [Manga] {
-        //let dateFormater = DateFormatter()
-        //dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(.dateFormatted)
         
         let data = try Data(contentsOf: urlBundle)
-        print("Cargado datos desde local")
-        print("Estas en la paguina numero: \(page) de los datos en local")
         return try decoder.decode(MangasDTO.self, from: data).items.map(\.toPresentation)
     }
     
@@ -31,12 +27,10 @@ struct testMangasLocal: MangasInteractorProtocol {
         return try decoder.decode(MangasDTO.self, from: data).items.map(\.toPresentation)
     }
     
-    // funcion para buscar por genero
     func searchMangaByGenre(genre: Genre) async throws -> [Manga] {
         try await getJSON(request: .getMangaByGenre(url: .mangasSearchByGenre, genre: genre), type: MangasDTO.self).items.map(\.toPresentation)
     }
     
-    // Función para guardar la colección de mangas del usuario pruebas
     func saveUserMangasVolumenCollection(mangas: [Manga]) throws {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
@@ -44,7 +38,6 @@ struct testMangasLocal: MangasInteractorProtocol {
         try data.write(to: docURLUserCollectionManagement, options: .atomic)
     }
     
-    // Función para cargar la colección de mangas del usuario pruebas
     func loadUserMangaVolumenCollection() throws -> [Manga] {
         guard FileManager.default.fileExists(atPath: docURLUserCollectionManagement.path) else { return [] }
         let data = try Data(contentsOf: docURLUserCollectionManagement)

@@ -28,8 +28,6 @@ struct MangaVolumesManagementView: View {
                             mangasVM.updateVolumeState(mangaID: manga.id, volumeID: volumeID, isPurchased: newValue)
                         }
                         localVolumeStates = mangasVM.mangas.first { $0.id == manga.id }?.volumeStates ?? []
-                        
-                        // Sincronizar localVolumeStates con el número de volúmenes
                         if localVolumeStates.count != volumes {
                             localVolumeStates = Array(repeating: Manga.VolumeState(id: 0, isPurchased: false, isBeingRead: false), count: volumes)
                         }
@@ -93,7 +91,6 @@ struct MangaVolumesManagementView: View {
             }
             .padding()
             .buttonStyle(.borderedProminent)
-            
             Spacer()
         }
         .padding()
@@ -107,27 +104,24 @@ struct MangaVolumesManagementView: View {
         }
     }
     
-  
+    
     private func loadMangaData() {
-           if let loadedManga = mangasVM.mangas.first(where: { $0.id == manga.id }) {
-               localVolumeStates = loadedManga.volumeStates
-               isCollectionComplete = loadedManga.isCollectionComplete
-           } else {
-               localVolumeStates = manga.volumeStates
-               isCollectionComplete = manga.isCollectionComplete
-           }
-           
-           let volumeCount = manga.volumes ?? 0
-           
-           if localVolumeStates.count != volumeCount {
-               localVolumeStates = Array(repeating: Manga.VolumeState(id: 0, isPurchased: false, isBeingRead: false), count: volumeCount)
-               
-               for i in 0..<volumeCount {
-                   localVolumeStates[i].id = i + 1
-               }
-           }
-       }
-   }
+        if let loadedManga = mangasVM.mangas.first(where: { $0.id == manga.id }) {
+            localVolumeStates = loadedManga.volumeStates
+            isCollectionComplete = loadedManga.isCollectionComplete
+        } else {
+            localVolumeStates = manga.volumeStates
+            isCollectionComplete = manga.isCollectionComplete
+        }
+        let volumeCount = manga.volumes ?? 0
+        if localVolumeStates.count != volumeCount {
+            localVolumeStates = Array(repeating: Manga.VolumeState(id: 0, isPurchased: false, isBeingRead: false), count: volumeCount)
+            for i in 0..<volumeCount {
+                localVolumeStates[i].id = i + 1
+            }
+        }
+    }
+}
 
 #Preview {
     MangaVolumesManagementView(manga: .testManga)

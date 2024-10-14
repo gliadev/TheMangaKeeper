@@ -18,7 +18,7 @@ struct StarRatingViewComponent: View {
                     .foregroundColor(colorForStar(starNumber: star))
             }
         }
-    }
+    } 
     
     func colorForStar(starNumber: Int) -> Color {
         let activeStarCount = Int(ceil(Double(rating) / 2.0))

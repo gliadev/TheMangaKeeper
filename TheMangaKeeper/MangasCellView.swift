@@ -12,8 +12,7 @@ struct MangasCellView: View {
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.white, .gray.opacity(0.1)]), startPoint: .top, endPoint: .bottom)
-                .cornerRadius(12)
-            
+               .cornerRadius(12)
             HStack(spacing: 16) {
                 MangaCoverImage(manga: manga)
                 VStack(alignment: .leading, spacing: 8) {

@@ -43,8 +43,8 @@ struct Manga: Identifiable, Decodable, Encodable {
         return url?.replacingOccurrences(of: "\\", with: "") ?? ""
     }
     
-    var scoreFormateado: String {
-        String(Int(score))
+    var scoreFormateado: Int {
+        Int(score)
     }
     
     struct VolumeState: Identifiable, Codable {
