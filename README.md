@@ -4,7 +4,6 @@
 
 Descripción del Proyecto
 
-👨‍💻 Sobre el Proyecto
 The MangaKeeper es una aplicación para gestionar colecciones de mangas, con funcionalidades avanzadas para organizar lecturas, llevar un seguimiento de volúmenes, y explorar un catálogo extenso de mangas. La app está optimizada tanto para iPhone como iPad, proporcionando una experiencia de usuario consistente y detallada en ambas plataformas.
 
 
@@ -37,3 +36,5 @@ Xcode: Entorno de desarrollo.
 
 
 
+
+📸 Capturas de Pantalla
