@@ -82,11 +82,9 @@ struct MangaVolumesManagementView: View {
                 mangasVM.updateMangaVolumeStates(mangaID: manga.id, newVolumeStates: localVolumeStates, isCollectionComplete: isCollectionComplete)
                 do {
                     try mangasVM.saveUserVolumeCollection()
-                    print("Cambios en la colección guardados")
                 } catch {
                     mangasVM.showAlert = true
                     mangasVM.errormenssage = "Error al guardar la colección de volúmenes: \(error)"
-                    print("Error al guardar la colección de volúmenes: \(error)")
                 }
             }
             .padding()
@@ -97,7 +95,6 @@ struct MangaVolumesManagementView: View {
         .onAppear {
             Task {
                 await mangasVM.loadUserMangaVolumenCollection()
-                print("carga los datos del json que tenemos guarados")
                 loadMangaData()
             }
             

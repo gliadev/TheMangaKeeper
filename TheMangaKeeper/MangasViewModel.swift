@@ -105,7 +105,7 @@ final class MangasViewModel: ObservableObject {
             let favorites = mangasFavorites
             try mangaInteractor.saveMangasCollection(mangas: favorites)
         } catch {
-            print("Error al guardar los mangas favoritos: \(error)")
+            
         }
     }
     
@@ -166,7 +166,6 @@ final class MangasViewModel: ObservableObject {
                 }
                 mangas += searchBar
             } catch {
-                print("Error desde la busqueda: \(error) \(errormenssage)")
             }
         } else {
             mangas.removeAll()
@@ -194,7 +193,6 @@ final class MangasViewModel: ObservableObject {
                     mangas += manga
                 }
             } catch {
-                print("Error busqueda por genero \(error)")
             }
         } else {
             await MainActor.run {
@@ -256,7 +254,6 @@ final class MangasViewModel: ObservableObject {
                     }
                 }
             } catch {
-                print("Error al cargar la colección de volúmenes del usuario: \(error)")
             }
         }
     
